@@ -42,6 +42,12 @@
 <details>
 <summary>点击展开备用源</summary>
 
+- Xget源 (国内可用)
+
+  ```txt
+  https://xget.xi-xu.me/gh/Lin-arm/GKD_subscription/raw/main/dist/gkd.json5
+  ```
+
 - jsdelivr源 (国内可用但可能不稳定,更新滞后24h)
 
   ```txt
