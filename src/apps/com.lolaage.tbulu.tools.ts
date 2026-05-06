@@ -49,13 +49,22 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '字节广告',
           forcedTime: 10000,
           activityIds:
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          matches:
+          anyMatches: [
             '[text="反馈"] -4 View[childCount=1] > Image[childCount=0][visibleToUser=true]',
-          exampleUrls: 'https://e.gkd.li/0ed488e1-f0d8-4c5f-a507-af9c2cedd2a1',
-          snapshotUrls: 'https://i.gkd.li/i/16812345',
+            'ImageView[index=parent.childCount.minus(1)] < @[clickable=true] <n [childCount=3] - * > [text="反馈"][visibleToUser=true]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/16812345',
+            'https://i.gkd.li/i/27421010',
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/0ed488e1-f0d8-4c5f-a507-af9c2cedd2a1',
+            'https://e.gkd.li/86ac6e25-9125-44a0-9ec5-c504affcd456',
+          ],
         },
       ],
     },
