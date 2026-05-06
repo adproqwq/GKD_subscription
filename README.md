@@ -48,12 +48,6 @@
   https://cdn.jsdelivr.net/gh/Lin-arm/GKD_subscription@main/dist/gkd.json5
   ```
 
-- bgithub源 (国内可用,同步及时30min内,但可能随时挂掉！)
-
-  ```txt
-  https://raw.bgithub.xyz/Lin-arm/GKD_subscription/main/dist/gkd.json5
-  ```
-
 </details>
 
 <!-- > 当前版本: v483
