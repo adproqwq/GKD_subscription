@@ -57,14 +57,18 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds: 'com.ants360.yicamera.activity.MainActivity',
+          activityIds: [
+            'com.ants360.yicamera.activity.MainActivity',
+            'com.xiaoyi.yiplayer.ui.PlayerActivity',
+          ],
           matches:
-            'ImageView[childCount=0] < @* - * > [text^="立即" || text*="了解更多" || text*="快手"][visibleToUser=true] <<n [vid="native_ad_container"]',
+            'ImageView[width<69 && height<69][visibleToUser=true] < @[childCount=1] <<n [vid="native_ad_container" || vid="adContainer"]',
           exampleUrls: 'https://e.gkd.li/0f5246d3-42c4-486d-9694-f90dd19a22d2',
           snapshotUrls: [
             'https://i.gkd.li/i/24979363',
             'https://i.gkd.li/i/24989254',
             'https://i.gkd.li/i/24989255',
+            'https://i.gkd.li/i/27407225', // vid="adContainer"
           ],
         },
       ],
