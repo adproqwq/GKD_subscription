@@ -7,26 +7,26 @@ export default defineGkdApp({
     {
       key: 1,
       name: '局部广告-播放页广告',
+      fastQuery: true,
+      activityIds: '.host.activity.MainActivity',
       rules: [
         {
           key: 3,
-          fastQuery: true,
-          activityIds: '.host.activity.MainActivity',
           matches:
-            '@[visibleToUser=true] < ViewGroup[childCount=1] - ViewGroup[childCount=6] > [text="广告"] ',
+            '@[visibleToUser=true] < ViewGroup[childCount=1] - ViewGroup[childCount=6] > [text="广告"]',
           exampleUrls: 'https://e.gkd.li/bbf93e2c-08b8-4155-b82c-89a629a62737',
           snapshotUrls: 'https://i.gkd.li/i/18500523',
         },
         {
           key: 4,
-          fastQuery: true,
-          activityIds: '.host.activity.MainActivity',
+          actionCd: 300,
           matches:
-            '[vid="main_buy_view_yellow_zone_btn_close" || vid="main_play_ad_close_real"][visibleToUser=true]',
+            '[vid="main_buy_view_yellow_zone_btn_close" || vid="main_play_ad_close_real" || vid="main_card_close" || vid="x_play_ad_banner_close"][clickable=true]',
           exampleUrls: 'https://e.gkd.li/bf820eed-00ad-47a0-9581-8cdb3d76bde5',
           snapshotUrls: [
             'https://i.gkd.li/i/18683999',
             'https://i.gkd.li/i/24330967',
+            'https://i.gkd.li/i/27471367', // 有2处广告,调短一点cd
           ],
         },
       ],
