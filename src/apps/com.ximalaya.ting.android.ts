@@ -21,7 +21,7 @@ export default defineGkdApp({
           key: 4,
           actionCd: 300,
           matches:
-            '[vid="main_buy_view_yellow_zone_btn_close" || vid="main_play_ad_close_real" || vid="main_card_close" || vid="x_play_ad_banner_close"][clickable=true]',
+            '[vid="main_buy_view_yellow_zone_btn_close" || vid="main_play_ad_close_real" || vid="main_card_close" || vid="x_play_ad_banner_close_real"][clickable=true]',
           exampleUrls: 'https://e.gkd.li/bf820eed-00ad-47a0-9581-8cdb3d76bde5',
           snapshotUrls: [
             'https://i.gkd.li/i/18683999',
