@@ -47,6 +47,7 @@ export default defineGkdApp({
           activityIds: [
             '.activity.web.ICBCWebView',
             '.activity.main.MainActivity',
+            '.mydetail.MyDetailMainActivity',
           ],
           matches: '[vid="iv_close_task_center"]',
           snapshotUrls: [
