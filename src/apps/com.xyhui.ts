@@ -263,5 +263,17 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 8,
+      name: '功能类-签到成功自动返回',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.pu.activity.act.ActivityApplyResult',
+          matches: ['[text$="签到成功！"]', '[text="完成"][clickable=true]'],
+          snapshotUrls: 'https://i.gkd.li/i/27527409',
+        },
+      ],
+    },
   ],
 });
