@@ -19,5 +19,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '局部广告-信息流广告',
+      desc: '点击x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.ui.activity.thread.NormalThreadActivity',
+          matches:
+            '@TextView[visibleToUser=true] <3 View < [id=null][childCount=3] <n View[childCount>10] <6 [id="comment-list"] <n View[childCount>10] < WebView < WebView < [vid="webContainer"]',
+          snapshotUrls: 'https://i.gkd.li/i/27529035', // 帖子详情页
+        },
+      ],
+    },
   ],
 });
