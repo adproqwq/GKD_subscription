@@ -251,5 +251,17 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 7,
+      name: '功能类-报名成功自动返回',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.pu.activity.act.ActivityApplyResult',
+          matches: ['[text$="报名成功!"]', '[text="完成"][clickable=true]'],
+          snapshotUrls: 'https://i.gkd.li/i/27527412',
+        },
+      ],
+    },
   ],
 });
