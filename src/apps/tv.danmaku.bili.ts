@@ -714,13 +714,18 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds:
+          activityIds: [
             'com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity',
+            'com.bilibili.video.story.StoryVideoActivity',
+          ],
           matches: [
             '[text^="开启悬浮窗"]',
             '[text="暂不开启"][clickable=true]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/25470098',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25470098',
+            'https://i.gkd.li/i/27551046',
+          ],
         },
       ],
     },
