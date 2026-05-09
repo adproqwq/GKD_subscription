@@ -55,5 +55,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '其他-无视网络代理风险[继续]使用',
+      desc: '点击[知晓风险, 继续使用]',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.module.home.view.activity.MainActivity',
+          matches:
+            '[text*="正在使用网络代理"] +n [text$="继续使用"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/27544847',
+        },
+      ],
+    },
   ],
 });
