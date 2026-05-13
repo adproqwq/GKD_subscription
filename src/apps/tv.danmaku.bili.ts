@@ -204,17 +204,18 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            '[vid="tool_container" || vid="ad_tint_frame" || id="tv.danmaku.bili.adbiz:id/ad_tint_frame" || id="tv.danmaku.bili.adbiz:id/root_container" || id="tv.danmaku.bili.adbiz:id/constraintLayout"][visibleToUser=true] >n [vid="more" || id="tv.danmaku.bili.adbiz:id/more"]',
+            '[id$="ad_tint_frame" || id$="root_container" || id$="constraintLayout"][visibleToUser=true] >(1,2,3) [vid="more" || id="tv.danmaku.bili.adbiz:id/more"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14083540', // 广告 [vid="ad_tint_frame"] >2 [vid="more"]
             'https://i.gkd.li/i/14588315', // 广告 [vid="ad_tint_frame"] >2 [vid="more"]
             'https://i.gkd.li/i/18274379', // 广告 [vid="root_container"] >3 [vid="more"]
             'https://i.gkd.li/i/18306851', // 创作推广 [vid="ad_tint_frame"] >2 [vid="more"]
             'https://i.gkd.li/i/19537979', // 去淘宝 [vid="root_container"] >3 [vid="more"]
-            'https://i.gkd.li/i/23012670', // 去淘宝 [id="tv.danmaku.bili.adbiz:id/ad_tint_frame"]
-            'https://i.gkd.li/i/23123800', // 直播ad [id="tv.danmaku.bili.adbiz:id/root_container"]
-            'https://i.gkd.li/i/23687196', // 直播ad [id="tv.danmaku.bili.adbiz:id/constraintLayout"]
+            'https://i.gkd.li/i/23012670', // 去淘宝 [id$="ad_tint_frame"]
+            'https://i.gkd.li/i/23123800', // 直播ad [id$="root_container"]
+            'https://i.gkd.li/i/23687196', // 直播ad [id$="constraintLayout"]
             'https://i.gkd.li/i/27153803', // 会员购 [vid="ad_tint_frame"] >2 [vid="more"]
+            'https://i.gkd.li/i/27686976', // 上淘宝 [vid="root_container"] > [vid="more"]
           ],
         },
         {
