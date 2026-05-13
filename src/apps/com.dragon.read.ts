@@ -25,61 +25,35 @@ export default defineGkdApp({
     {
       key: 0,
       name: '局部广告-阅读页面广告',
-      activityIds: [
-        '.ad.banner.ui',
-        '.reader.ReaderActivity',
-        '.reader.ui.ReaderActivity',
-      ],
+      fastQuery: true,
+      activityIds: '.reader.ui.ReaderActivity',
       rules: [
         {
           key: 1,
-          fastQuery: true,
+          name: '点击[x]掉',
           matches:
-            '@ImageView[childCount=0][clickable=true][visibleToUser=true] - LinearLayout >(2,3) [text="广告" || text="立享优惠" || text*="查看" || text^="立即" || text*="参与"][text.length<5]',
+            '@[name$="ImageView" || getChild(0).name$="ImageView"][clickable=true][width<102 && height<102] <n [childCount>1] >(2,3) [text*="查看" || text$="优惠" || text^="立即" || text^="马上" || text*="参与" || text*="免费" || (text*="领" && text*="券") || (text*="返" && text*="金币")][text.length<10]',
           snapshotUrls: [
-            'https://i.gkd.li/i/12908734',
-            'https://i.gkd.li/i/14540281',
-            'https://i.gkd.li/i/18138903',
-            'https://i.gkd.li/i/21623147',
-            'https://i.gkd.li/i/25174203',
-            'https://i.gkd.li/i/26347335',
+            'https://i.gkd.li/i/12908734', // 查看详情
+            'https://i.gkd.li/i/18138903', // 立享优惠
+            'https://i.gkd.li/i/21623147', // 立即前往
+            'https://i.gkd.li/i/14622531', // 立即玩
+            'https://i.gkd.li/i/25174203', // 马上参与
+            'https://i.gkd.li/i/26347335', // 参与讨论
+            'https://i.gkd.li/i/13520314', // 领60元券
+            'https://i.gkd.li/i/24706223', // 免费观看
+            'https://i.gkd.li/i/14548657', // 返1098金币
+            'https://i.gkd.li/i/14810480', // 返780金币
           ],
-        },
-        {
-          key: 2,
-          fastQuery: true,
-          activityIds: '.reader.ui.ReaderActivity',
-          matches: '[vid="close_button"][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/3de0d5d9-0c02-4fe7-b5e8-b9fdb6688f8e',
-          snapshotUrls: 'https://i.gkd.li/i/13520314',
         },
         {
           key: 3,
-          fastQuery: true,
-          matches: '[text="关闭此条广告"]',
+          name: '点击[关闭此条广告]',
+          matches: '@[clickable=true] > [text="关闭此条广告"]',
           exampleUrls:
             'https://m.gkd.li/57941037/cf9d0574-dc89-4f03-ba01-eb9bcc97925f',
-          snapshotUrls: 'https://i.gkd.li/i/14540281',
-        },
-        {
-          key: 4,
-          matches:
-            'HorizontalAndVerticalScrollView > FrameLayout[childCount>=13] >(7,8,9) @FrameLayout[index=2][clickable=true] > ImageView',
-          exampleUrls:
-            'https://m.gkd.li/57941037/0129e5a7-ead1-4b92-a008-708632e5a927',
-          snapshotUrls: [
-            'https://i.gkd.li/i/14548657',
-            'https://i.gkd.li/i/14622531',
-            'https://i.gkd.li/i/14810480',
-          ],
-        },
-        {
-          key: 5,
-          fastQuery: true,
-          matches:
-            '@ImageView[width<100 && height<100][clickable=true][visibleToUser=true] +n * >2 [text*="免费"][text.length<5]',
-          exampleUrls: 'https://e.gkd.li/f838939f-d42d-4bf8-9a68-59f4d4ec0d9b',
-          snapshotUrls: 'https://i.gkd.li/i/24706223',
+          snapshotUrls: 'https://i.gkd.li/i/14540281', // 分段广告-第二段?
         },
       ],
     },
@@ -123,12 +97,12 @@ export default defineGkdApp({
     {
       key: 3,
       name: '全屏广告',
+      fastQuery: true,
       rules: [
         {
           key: 0,
           name: '电商惊喜券',
           activityIds: '.pages.main.MainFragmentActivity',
-          fastQuery: true,
           matches:
             '@LynxFlattenUI[id=null][text=""][clickable=true] - [text="去逛商城"] -4 [text$="电商惊喜券"]',
           snapshotUrls: 'https://i.gkd.li/i/12910159',
@@ -136,7 +110,6 @@ export default defineGkdApp({
         {
           key: 1,
           name: '爆款好物一分购',
-          fastQuery: true,
           activityIds: '.pages.main.MainFragmentActivity',
           matches:
             '@ImageView[clickable=true] <2 LinearLayout[childCount=2] < [id="android:id/content"][childCount=1]',
@@ -145,7 +118,6 @@ export default defineGkdApp({
         {
           key: 2,
           name: '抽奖赢好礼',
-          fastQuery: true,
           activityIds: '.pages.main.MainFragmentActivity',
           matches: '@LynxFlattenUI[clickable=true] - [text="前往抽奖"]',
           exampleUrls:
@@ -155,7 +127,6 @@ export default defineGkdApp({
         {
           key: 3,
           name: '签到弹窗',
-          fastQuery: true,
           activityIds: '.pages.main.MainFragmentActivity',
           matches:
             '@LynxFlattenUI[clickable=true][visibleToUser=true][text=""] -27 FlattenUIText[text^="立即签到"]',
@@ -165,7 +136,6 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          fastQuery: true,
           activityIds: '.reader.ui.ReaderActivity',
           matches:
             'AwemeLynxVideoUI +n FlattenUIText[text="关闭"][clickable=true][visibleToUser=true]',
@@ -174,14 +144,12 @@ export default defineGkdApp({
         },
         {
           key: 5,
-          fastQuery: true,
           activityIds: '.reader.ui.ReaderActivity',
           matches: 'TextView[text="广告"] +2 Button[vid="close"]',
           snapshotUrls: 'https://i.gkd.li/i/13191156',
         },
         {
           key: 6,
-          fastQuery: true,
           activityIds: '.reader.ui.ReaderActivity',
           matches:
             '@ImageView[clickable=true][visibleToUser=true] +5 [text="领取限时福利"]',
@@ -192,7 +160,7 @@ export default defineGkdApp({
         },
         {
           key: 7,
-          fastQuery: true,
+          name: '坐标点击[关闭]',
           position: {
             left: 'width * 0.9123',
             top: 'width * 0.067',
@@ -202,6 +170,18 @@ export default defineGkdApp({
             'View[id=null][text=null][desc=null][childCount=0] < [id="com.dragon.read.awemevideo:id/fullvideo_videoview"][childCount=1][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/c29c5647-e2ee-460f-87aa-8717779645ec',
           snapshotUrls: 'https://i.gkd.li/i/23621776',
+        },
+        {
+          key: 8,
+          name: '坐标点击[关闭]',
+          activityIds: '.reader.ui.ReaderActivity',
+          position: {
+            left: 'width * 0.9141',
+            top: 'width * 0.0687',
+          },
+          matches:
+            '@ViewGroup[visibleToUser=true] < [childCount=2] - [childCount=1] >6 [vid="ttlive_player_render_view"]',
+          snapshotUrls: 'https://i.gkd.li/i/27706770',
         },
       ],
     },
