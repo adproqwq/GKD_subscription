@@ -32,42 +32,68 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '全屏广告-VIP弹窗',
+      name: '全屏广告',
+      desc: '点击[x掉/狠心拒绝/放弃优惠]',
+      fastQuery: true,
+      activityIds: [
+        'com.kugou.android.app.setting.YoungModeTipsActivity',
+        'com.kugou.common.useraccount.app.KgUserLoginAndRegActivity',
+        'com.kugou.android.app.MediaActivity',
+      ],
       rules: [
         {
           key: 0,
-          fastQuery: true,
-          activityIds: 'com.kugou.android.app.setting.YoungModeTipsActivity',
-          matches: '[text^="新人限时开通"] +3 [text="放弃优惠"]',
-          snapshotUrls: 'https://i.gkd.li/i/14321698',
+          name: 'VIP已过期',
+          anyMatches: [
+            '[text*="已过期"] +n [text="放弃优惠" || text="狠心拒绝"]', // ①
+            '@[text="狠心拒绝"] -n FrameLayout >3 [text*="已过期"]', // ②
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/14321698',
+            'https://i.gkd.li/i/25020137',
+            'https://i.gkd.li/i/26031222',
+            'https://i.gkd.li/i/25640086', // ②
+          ],
+          exampleUrls: 'https://e.gkd.li/1a5e5107-8e05-4031-873c-d3feed467cd7',
         },
         {
           key: 1,
-          fastQuery: true,
-          activityIds: [
-            'com.kugou.android.app.setting.YoungModeTipsActivity',
-            'com.kugou.common.useraccount.app.KgUserLoginAndRegActivity',
-          ],
+          name: '弹窗-点击x掉',
           matches:
             '@ImageView[clickable=true][visibleToUser=true][childCount=0] <3 ViewGroup[childCount=3] < [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14321700',
             'https://i.gkd.li/i/25018524',
+            'https://i.gkd.li/i/27670397',
           ],
         },
         {
           key: 2,
-          fastQuery: true,
-          activityIds:
-            'com.kugou.common.useraccount.app.KgUserLoginAndRegActivity',
-          matches: [
-            '[text*="已过期"][visibleToUser=true]',
-            '[text="狠心拒绝"][visibleToUser=true]',
-          ],
-          snapshotUrls: 'https://i.gkd.li/i/25020137',
+          activityIds: 'com.kugou.android.app.MediaActivity',
+          matches: '@[text*="跳过"] + [text*="广告"]',
+          exampleUrls: 'https://e.gkd.li/64dd159b-bff5-4dff-a4b9-d63f5b34acb7',
+          snapshotUrls: 'https://i.gkd.li/i/16407631',
         },
         {
           key: 3,
+          activityIds: 'com.kugou.android.app.MediaActivity',
+          matches:
+            '@ImageView[clickable=true][width<170 && height<170] +n [text="领奖通知"]',
+          snapshotUrls: 'https://i.gkd.li/i/27670451',
+        },
+        {
+          key: 4,
+          activityIds: 'com.kugou.android.app.MediaActivity',
+          matches:
+            '@ImageView[clickable=true][width<160 && height<160] <2 [childCount=3] < FrameLayout < LinearLayout < LinearLayout <2 LinearLayout < FrameLayout < FrameLayout <2 FrameLayout < [id="android:id/content"]',
+          exampleUrls: 'https://e.gkd.li/0776da1e-3ff6-4fba-a7e9-de8fa1fe5344',
+          snapshotUrls: 'https://i.gkd.li/i/23619626',
+        },
+
+        // 预留key, 无快查
+        {
+          key: 10,
+          fastQuery: false,
           activityIds:
             'com.kugou.framework.musicfees.ui.feeintercept.FeeInterceptWebActivity',
           matches:
@@ -116,38 +142,6 @@ export default defineGkdApp({
           activityIds: 'com.kugou.android.app.MediaActivity',
           matches: '@ImageView - * > [text="立即升级"]',
           snapshotUrls: 'https://i.gkd.li/i/14622566',
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '全屏广告-弹窗广告',
-      desc: '点击关闭',
-      fastQuery: true,
-      activityIds: 'com.kugou.android.app.MediaActivity',
-      rules: [
-        {
-          key: 0,
-          matches: '@[text*="跳过"] + [text*="广告"]',
-          exampleUrls: 'https://e.gkd.li/64dd159b-bff5-4dff-a4b9-d63f5b34acb7',
-          snapshotUrls: 'https://i.gkd.li/i/16407631',
-        },
-        {
-          key: 1,
-          matches:
-            '@ImageView[childCount=0][clickable=true][visibleToUser=true][width<160 && height<160] <2 ViewGroup[childCount=3] < FrameLayout < LinearLayout < LinearLayout <2 LinearLayout < FrameLayout < FrameLayout <2 FrameLayout < [id="android:id/content"]',
-          exampleUrls: 'https://e.gkd.li/0776da1e-3ff6-4fba-a7e9-de8fa1fe5344',
-          snapshotUrls: 'https://i.gkd.li/i/23619626',
-        },
-        {
-          key: 2,
-          matches:
-            'ViewGroup > [text="狠心拒绝"][clickable=true][visibleToUser=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/25640086',
-            'https://i.gkd.li/i/26031222',
-          ],
-          exampleUrls: 'https://e.gkd.li/1a5e5107-8e05-4031-873c-d3feed467cd7',
         },
       ],
     },
