@@ -67,6 +67,17 @@ export default defineGkdApp({
             'https://e.gkd.li/0ed488e1-f0d8-4c5f-a507-af9c2cedd2a1',
           ],
         },
+        {
+          key: 3,
+          name: '穿山甲广告',
+          fastQuery: true,
+          activityIds:
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          matches:
+            '@Image[width<75 || height<75] <<2 View[index=parent.childCount.minus(1)] <n * < View <2 [childCount=2] <n View <<2 [id^="ad-container"] <<3 [text="穿山甲"] <<3 FrameLayout <4 * <<3 FrameLayout <3 * <<2 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/27740750',
+          exampleUrls: 'https://e.gkd.li/6b42516f-756c-44d9-bac5-ce511e69c3e0',
+        },
       ],
     },
     {
