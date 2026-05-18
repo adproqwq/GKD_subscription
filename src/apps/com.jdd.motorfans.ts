@@ -7,20 +7,19 @@ export default defineGkdApp({
     {
       key: 1,
       name: '全屏广告-弹窗广告',
+      fastQuery: true,
       rules: [
         {
           key: 0,
-          fastQuery: true,
           activityIds: [
-            '.MTMainActivity',
             '.modules.detail.DetailActivity2',
             '.search.SearchMainActivity',
             '.modules.base.FragmentContainerActivity',
             '.message.ChatDetailActivity',
+            '.MTMainActivity',
           ],
           matches: '[vid="ad_content"] >n [vid="iv_close"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/12733646',
             'https://i.gkd.li/i/12798654',
             'https://i.gkd.li/i/12878843',
             'https://i.gkd.li/i/12913956',
@@ -29,18 +28,13 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 1,
-          matches: '@ImageView - RelativeLayout > TextView[text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/12826288',
-        },
-        {
           key: 2,
-          fastQuery: true,
           activityIds: ['.MTMainActivity', '.modules.detail.DetailActivity2'],
           matches:
             '[vid="iv_right_top_close" || vid="ad_close"][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/0f4b8d7d-fda4-43ee-b892-3a85d6dae278',
           snapshotUrls: [
+            'https://i.gkd.li/i/12826288', // 无vid旧快照
             'https://i.gkd.li/i/17002101',
             'https://i.gkd.li/i/17078108',
             'https://i.gkd.li/i/20918047',
