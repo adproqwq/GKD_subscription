@@ -33,7 +33,7 @@
     {
       "name": "更新提示1",
       "order": 89,
-      "selector": "[text*=\"内测\" || text*=\"测试版\" || text*=\"新版\" || text*=\"更新\" || text*=\"升级\" || text*=\"体验\" || text*=\"內測\" || text*=\"測試版\" || text*=\"升級\" || text*=\"體驗\" || text*=\"Update\" || text*=\"Upgrade\" || text*=\"Experience\"][text!*=\"自动\" && text!*=\"自動\" && text!*=\"成功\" && text!*=\"失败\" && text!*=\"失敗\" && text!*=\"检查更新\" && text!*=\"检测更新\" && text!*=\"卸载\"][childCount=0][visibleToUser=true]"
+      "selector": "[text*=\"内测\" || text*=\"测试版\" || text*=\"新版\" || text*=\"更新\" || text*=\"升级\" || text*=\"体验\" || text*=\"內測\" || text*=\"測試版\" || text*=\"升級\" || text*=\"體驗\" || text*=\"Update\" || text*=\"Upgrade\" || text*=\"Experience\"][text!*=\"自动\" && text!*=\"自動\" && text!*=\"成功\" && text!*=\"失败\" && text!*=\"失敗\" && text!*=\"检查更新\" && text!*=\"检测更新\" && text!*=\"卸载\"  && name!$=\"EditText\"][childCount=0][visibleToUser=true]"
     },
     {
       "name": "更新提示2",
