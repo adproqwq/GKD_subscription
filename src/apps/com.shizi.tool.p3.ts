@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '开屏广告',
+      desc: '⚠左上角[跳过按钮]有报告假的/误触',
       matchRoot: true, // https://github.com/AIsouler/GKD_subscription/issues/1133
       matchTime: 10000,
       actionMaximum: 1,
@@ -17,8 +18,7 @@ export default defineGkdApp({
         {
           key: 0,
           fastQuery: true,
-          matches:
-            '[text*="跳过"][vid!="tobid_splash_skip_text"][text.length<10][width<500 && height<300][visibleToUser=true]',
+          matches: '[vid="tobid_splash_skip_ll"]',
           exampleUrls: 'https://e.gkd.li/b10db699-ed34-4619-b3ca-5821321f4b58',
           snapshotUrls: 'https://i.gkd.li/i/22136545',
           excludeSnapshotUrls: [
