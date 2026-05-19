@@ -293,6 +293,20 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/27365536',
           exampleUrls: 'https://e.gkd.li/7d86c22c-bbf3-419e-bd6f-eecdaf357872',
         },
+        {
+          key: 2,
+          fastQuery: true,
+          actionCd: 40000,
+          versionCode: { minimum: 100191030 },
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches:
+            '@ImageView[height=-1] <<4 ViewGroup <3 FrameLayout <<5 [id="android:id/content"]',
+          position: {
+            left: 'width * 0.33',
+            top: 'width * 0.81',
+          },
+          snapshotUrls: 'https://i.gkd.li/i/28018493',
+        },
       ],
     },
     {
