@@ -190,11 +190,14 @@ export default defineGkdApp({
           actionDelay: 1200, //稳定节点树时间
           actionCd: 8000,
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
-          matches:
+          anyMatches: [
             '@ImageView[width<56 && height<56][visibleToUser=true] < [childCount=1] <n [childCount>6] <<(6,7) [id="android:id/content"]',
+            '@[desc="领取成功，关闭，按钮"] <<3 [index=parent.childCount.minus(1)] <n ViewGroup < ViewGroup <3 FrameLayout <<5 [id="android:id/content"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/27359402', // 领取成功
             'https://i.gkd.li/i/27363266',
+            'https://i.gkd.li/i/28018493', // UI2
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/27272574', // 未领取
         },
@@ -230,6 +233,31 @@ export default defineGkdApp({
             top: 'width * 1.00',
           },
           snapshotUrls: 'https://i.gkd.li/i/27359717',
+        },
+        // 2026_05_01 新UI
+        {
+          preKeys: [3],
+          key: 4,
+          name: '②领取奖励_2',
+          versionCode: { minimum: 100191030 },
+          fastQuery: true,
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches:
+            '[desc="领取奖励" || desc^="再看一个" || desc="继续观看"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28021222',
+        },
+        {
+          preKeys: [4],
+          name: '③结束^_^_2',
+          versionCode: { minimum: 100191030 },
+          order: 1,
+          fastQuery: true,
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches: [
+            '[desc$="提前得"][visibleToUser=true]',
+            '[desc="坚持退出"][visibleToUser=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/28020902',
         },
         //其他情况-无视频
         {
@@ -411,11 +439,14 @@ export default defineGkdApp({
           actionDelay: 1200, //稳定节点树时间
           actionCd: 8000,
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
-          matches:
+          anyMatches: [
             '@ImageView[width<56 && height<56][visibleToUser=true] < [childCount=1] <n [childCount>6] <<(6,7) [id="android:id/content"]',
+            '@[desc="领取成功，关闭，按钮"] <<3 [index=parent.childCount.minus(1)] <n ViewGroup < ViewGroup <3 FrameLayout <<5 [id="android:id/content"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/27359402', // 领取成功
             'https://i.gkd.li/i/27363266',
+            'https://i.gkd.li/i/28018493', // UI2
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/27272574', // 未领取
         },
@@ -452,13 +483,42 @@ export default defineGkdApp({
           },
           snapshotUrls: 'https://i.gkd.li/i/27359717',
         },
-        // 返回主页
+        // 2025_05_19 新UI
         {
-          preKeys: [3, 4],
+          preKeys: [4],
+          key: 5,
+          name: '②领取奖励_2',
+          versionCode: { minimum: 100191030 },
+          fastQuery: true,
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches:
+            '[desc="领取奖励" || desc^="再看一个" || desc="继续观看"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28021222',
+        },
+        {
+          preKeys: [5],
+          key: 6,
+          name: '③今日结束结束^_^_2',
+          versionCode: { minimum: 100191030 },
+          fastQuery: true,
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches: [
+            '[desc$="提前得"][visibleToUser=true]',
+            '[desc="坚持退出"][visibleToUser=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/28020902',
+        },
+        // 回到主界面
+        {
+          // preKeys: [3, 4],
+          preKeys: [3, 6],
           name: '④再看视频?-返回操作',
           fastQuery: true,
           activityIds: 'com.luna.biz.main.main.MainActivity',
-          matches: '[text$="畅听"] + [text^="再看"][text$="个提前领"]',
+          matches: [
+            '[text$="畅听" || desc$="畅听"]',
+            '[text^="再看" || desc^="再看"][text$="个提前领" || desc$="个提前领"]',
+          ],
           action: 'back',
           snapshotUrls: [
             'https://i.gkd.li/i/26411131',
