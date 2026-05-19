@@ -484,7 +484,7 @@ export default defineGkdApp({
         // 接管最后一个Ad观看点击结束
         {
           preKeys: [4],
-          name: '③今日结束结束^_^_2',
+          name: '③今日结束结束^_^',
           versionCode: { minimum: 100191030 },
           order: 1,
           fastQuery: true,
