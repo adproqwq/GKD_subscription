@@ -1046,5 +1046,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 51,
+      name: '功能类-Web风险警告[继续访问]',
+      desc: '自动点击继续访问',
+      matchTime: 10000,
+      rules: [
+        {
+          activityIds: '.plugin.webview.ui.tools.MMWebViewUI',
+          matches:
+            '[text="将要访问"] +2 [text^="该网页可能存在"] + Button[text="继续访问"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28023822',
+          exampleUrls: 'https://e.gkd.li/d1aaa9d9-e7a1-4007-bb48-2b5f0faa346b',
+        },
+      ],
+    },
   ],
 });
