@@ -61,7 +61,7 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'app.video.guoguo.MainActivity',
           matches:
-            '[id$="ksad_auto_close_btn"][visibleToUser=true] < LinearLayout < LinearLayout + FrameLayout >6 [text="广告"]',
+            '@[id$="ksad_auto_close_btn"][visibleToUser=true] < LinearLayout < LinearLayout + FrameLayout >6 [text="广告"]',
           exampleUrls: 'https://e.gkd.li/179028f9-ae60-4286-b746-ac2f0bb7aad6',
           snapshotUrls: 'https://i.gkd.li/i/24818734',
         },
