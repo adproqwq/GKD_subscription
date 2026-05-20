@@ -328,17 +328,19 @@ export default defineGkdApp({
     {
       key: 14,
       name: '全屏广告-下单后开通月付提示',
-      desc: '出现后点击系统返回键',
+      desc: '出现后-按[返回键]',
       rules: [
         {
+          fastQuery: true,
           activityIds:
             'com.meituan.android.hybridcashier.HybridCashierActivity',
-          matches: [
-            '[text="确认并领取"] - [childCount=2] >2 [childCount=6] > [text*="美团月付"]',
-            '@[text="支付成功"] <<2 [vid="mil_container"]',
-          ],
+          matches:
+            '@[text*="美团月付"][parent.childCount=6] <<n [childCount=2][getChild(1).text^="确认"] <<n [text="支付成功"] < WebView < [vid="mil_container"]',
           action: 'back',
-          snapshotUrls: 'https://i.gkd.li/i/27426053',
+          snapshotUrls: [
+            'https://i.gkd.li/i/27426053',
+            'https://i.gkd.li/i/28056764',
+          ],
           exampleUrls: 'https://e.gkd.li/9f1b0006-c4c2-4234-9cea-94ee97f48ae3',
         },
       ],
