@@ -288,10 +288,8 @@ export default defineGkdApp({
           key: 0,
           activityIds:
             'com.sankuai.waimai.platform.machpro.container.WMMPActivity',
-          matches: [
-            '[text="商家已接单" || text="等待商家接单"][visibleToUser=true]',
-            '[text="完成"][visibleToUser=true]',
-          ],
+          matches:
+            '@[text="完成"] -n ViewGroup >(1,7) [text="商家已接单" || text="等待商家接单"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14163717',
             'https://i.gkd.li/i/17158063',
