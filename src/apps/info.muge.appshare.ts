@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -15,11 +16,8 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          fastQuery: true,
-          anyMatches: [
+          matches:
             '@View[text=null][clickable=true][childCount=0][visibleToUser=true][width<200&&height<200] +(1,2) TextView[index=parent.childCount.minus(1)][childCount=0] <n FrameLayout[childCount>2][text=null][desc=null] >(n+6) [text*="第三方应用" || text*="扭动手机" || text*="点击或上滑" || text*="省钱好物" || text*="扭一扭"][visibleToUser=true]',
-            'FrameLayout > FrameLayout[childCount>2][text=null][desc=null] > @View[text=null][clickable=true][childCount=0][visibleToUser=true][width<200&&height<200] +(1,2) TextView[index=parent.childCount.minus(1)][childCount=0][visibleToUser=true]',
-          ],
           snapshotUrls: [
             'https://i.gkd.li/i/13842826',
             'https://i.gkd.li/i/13939089',
@@ -28,23 +26,28 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          fastQuery: true,
-          matches: '[text*="跳过"][visibleToUser=true][text.length<=10]',
+          matches:
+            '@[clickable=true][height<100] - [text*="跳过"][text.length<10]',
           snapshotUrls: 'https://i.gkd.li/i/14553551',
         },
         {
-          // 该开屏广告需要点击坐标在跳过按钮下半部分内才能跳过
           key: 2,
-          fastQuery: true,
-          position: {
-            left: 'width * 0.5',
-            top: 'width * 0.6984',
-          },
-          matches: '@ViewGroup > [text="跳过"][visibleToUser=true]',
+          matches:
+            '@[clickable=true][width<130 && height<130] <(1,2) [childCount=2] >2 [text="跳过"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/15269380',
             'https://i.gkd.li/i/15285908',
             'https://i.gkd.li/i/15520277',
+            'https://i.gkd.li/i/28050329',
+          ],
+        },
+        {
+          key: 3,
+          matches:
+            '@ImageView[width<138 && height<138] < * < ViewGroup +(2,3) [childCount=1] >2 [text="广告"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28050314',
+            'https://i.gkd.li/i/28050323',
           ],
         },
       ],
