@@ -7,7 +7,6 @@ export default defineGkdApp({
     {
       key: 0,
       name: '全屏广告-弹窗广告',
-      matchRoot: true,
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -15,6 +14,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          matchRoot: true,
           action: 'clickCenter', // clickNode 可能无效
           activityIds: ['.ui.FloatWebActivity', '.ui.HomeFloatWebActivity'],
           matches:
@@ -24,6 +24,12 @@ export default defineGkdApp({
             'https://i.gkd.li/i/20946336',
             'https://i.gkd.li/i/23249365',
           ],
+        },
+        {
+          key: 1,
+          activityIds: '.business_ui.main.MarketTabActivity',
+          matches: '[vid="iv_ad"] + [vid="iv_close"]',
+          snapshotUrls: 'https://i.gkd.li/i/28141509',
         },
       ],
     },
