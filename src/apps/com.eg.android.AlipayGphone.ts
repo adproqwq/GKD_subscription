@@ -522,11 +522,14 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite1',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$', // 通配
           matches:
-            '@View[id=null][text=null][childCount=0][visibleToUser=true] < ViewGroup[id=null][text=null][childCount=1][index=parent.childCount.minus(1)] <7 ViewGroup <2 ViewGroup < ViewGroup < LinearLayout < RelativeLayout < [id="android:id/content"]',
+            '@View[id=null][text=null][childCount=0][visibleToUser=true] < ViewGroup[id=null][text=null][childCount=1][index=parent.childCount.minus(1)] <(7,8) ViewGroup <2 ViewGroup < ViewGroup < LinearLayout < RelativeLayout <(1,2) [id="android:id/content"]',
           exampleUrls: 'https://e.gkd.li/a243e31f-f1b5-4689-8d1a-c53250be651e',
-          snapshotUrls: 'https://i.gkd.li/i/17141999',
+          snapshotUrls: [
+            'https://i.gkd.li/i/17141999',
+            'https://i.gkd.li/i/28130319',
+          ],
         },
       ],
     },
