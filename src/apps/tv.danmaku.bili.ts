@@ -548,9 +548,15 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds: 'com.bilibili.search2.main.BiliMainSearchActivity',
+          activityIds: [
+            'com.bilibili.search2.main.BiliMainSearchActivity',
+            '.MainActivityV2',
+          ],
           matches: '[vid="rating_dialog_close"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23440560',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23440560',
+            'https://i.gkd.li/i/28225187',
+          ],
         },
       ],
     },
