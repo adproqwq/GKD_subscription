@@ -37,5 +37,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '功能类-退出自动关闭小窗',
+      desc: '退出视频自动关闭小窗播放器',
+      actionCd: 8000,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.google.android.apps.youtube.app.watchwhile.MainActivity',
+          matches: '[vid="modern_miniplayer_close"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28288384',
+          exampleUrls: 'https://e.gkd.li/931cb9f7-6b10-438b-8483-d0522734a3b2',
+        },
+      ],
+    },
   ],
 });
