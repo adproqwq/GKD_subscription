@@ -99,13 +99,18 @@ export default defineGkdApp({
         {
           key: 3,
           name: '0.01开通7天VIP',
-          matches:
-            '@View[childCount=2][index=1] >2 [text$="天体验卡" || text^="VIP"][visibleToUser=true]',
+          anyMatches: [
+            '@View[childCount=2][index=1] >2 [text$="天体验卡" || text^="VIP"][visibleToUser=true]', // 优先使用自身快查
+            '@[text$="天体验卡" || text^="VIP" || desc$="天体验卡" || desc^="VIP"][visibleToUser=true] < [index=parent.childCount.minus(1)] <n * <2 [childCount=2] <<5 [id="android:id/content"]', // 退而求其次
+          ],
           position: {
             left: 'width * 0.90',
             top: 'width * 0.09',
           },
-          snapshotUrls: 'https://i.gkd.li/i/26757915',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26757915',
+            'https://i.gkd.li/i/28302150',
+          ],
           exampleUrls: 'https://e.gkd.li/4cefa02b-b83e-4f68-b861-d377ea427514',
         },
       ],
