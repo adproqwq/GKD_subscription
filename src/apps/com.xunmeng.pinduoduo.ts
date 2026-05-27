@@ -296,6 +296,17 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23256823',
           ],
         },
+        {
+          preKeys: [0],
+          name: '二级全屏推荐',
+          matchTime: 10000,
+          fastQuery: true,
+          activityIds: '.activity.NewPageActivity',
+          matches:
+            '@LinearLayout[clickable=true][width<105 && height<99] + * > [text$="下单成功"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28313219',
+          exampleUrls: 'https://e.gkd.li/a6d0caff-1785-4ff2-b2fb-e7bffa13502f',
+        },
       ],
     },
     {
