@@ -265,6 +265,16 @@ export default defineGkdApp({
           },
           snapshotUrls: 'https://i.gkd.li/i/27359717',
         },
+        //视频内二级全屏Ad
+        {
+          key: 98, // 这个UI太多了,用排除法只匹配x吧
+          name: '视频内二级全屏Ad',
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches:
+            'ViewGroup[index=parent.childCount.minus(1)][width<74 && height<73][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+          snapshotUrls: 'https://i.gkd.li/i/28302996',
+          exampleUrls: 'https://e.gkd.li/e55793b3-e443-4cd1-80b5-aaa6cd7f88aa',
+        },
         //其他情况-无视频
         {
           key: 99,
@@ -578,6 +588,16 @@ export default defineGkdApp({
             'https://i.gkd.li/i/28299305', // 新UI_2026.05.27
           ],
           exampleUrls: 'https://e.gkd.li/6fedf579-d3bc-46eb-b29f-679f469dcfea', //'https://e.gkd.li/d3902ed0-5e8d-4c0c-b8ae-5bf3f64c84a8',
+        },
+        //视频内二级全屏Ad
+        {
+          key: 98, // 这个UI太多了,用排除法只匹配x吧
+          name: '视频内二级全屏Ad',
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          matches:
+            'ViewGroup[index=parent.childCount.minus(1)][width<74 && height<73][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+          snapshotUrls: 'https://i.gkd.li/i/28302996',
+          exampleUrls: 'https://e.gkd.li/e55793b3-e443-4cd1-80b5-aaa6cd7f88aa',
         },
         //其他情况-无视频
         {
