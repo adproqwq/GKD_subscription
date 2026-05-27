@@ -330,14 +330,22 @@ export default defineGkdApp({
       key: 11,
       name: '局部广告-悬浮窗广告',
       desc: '点击关闭',
+      fastQuery: true,
+      activityIds: 'com.luna.biz.main.main.MainActivity',
       rules: [
         {
-          fastQuery: true,
-          activityIds: 'com.luna.biz.main.main.MainActivity',
+          key: 0,
           matches: '[vid="fl_pendant_container"] > [vid="view_close"]',
           exampleUrls:
             'https://m.gkd.li/57941037/8a427d5f-680b-4562-9cf3-90b1db82df0f',
           snapshotUrls: 'https://i.gkd.li/i/13674376',
+        },
+        {
+          key: 1,
+          matches:
+            '@View[clickable=true][width<126 && height<60] < [childCount=3] <n [childCount=4] < [childCount=3] <2 [childCount=2] <2 [childCount=2] <<3 [vid="navigation_container_under_bottom_bar"]',
+          exampleUrls: 'https://e.gkd.li/42a3884a-6888-4d5b-aa61-7ff5159a5228',
+          snapshotUrls: 'https://i.gkd.li/i/28298866',
         },
       ],
     },
