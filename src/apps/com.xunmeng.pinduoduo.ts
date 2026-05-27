@@ -471,5 +471,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 25,
+      name: '功能类-视频评论进入自动静音',
+      desc: '评论=>视频=>点击[静音]按钮',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.activity.NewPageMaskActivity',
+          matches:
+            '[desc="静音"][visibleToUser=true] < @[vid="pdd"][clickable=true] + [text^="@"]',
+          snapshotUrls: 'https://i.gkd.li/i/28312056',
+          exampleUrls: 'https://e.gkd.li/d584e0b4-6cf5-47a0-859a-7699da89ec39',
+        },
+      ],
+    },
   ],
 });
