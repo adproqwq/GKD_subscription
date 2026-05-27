@@ -50,13 +50,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          matches: '[vid="ad_close"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/13348710',
-        },
-        {
-          key: 2,
-          matches: '[vid="jad_feed_close"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/13363079',
+          matches: '[vid="ad_close" || vid="jad_feed_close"][clickable=true]',
+          snapshotUrls: [
+            //无vid旧快照
+            'https://i.gkd.li/i/13348710',
+            'https://i.gkd.li/i/13363079',
+          ],
         },
         {
           key: 3,
@@ -66,17 +65,23 @@ export default defineGkdApp({
         {
           key: 4,
           matches:
-            '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] - LinearLayout[childCount=2] > [text="下载应用" || text="立即下载" || text="查看详情" || text="领取优惠" || text="进入小程序" || text="了解更多"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/13484117',
-        },
-        {
-          key: 5,
-          matches:
-            '@ImageView[id=null][text=null][width<63][height<63] < FrameLayout <3 FrameLayout <<4 [vid="fl_container"]',
-          exampleUrls: 'https://e.gkd.li/f9b63d84-3363-4330-93b9-156d6f3d3d32',
+            '@[name$="ImageView" || clickable=true][width<68] < [childCount=1] <n * <n * >(1,2,3) [text^="立即" || text^="马上" || text*="下载" || text*="了解" || text*="查看" || text*="领取" || text$="小程序"][visibleToUser=true]',
           snapshotUrls: [
+            'https://i.gkd.li/i/13484117',
             'https://i.gkd.li/i/18249193',
             'https://i.gkd.li/i/25508978',
+            'https://i.gkd.li/i/28316307',
+          ],
+          exampleUrls: 'https://e.gkd.li/f9b63d84-3363-4330-93b9-156d6f3d3d32',
+        },
+        {
+          key: 6,
+          matches:
+            'ImageView < @[clickable=true] < ViewGroup <2 [childCount=2] <(2,3) [getChild(0).name$="TextView"] <(1,2) [childCount=2] >4 [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28316136',
+            'https://i.gkd.li/i/28316257',
+            'https://i.gkd.li/i/28316307', // 子key4
           ],
         },
       ],
