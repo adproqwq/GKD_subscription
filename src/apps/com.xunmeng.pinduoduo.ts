@@ -487,5 +487,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 26,
+      name: '功能类-商品页视频自动静音',
+      desc: '商品详情=>点击播放视频=>点击[静音]',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.activity.NewPageActivity',
+          matches:
+            '@[desc="静音"][clickable=true] <2 [childCount=3] < FrameLayout <2 ViewPager + [text^="1/"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28312697',
+          exampleUrls: 'https://e.gkd.li/9bd17b81-9afe-4e59-98d8-2024abf760e5',
+        },
+      ],
+    },
   ],
 });
