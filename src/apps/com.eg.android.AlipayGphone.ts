@@ -541,8 +541,11 @@ export default defineGkdApp({
             top: 'width * 0.0435',
           },
           matches:
-            'View[width=getPrev(5).width] - @ViewGroup[childCount=1][height<150][getChild(0).name$=".View"][visibleToUser=true] < [childCount=4] < ViewGroup < LinearLayout < RelativeLayout <2 [id="android:id/content"][childCount=2]',
-          snapshotUrls: 'https://i.gkd.li/i/28133622',
+            'View[width=getPrev(5).width] - @ViewGroup[childCount=1][height<150][getChild(0).name$=".View"][visibleToUser=true] < [childCount>3] < ViewGroup < LinearLayout < RelativeLayout <2 [id="android:id/content"][childCount=2]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28133622',
+            'https://i.gkd.li/i/28337298',
+          ],
         },
       ],
     },
