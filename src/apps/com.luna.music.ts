@@ -271,7 +271,11 @@ export default defineGkdApp({
           name: '视频内二级全屏Ad',
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
-            'ViewGroup[index=parent.childCount.minus(1)][width<74 && height<73][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+            'ViewGroup[index=parent.childCount.minus(1)][width<60 && height<60][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+          excludeMatches: [
+            '[desc$="日免费听"][visibleToUser=true]',
+            '[desc="领取奖励" || desc^="再看一个" || desc="继续观看"][visibleToUser=true]',
+          ],
           snapshotUrls: 'https://i.gkd.li/i/28302996',
           exampleUrls: 'https://e.gkd.li/e55793b3-e443-4cd1-80b5-aaa6cd7f88aa',
         },
@@ -523,7 +527,7 @@ export default defineGkdApp({
           excludeSnapshotUrls: 'https://i.gkd.li/i/28301078',
         },
         {
-          preKeys: [5],
+          preKeys: [4, 5],
           key: 6,
           name: '③今日结束结束^_^_2',
           versionCode: { minimum: 100191030 },
@@ -595,7 +599,11 @@ export default defineGkdApp({
           name: '视频内二级全屏Ad',
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
-            'ViewGroup[index=parent.childCount.minus(1)][width<74 && height<73][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+            'ViewGroup[index=parent.childCount.minus(1)][width<60 && height<60][text=null][id=null][desc=null][visibleToUser=true][childCount=0]',
+          excludeMatches: [
+            '[desc$="日免费听"][visibleToUser=true]',
+            '[desc="领取奖励" || desc^="再看一个" || desc="继续观看"][visibleToUser=true]',
+          ],
           snapshotUrls: 'https://i.gkd.li/i/28302996',
           exampleUrls: 'https://e.gkd.li/e55793b3-e443-4cd1-80b5-aaa6cd7f88aa',
         },
