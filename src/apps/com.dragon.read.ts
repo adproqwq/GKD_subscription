@@ -320,12 +320,13 @@ export default defineGkdApp({
     {
       key: 16,
       name: '功能类-观看广告自动领取奖励',
+      fastQuery: true,
+      activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
           key: 0,
-          fastQuery: true,
+          name: '①隔10秒点击右上角x掉',
           actionDelay: 10000,
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
             '@ImageView[width<40 && height<40] <n ViewGroup <(4,5) ViewGroup < FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
           exampleUrls: 'https://e.gkd.li/c3e53a6c-cc60-413d-8464-2b4a1259c038',
@@ -337,27 +338,27 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 1,
           preKeys: [0],
-          fastQuery: true,
+          name: '②坐标点击[继续观看]',
           actionDelay: 500,
           position: {
             left: 'width * 0.5',
-            bottom: 'width * 0.3182',
+            bottom: 'width * 0.3182', // 从底部计算纵坐标位置
           },
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
-            'ImageView[childCount=0] < @ViewGroup[childCount=1][width>600 && height>600] <3 FrameLayout < FrameLayout < FrameLayout < FrameLayout < FrameLayout < [id="android:id/content"]',
+            'ImageView - @ViewGroup[childCount=1][width>600 && height>600][getChild(0).name$="ImageView"] -(1,2) ScrollView',
           exampleUrls: 'https://e.gkd.li/f2859af8-7ca7-40d3-9737-7be8b0200bae',
           snapshotUrls: [
             'https://i.gkd.li/i/24689140',
             'https://i.gkd.li/i/24689143',
             'https://i.gkd.li/i/24689393',
+            'https://i.gkd.li/i/28346518',
           ],
         },
         {
-          key: 1,
-          fastQuery: true,
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          key: 2,
+          name: '③已得奖励-点击x掉',
           matches: '@ImageView < ViewGroup[desc*="关闭" && desc!*="秒"]',
           position: {
             left: 'width * 0.5',
@@ -372,8 +373,7 @@ export default defineGkdApp({
         },
         {
           key: 99,
-          fastQuery: true,
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          name: '④已无新视频-退出',
           matches:
             '@[clickable=true][width<120 && height<120] + LinearLayout > [text="当前无新视频"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/24689246',
