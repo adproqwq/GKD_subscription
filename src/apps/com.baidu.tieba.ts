@@ -267,31 +267,31 @@ export default defineGkdApp({
       matchDelay: 500,
       matchTime: 10000,
       actionMaximum: 1,
+      activityIds: ['.pb.pb.main.PbActivity', '.tblauncher.MainTabActivity'],
       rules: [
         {
           key: 0,
           fastQuery: true,
-          matchTime: 10000,
-          actionMaximum: 1,
-          activityIds: [
-            '.tblauncher.MainTabActivity',
-            '.pb.pb.main.PbActivity',
-          ],
+          name: '悬浮广告1',
           matches:
-            '@ImageView[clickable=true][visibleToUser=true][vid="obfuscated"] - [text="广告"]',
+            '@ImageView[clickable=true][visibleToUser=true][width<77] - [text="广告"]',
           snapshotUrls: [
             'https://i.gkd.li/i/16622395',
             'https://i.gkd.li/i/16632851',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/13327933',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/13327933', // 加 [width<77] 排除
         },
         {
           key: 1,
-          name: '首页右侧悬浮广告-2',
-          activityIds: '.tblauncher.MainTabActivity',
+          name: '悬浮广告2',
           matches:
-            'RelativeLayout >2 RelativeLayout[childCount=1] > ImageView[childCount=0][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/14291964',
+            'RelativeLayout[childCount=2] >2 ImageView[clickable=true][visibleToUser=true][width<77]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/14291964',
+            'https://i.gkd.li/i/13625336',
+            'https://i.gkd.li/i/13627881',
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28344945', // 加 RelativeLayout[childCount=2] 排除
         },
         {
           key: 2,
@@ -301,19 +301,6 @@ export default defineGkdApp({
             'FrameLayout[getChild(1).getChild(1).text!=null] + @FrameLayout[clickable=true] > LinearLayout[childCount=2] > ImageView + [text="广告"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/13296280',
           excludeSnapshotUrls: 'https://i.gkd.li/i/20361318',
-        },
-        {
-          key: 3,
-          activityIds: [
-            '.pb.pb.main.PbActivity',
-            '.tblauncher.MainTabActivity',
-          ],
-          matches:
-            'RelativeLayout[childCount=2] > RelativeLayout[childCount=1] > ImageView[childCount=0][clickable=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/13625336',
-            'https://i.gkd.li/i/13627881',
-          ],
         },
       ],
     },
