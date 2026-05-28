@@ -50,11 +50,12 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          matches: '[vid="ad_close" || vid="jad_feed_close"][clickable=true]',
+          matches:
+            '[vid="ad_close" || vid="jad_feed_close" || vid="icon_close"][clickable=true]',
           snapshotUrls: [
-            //无vid旧快照
-            'https://i.gkd.li/i/13348710',
-            'https://i.gkd.li/i/13363079',
+            'https://i.gkd.li/i/13348710', // [id$="ad_close"]
+            'https://i.gkd.li/i/13363079', // [id$="jad_feed_close"]
+            'https://i.gkd.li/i/28334762', // icon_close
           ],
         },
         {
