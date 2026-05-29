@@ -172,6 +172,13 @@ export default defineGkdApp({
             'ImageView < @[clickable=true] <2 FrameLayout[childCount=2] -3 ViewGroup > [text="广告"]',
           snapshotUrls: 'https://i.gkd.li/i/28345921',
         },
+        {
+          key: 8,
+          activityIds: '.pb.pb.main.PbActivity',
+          matches:
+            'ImageView < @[clickable=true][width<82 && height<82] <5 [childCount=5] >2 [text="贴吧游戏"]',
+          snapshotUrls: 'https://i.gkd.li/i/28389197',
+        },
 
         // 第二段
         {
@@ -198,6 +205,7 @@ export default defineGkdApp({
             '[text="已经看过" || text="广告重复" || text="不感兴趣"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/26634661', // [已经看过]
+            'https://i.gkd.li/i/28389332',
           ],
         },
         {
