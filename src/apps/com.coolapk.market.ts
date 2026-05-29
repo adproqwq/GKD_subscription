@@ -205,9 +205,10 @@ export default defineGkdApp({
       key: 6,
       name: '功能类-自动保存原图',
       desc: '长按图片->点击[保存原图]',
+      fastQuery: true,
       rules: [
         {
-          fastQuery: true,
+          key: 1,
           activityIds: [
             '.view.photo.PhotoViewActivity',
             '.view.wallpaper.coolpic.CoolPicDetailActivity',
@@ -218,6 +219,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25621360',
           ],
           exampleUrls: 'https://e.gkd.li/d62f40f9-51ca-4059-9217-6d93e080db8b',
+        },
+        {
+          key: 2,
+          activityIds: '.view.photo.PhotoViewV16Activity',
+          matches:
+            '[text="保存原图"] < @[clickable=true] <n View[childCount>2] < View < View < View < ViewGroup < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28377623',
         },
       ],
     },
