@@ -132,12 +132,15 @@ export default defineGkdApp({
           resetMatch: 'app',
           anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-            '@ViewGroup[childCount=0] < ViewGroup[index=2] <n [childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
+            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
+          excludeMatches:
+            'ViewGroup[text=null][text.length=null][desc$="畅听"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28378061', //观看ad回主页后出现
           exampleUrls: [
             'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
             'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
@@ -282,6 +285,7 @@ export default defineGkdApp({
         //其他情况-无视频
         {
           key: 99,
+          name: '无视频',
           fastQuery: true,
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
@@ -407,12 +411,15 @@ export default defineGkdApp({
           resetMatch: 'app',
           anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-            '@ViewGroup[childCount=0] < ViewGroup[index=2] <n [childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
+            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
+          excludeMatches:
+            'ViewGroup[text=null][text.length=null][desc$="畅听"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28378061', //观看ad回主页后出现
           exampleUrls: [
             'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
             'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
@@ -522,9 +529,15 @@ export default defineGkdApp({
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
             '[desc="领取奖励" || desc^="再看一个" || desc="继续观看"][visibleToUser=true]',
-          excludeMatches: '[desc$="日免费听"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/28021222',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/28301078',
+          excludeMatches: [
+            '[desc^="第" && desc$="日免费听"][visibleToUser=true]',
+            '[desc="明日免费听" || desc="后日免费听"][visibleToUser=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/28377268',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/28301078', // 明日免费听
+            'https://i.gkd.li/i/28021222', // 第x日免费听
+          ],
         },
         {
           preKeys: [4, 5],
@@ -610,6 +623,7 @@ export default defineGkdApp({
         //其他情况-无视频
         {
           key: 99,
+          name: '无视频',
           fastQuery: true,
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
           matches:
