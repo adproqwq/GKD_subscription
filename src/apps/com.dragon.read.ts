@@ -319,7 +319,7 @@ export default defineGkdApp({
     },
     {
       key: 16,
-      name: '功能类-观看广告自动领取奖励',
+      name: '功能类-看广告自动领奖励',
       fastQuery: true,
       activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
@@ -339,8 +339,23 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          preKeys: [0],
-          name: '②坐标点击[继续观看]',
+          name: '②已得奖励-点击x掉',
+          matches: '@ImageView < ViewGroup[desc*="关闭" && desc!*="秒"]',
+          position: {
+            left: 'width * 0.5',
+            top: 'width * 0.5',
+          },
+          exampleUrls: 'https://e.gkd.li/9cd91c80-9cba-48e8-97cd-dac5968694e4',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26530262',
+            'https://i.gkd.li/i/26530263',
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/26528931',
+        },
+        {
+          key: 20,
+          preKeys: [0, 1],
+          name: '③坐标点击[继续观看]',
           actionDelay: 500,
           position: {
             left: 'width * 0.5',
@@ -353,23 +368,8 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24689140',
             'https://i.gkd.li/i/24689143',
             'https://i.gkd.li/i/24689393',
-            'https://i.gkd.li/i/28346518',
+            'https://i.gkd.li/i/28378131', // 可能重复触发 子key1 , 已加 preKeys 解决
           ],
-        },
-        {
-          key: 2,
-          name: '③已得奖励-点击x掉',
-          matches: '@ImageView < ViewGroup[desc*="关闭" && desc!*="秒"]',
-          position: {
-            left: 'width * 0.5',
-            top: 'width * 0.5',
-          },
-          exampleUrls: 'https://e.gkd.li/9cd91c80-9cba-48e8-97cd-dac5968694e4',
-          snapshotUrls: [
-            'https://i.gkd.li/i/26530262',
-            'https://i.gkd.li/i/26530263',
-          ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/26528931',
         },
         {
           key: 99,
