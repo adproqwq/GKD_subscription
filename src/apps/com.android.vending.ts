@@ -106,5 +106,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 6,
+      name: '更新提示-某应用有更新',
+      desc: '点击x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.google.android.finsky.playcoreacquisition.PlayCoreAcquisitionActivity',
+          matches:
+            '@ImageView[desc="Dismiss update dialog"] < FrameLayout <2 LinearLayout < ViewGroup < FrameLayout < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28367489',
+          exampleUrls: 'https://e.gkd.li/8a2ddf7c-f34f-4bc8-bc9d-bfbc79a8c145',
+        },
+      ],
+    },
   ],
 });
