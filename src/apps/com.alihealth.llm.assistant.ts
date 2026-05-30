@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.alihealth.llm.assistant',
-  name: '',
+  name: '氢离子',
   groups: [
     {
       key: 1,
