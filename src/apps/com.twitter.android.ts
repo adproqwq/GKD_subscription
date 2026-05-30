@@ -283,5 +283,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 11,
+      name: '功能类-网络错误自动重试',
+      desc: '无法获取帖子=> 点击[重试]',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.twitter.tweetdetail.TweetDetailActivity',
+          matches:
+            '[text^="现在无法获取帖子"] + [text="重试"][clickable=true][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28419788',
+          exampleUrls: 'https://e.gkd.li/5f532b57-1811-437f-bca2-d60c35aeda29',
+        },
+      ],
+    },
   ],
 });
