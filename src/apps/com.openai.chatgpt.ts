@@ -6,18 +6,22 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '通知提示-套餐限额提示',
+      name: '通知提示-充值Plus提示',
       rules: [
         {
           key: 0,
           activityIds: '.MainActivity',
           matches:
-            'View[childCount=3] >2 [text="获取 Plus"][visibleToUser=true] < View[childCount=2] - @View[clickable=true] > [desc="关闭"]',
+            'View[childCount>=3] >2 [text="获取 Plus"][visibleToUser=true] < View[childCount>=2] - @View[clickable=true] > [desc="关闭"]',
           snapshotUrls: [
+            'https://i.gkd.li/i/24996012', // 套餐限额
             'https://i.gkd.li/i/24996012',
-            'https://i.gkd.li/i/24996012',
+            'https://i.gkd.li/i/28416563', // 更专业文件?
           ],
-          exampleUrls: 'https://e.gkd.li/7c9669de-f7b9-48da-a0d0-cb296b68692b',
+          exampleUrls: [
+            'https://e.gkd.li/7c9669de-f7b9-48da-a0d0-cb296b68692b',
+            'https://e.gkd.li/db0ecc3d-9401-4c2d-bdc0-32262ce443a4',
+          ],
         },
       ],
     },
