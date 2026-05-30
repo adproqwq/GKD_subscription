@@ -249,5 +249,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 11,
+      name: '功能类-评论自动展开回复',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.idlefish.flutterbridge.flutterboost.boost.FishFlutterBoostActivity',
+          matches:
+            '@[desc^="查看"][desc$="条回复"][index=parent.childCount.minus(1)] <n [childCount>=3][desc=null] <n * < View <4 [childCount=5] <<7 [id="android:id/content"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28419287',
+            'https://i.gkd.li/i/28419289',
+          ],
+          exampleUrls: 'https://e.gkd.li/eea66bc1-f68d-4e04-8298-e6ecaeca53c2',
+        },
+      ],
+    },
   ],
 });
