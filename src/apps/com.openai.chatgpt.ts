@@ -7,25 +7,21 @@ export default defineGkdApp({
     {
       key: 1,
       name: '通知提示-充值Plus提示',
+      desc: '在输入框上方提示, 点击x掉',
       fastQuery: true,
       rules: [
         {
           key: 0,
           activityIds: '.MainActivity',
           matches:
-            '[desc="关闭"] < @[clickable=true][childCount=1] + * -> [text="获取 Plus" || text^="升级"][visibleToUser=true] < [index=parent.childCount.minus(1)] <n View[childCount>=3] <<(1,2) View <(5,6) View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[clickable=true][getChild(0).desc="关闭"] - [text*="Plus"] <(1,2) View[childCount>2] <<(1,2) [index=parent.childCount.minus(3)] <n [childCount>5] <<(6,8) [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24996012', // 套餐限额_ 获取Plus
-            'https://i.gkd.li/i/24996012',
             'https://i.gkd.li/i/28416563', // 更专业文件?
             'https://i.gkd.li/i/28416912', // ^升级
             'https://i.gkd.li/i/28416926',
           ],
-          exampleUrls: [
-            'https://e.gkd.li/7c9669de-f7b9-48da-a0d0-cb296b68692b',
-            'https://e.gkd.li/db0ecc3d-9401-4c2d-bdc0-32262ce443a4',
-            'https://e.gkd.li/e530ef58-fe7f-4b15-a496-67e3d9629f73',
-          ],
+          exampleUrls: 'https://e.gkd.li/db0ecc3d-9401-4c2d-bdc0-32262ce443a4',
         },
       ],
     },
