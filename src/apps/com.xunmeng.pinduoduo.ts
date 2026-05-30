@@ -506,11 +506,22 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds: '.activity.NewPageActivity',
-          matches:
+          activityIds: [
+            '.activity.NewPageActivity',
+            '.goods.gallery.GoodsDetailGalleryActivity',
+          ],
+          anyMatches: [
             '@[desc="静音"][clickable=true] <2 [childCount=3] < FrameLayout <2 ViewPager + [text^="1/"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/28312697',
-          exampleUrls: 'https://e.gkd.li/9bd17b81-9afe-4e59-98d8-2024abf760e5',
+            'LinearLayout[childCount=4] > @ImageView[clickable=true][width<66 && height<66][index=0] +2 SeekBar + [text^="00:"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/28312697', // 商品详情页UI
+            'https://i.gkd.li/i/28420002', // 点进视频后UI
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/9bd17b81-9afe-4e59-98d8-2024abf760e5',
+            'https://e.gkd.li/733ac4f0-7c2d-4a0e-80b3-6350ba229ddf',
+          ],
         },
       ],
     },
