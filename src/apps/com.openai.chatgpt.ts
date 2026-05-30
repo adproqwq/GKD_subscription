@@ -117,11 +117,12 @@ export default defineGkdApp({
       key: 4,
       name: '通知提示-聊天记忆容量警告',
       desc: 'x掉通知',
+      fastQuery: true,
       rules: [
         {
           activityIds: '.MainActivity',
           matches:
-            'View[childCount=5] >2 [text="升级"][visibleToUser=true] < View[childCount=3] - @View[clickable=true] > [desc="关闭"]',
+            '@[desc="关闭"] < @[clickable=true][childCount=1] + * -> [text="获取 Plus" || text^="升级"][visibleToUser=true] < * + [index=parent.childCount.minus(1)] <n View[childCount=5] < View <(5,6) View[childCount>=7] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26647576',
           exampleUrls: 'https://e.gkd.li/a53e015f-2b08-4177-80aa-b516d213b333',
         },
