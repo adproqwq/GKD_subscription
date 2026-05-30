@@ -232,5 +232,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '局部广告-会员功能试用提示',
+      desc: '主页顶部功能试用=> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'cn.wps.moffice.main.local.HomeRootActivity',
+          matches:
+            '[vid="home_page_list_view"] [vid="card_v"] >2 LinearLayout + * > [vid="close_iv"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28419645',
+          exampleUrls: 'https://e.gkd.li/c033f70a-c2a9-43a5-83fd-519d7894d8c7',
+        },
+      ],
+    },
   ],
 });
