@@ -83,5 +83,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '功能类-自动跳转到浏览器访问',
+      desc: '跳过繁琐的检查',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'cn.dxy.drugscomm.web.WebActivity',
+          matches:
+            'TextView[childCount=0][visibleToUser=true] < @[clickable=true] <n * <n * <<5 WebView[text*="检查您的浏览"] <<2 * - [vid="toolbar"]',
+          snapshotUrls: 'https://i.gkd.li/i/28419747',
+          exampleUrls: 'https://e.gkd.li/0a1288df-370f-4d98-9a18-f859e82f2c60',
+        },
+      ],
+    },
   ],
 });
