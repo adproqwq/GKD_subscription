@@ -306,5 +306,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 14,
+      name: '评价提示-评论满意度评价',
+      desc: '随机评论出现[你对以上评论作何评价] => x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.google.android.apps.youtube.app.watchwhile.MainActivity',
+          matches:
+            '@[desc="关闭"] -2 [text^="你对以上评论作"] <n [index=parent.childCount.minus(1)] <n ViewGroup[childCount>1] <n [vid="results"]',
+          snapshotUrls: 'https://i.gkd.li/i/28418922',
+          exampleUrls: 'https://e.gkd.li/c21a846e-dbab-4d4e-b388-b96335414bae',
+        },
+      ],
+    },
   ],
 });
