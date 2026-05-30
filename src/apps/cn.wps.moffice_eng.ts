@@ -218,5 +218,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 12,
+      name: '功能类-关闭[登录WPS]弹窗',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'cn.wps.moffice.main.local.HomeRootActivity',
+          matches:
+            '[vid="login_viewpager"] > [vid="public_login_cancel"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28419420',
+          exampleUrls: 'https://e.gkd.li/73900c79-8d76-47ba-9dd2-853a9a30d533',
+        },
+      ],
+    },
   ],
 });
