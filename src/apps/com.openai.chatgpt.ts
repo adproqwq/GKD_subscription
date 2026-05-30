@@ -34,12 +34,13 @@ export default defineGkdApp({
       name: '功能类-ban话题提前阻断屏蔽',
       desc: '再次生成-总结/结尾标志终止',
       activityIds: '.MainActivity',
+      fastQuery: true,
       rules: [
         {
           key: 0,
           name: '长按',
           matches:
-            '[text^="出于安全考虑"][visibleToUser=true] - @View[clickable=true] > TextView',
+            '[text^="出于安全考虑"][visibleToUser=true] -  @View[clickable=true] > TextView <<(4,5,6) View[childCount>=7] <<(6,8) [id="android:id/content"]',
           action: 'longClickCenter', // 应用不接受无障碍事件
           snapshotUrls: 'https://i.gkd.li/i/26232942',
           exampleUrls: 'https://e.gkd.li/dfe0c486-00ef-4cdd-be32-9eb2306472f5',
@@ -53,7 +54,7 @@ export default defineGkdApp({
             top: 'width * 0.5347',
           },
           matches:
-            '[text^="出于安全考虑"][visibleToUser=true] <n View[childCount=3]',
+            '@* ->3 [text^="出于安全考虑"][visibleToUser=true] -  View[clickable=true] > TextView <<(4,5,6) View[childCount>=7] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233112',
           exampleUrls: 'https://e.gkd.li/f1edecab-d7f5-4f2f-8af7-daeb5ded16f7',
         },
@@ -62,7 +63,7 @@ export default defineGkdApp({
           name: '发送消息',
           preKeys: [1],
           matches:
-            'EditText >3 @View[childCount=2][clickable=true] > [desc="发送消息"][visibleToUser=true]',
+            '[desc="发送消息"][visibleToUser=true] < @View[childCount=2][clickable=true] <<4 EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=7] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233149',
           exampleUrls: 'https://e.gkd.li/8f4ff7c8-d5a7-4d47-bc01-14b54d9b6b24',
         },
@@ -71,8 +72,8 @@ export default defineGkdApp({
           preKeys: [2],
           actionDelay: 1200,
           matches: [
-            'View[focusable=true] > [text*="总结"]',
-            'EditText >3 @View[childCount=2][clickable=true] > [desc="停止"][visibleToUser=true]',
+            '@[text^="总结"] <n View[childCount>=12] <<4 View[childCount>=7] <<(6,8) [id="android:id/content"]',
+            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=7] <<(6,8) [id="android:id/content"]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/26233512',
           exampleUrls: 'https://e.gkd.li/2e88e6ee-b21d-4d26-b9dc-13fa75fc883f',
@@ -81,8 +82,8 @@ export default defineGkdApp({
           name: '2.“结尾标志”中断',
           preKeys: [2],
           matches: [
-            'View[focusable=true] > [text="make_Done"] + [text="make_Done"]',
-            'EditText >3 @View[childCount=2][clickable=true] > [desc="停止"][visibleToUser=true]',
+            '@[text="make_Done"] <n View[childCount>=12] <<4 View[childCount>=7] <<(6,8) [id="android:id/content"]',
+            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=7] <<(6,8) [id="android:id/content"]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/26233630',
           exampleUrls: 'https://e.gkd.li/0eabe194-4f53-4f45-8aa3-a23a7898b2e0',
@@ -92,7 +93,7 @@ export default defineGkdApp({
           preKeys: [2],
           name: '自动滚动至底部',
           matches:
-            'Button - View[desc="滚动至底部"][visibleToUser=true] < @View[childCount=2][clickable=true]',
+            '@Button - View[desc="滚动至底部"][visibleToUser=true] < @View[childCount=2][clickable=true] < [childCount=1] <n [childCount>=4] <<2 View[childCount>=7] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233818',
           exampleUrls: 'https://e.gkd.li/9b6643fa-6791-481c-8f9f-bb24c65678af',
         },
@@ -106,8 +107,9 @@ export default defineGkdApp({
           activityIds: '.MainActivity',
           matchTime: 18000,
           resetMatch: 'app',
+          actionMaximum: 3,
           matches:
-            '[text="获取 Plus"] < View + @View[clickable=true][childCount=2] > [desc="关闭"] + Button',
+            'Button - [desc="关闭"] < @View[clickable=true][childCount=2] - * -> [text="获取 Plus"] < [childCount=2] <<2 View <(2,3,4) View[childCount>=7] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26234095',
           exampleUrls: 'https://e.gkd.li/dd8a2887-ea64-466d-b270-de7568b55af4',
         },
