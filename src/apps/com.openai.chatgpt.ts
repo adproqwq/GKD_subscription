@@ -120,7 +120,7 @@ export default defineGkdApp({
         {
           activityIds: '.MainActivity',
           matches:
-            '@[desc="关闭"] < @[clickable=true][childCount=1] + * -> [text="获取 Plus" || text^="升级"][visibleToUser=true] < * + [index=parent.childCount.minus(1)] <n View[childCount=5] < View <(5,6) View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[clickable=true][getChild(0).desc="关闭"] - [text*="记忆容量"] <(1,2) View[childCount>2] <<(1,2) [index=parent.childCount.minus(3)] <n [childCount>5] <<(6,8) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26647576',
           exampleUrls: 'https://e.gkd.li/a53e015f-2b08-4177-80aa-b516d213b333',
         },
