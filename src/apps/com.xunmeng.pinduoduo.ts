@@ -502,26 +502,24 @@ export default defineGkdApp({
       key: 26,
       name: '功能类-商品页视频自动静音',
       desc: '商品详情=>点击播放视频=>点击[静音]',
+      fastQuery: true,
       actionMaximum: 1,
       rules: [
         {
-          fastQuery: true,
-          activityIds: [
-            '.activity.NewPageActivity',
-            '.goods.gallery.GoodsDetailGalleryActivity',
-          ],
-          anyMatches: [
+          key: 0,
+          activityIds: '.activity.NewPageActivity',
+          matches:
             '@[desc="静音"][clickable=true] <2 [childCount=3] < FrameLayout <2 ViewPager + [text^="1/"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28312697', // 商品详情页UI
+          exampleUrls: 'https://e.gkd.li/9bd17b81-9afe-4e59-98d8-2024abf760e5',
+        },
+        {
+          key: 1,
+          activityIds: '.goods.gallery.GoodsDetailGalleryActivity',
+          matches:
             'LinearLayout[childCount=4] > @ImageView[clickable=true][width<66 && height<66][index=0] +2 SeekBar + [text^="00:"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/28312697', // 商品详情页UI
-            'https://i.gkd.li/i/28420002', // 点进视频后UI
-          ],
-          exampleUrls: [
-            'https://e.gkd.li/9bd17b81-9afe-4e59-98d8-2024abf760e5',
-            'https://e.gkd.li/733ac4f0-7c2d-4a0e-80b3-6350ba229ddf',
-          ],
+          snapshotUrls: 'https://i.gkd.li/i/28420002', // 点进视频后UI
+          exampleUrls: 'https://e.gkd.li/733ac4f0-7c2d-4a0e-80b3-6350ba229ddf',
         },
       ],
     },
