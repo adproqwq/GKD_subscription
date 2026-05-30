@@ -1061,5 +1061,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 52,
+      name: '通知提示-其他应用打开使用功能须知',
+      desc: '直接确认不墨迹',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.ui.chatting.AppAttachNewDownloadUI',
+          matches:
+            '[text$="《其他应用打开功能使用须知》"] <<3 ScrollView + [childCount=2] > [text="确认" || text="確定" || text="OK"][clickable=true][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28420481',
+          exampleUrls: 'https://e.gkd.li/ad334a60-8a62-41f2-b123-e4a137daa89e',
+        },
+      ],
+    },
   ],
 });
