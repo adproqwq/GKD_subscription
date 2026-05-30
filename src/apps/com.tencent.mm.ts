@@ -1070,7 +1070,7 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: '.ui.chatting.AppAttachNewDownloadUI',
           matches:
-            '[text$="《其他应用打开功能使用须知》"] <<3 ScrollView + [childCount=2] > [text="确认" || text="確定" || text="OK"][clickable=true][visibleToUser=true]',
+            '@[text="确认" || text="確定" || text="OK"] <2 [childCount=2] - ScrollView >2 [visibleToUser=true][text*="《其他应用打开"] - [text="功能使用须知"]',
           snapshotUrls: 'https://i.gkd.li/i/28420481',
           exampleUrls: 'https://e.gkd.li/ad334a60-8a62-41f2-b123-e4a137daa89e',
         },
