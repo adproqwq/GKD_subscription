@@ -649,10 +649,8 @@ export default defineGkdApp({
             'com.alipay.android.phone.wallet.blessingcard_receive.biz.activity.ReceiveDialogActivity',
             'com.alipay.android.living.activity.LivingDetailActivity',
           ],
-          matches: [
-            '[text="访问被拒绝" || text="人气太旺啦，请稍后再试"][visibleToUser=true]',
-            '[id="com.alipay.mobile.antui:id/back_button"][clickable=true]',
-          ],
+          matches:
+            '[text="访问被拒绝" || text^="人气太旺啦"] -2 RelativeLayout >3 @[clickable=true][desc="返回"] > [text=""]',
           exampleUrls: 'https://e.gkd.li/c1ddb8bf-084b-4109-b777-96c02858d266',
           snapshotUrls: [
             'https://i.gkd.li/i/23046994',
