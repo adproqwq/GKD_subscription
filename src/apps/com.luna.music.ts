@@ -135,7 +135,7 @@ export default defineGkdApp({
             '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
           excludeMatches:
-            'ViewGroup[text=null][text.length=null][desc$="畅听"]',
+            'FrameLayout > ViewGroup[text=null][text.length=null][desc$="畅听"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
@@ -414,7 +414,7 @@ export default defineGkdApp({
             '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
           excludeMatches:
-            'ViewGroup[text=null][text.length=null][desc$="畅听"]',
+            'FrameLayout > ViewGroup[text=null][text.length=null][desc$="畅听"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
