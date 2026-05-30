@@ -122,5 +122,29 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 7,
+      name: '更新提示-继续前往Google Play',
+      desc: '无法完成更新=>继续前往...=>跳过更新',
+      fastQuery: true,
+      activityIds:
+        'com.google.android.finsky.localechangedmode.activity.LocaleChangedModeActivity',
+      rules: [
+        {
+          key: 0,
+          matches:
+            '@[desc^="继续前往 G"][visibleToUser=true] < @[clickable=true] <2 [index=parent.childCount.minus(1)] <n ScrollView <<5 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28419155',
+          exampleUrls: 'https://e.gkd.li/8800489a-c8fc-4094-8435-90df93b1f45f',
+        },
+        {
+          preKeys: [0],
+          matches:
+            '[desc="跳过更新"][visibleToUser=true] < @View[clickable=true] < [index=parent.childCount.minus(1)] <n [childCount>=5] <<5 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28419120',
+          exampleUrls: 'https://e.gkd.li/2b889996-c96e-455e-acc6-dc3bfa9cd380',
+        },
+      ],
+    },
   ],
 });
