@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'cn.wps.moffice_eng',
-  name: 'WPS',
+  name: 'WPS Office',
   groups: [
     {
       key: 1,
