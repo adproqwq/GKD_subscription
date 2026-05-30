@@ -1076,5 +1076,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 53,
+      name: '通知提示-暂不开启指纹支付',
+      desc: '支付后出现全屏弹窗=> 点击[暂不开启]',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.plugin.lite.ui.WxaLiteAppTransparentLiteUI',
+          matches:
+            '@Button[desc="暂不开启"][visibleToUser=true] - * -> [desc="开启指纹支付"] <<2 * <n [childCount>3] <<6 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28420693',
+          exampleUrls: 'https://e.gkd.li/95edbe33-86d4-4075-99e1-cec1a6609595',
+        },
+      ],
+    },
   ],
 });
