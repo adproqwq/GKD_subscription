@@ -635,5 +635,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 14,
+      name: '局部广告-抖音看过视频提示浮窗',
+      desc: '播放器右侧浮窗[xx视频已看: Int %]=> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.luna.biz.main.main.MainActivity',
+          matches:
+            '[text^="抖音看过"][visibleToUser=true] <2 LinearLayout + TextView[text=""][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28436303',
+          exampleUrls: 'https://e.gkd.li/43510c30-15f5-4368-a7e6-f7e57587b51d',
+        },
+      ],
+    },
   ],
 });
