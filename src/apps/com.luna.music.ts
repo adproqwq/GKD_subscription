@@ -374,9 +374,12 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            '@View[clickable=true][width<126 && height<60] < [childCount=3] <n [childCount=4] < [childCount=3] <2 [childCount=2] <2 [childCount=2] <<3 [vid="navigation_container_under_bottom_bar"]',
+            '@View[clickable=true][width<126 && height<60] < [childCount=3] <n [childCount>=4] < FrameLayout[childCount>=3] <2 [childCount=2] <2 ViewPager <<3 [vid="navigation_container_under_bottom_bar"]',
           exampleUrls: 'https://e.gkd.li/42a3884a-6888-4d5b-aa61-7ff5159a5228',
-          snapshotUrls: 'https://i.gkd.li/i/28298866',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28298866',
+            'https://i.gkd.li/i/28436303',
+          ],
         },
       ],
     },
