@@ -67,12 +67,22 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: '.app.mainv2.view.MainActivity',
-          matches: [
-            '[vid="home_bottom_float_view"][visibleToUser=true]',
-            '[vid="iv_close"][visibleToUser=true]',
-          ],
+          matches: '[vid="home_bottom_float_view"] >3 [vid="iv_close"]',
           exampleUrls: 'https://e.gkd.li/a61401ed-245c-4942-9245-bae8fbb15abd',
           snapshotUrls: 'https://i.gkd.li/i/19459880',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '全屏广告',
+      desc: '点击x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.app.main.view.MainActivityV2',
+          matches: '[vid="activity_popup_close"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28430432',
         },
       ],
     },
