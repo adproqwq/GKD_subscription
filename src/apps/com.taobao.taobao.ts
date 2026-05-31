@@ -355,10 +355,16 @@ export default defineGkdApp({
       desc: '点击[确认授权]',
       rules: [
         {
-          activityIds: 'com.taobao.browser.BrowserActivity',
-          matches: '[text="确认授权"][visibleToUser=true]',
+          activityIds: [
+            'com.taobao.browser.BrowserActivity',
+            'com.taobao.themis.container.app.TMSActivity',
+          ],
+          matches: '[text="确认授权"][clickable=true]',
           exampleUrls: 'https://e.gkd.li/e6250a9c-3fee-4470-8c7c-1d28ea63d2a5',
-          snapshotUrls: 'https://i.gkd.li/i/18271783',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18271783',
+            'https://i.gkd.li/i/28432106',
+          ],
         },
       ],
     },
