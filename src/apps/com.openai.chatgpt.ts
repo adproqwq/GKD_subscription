@@ -131,55 +131,15 @@ export default defineGkdApp({
     {
       key: 5,
       name: '功能类-自动打开联网查询',
-      desc: '降低Ai幻想概率⚠️在未呼起键盘会点错',
+      desc: '降低Ai幻想概率⚠️只在新对话初始窗口有效',
       fastQuery: true,
       activityIds: '.MainActivity',
       rules: [
         {
-          key: 0,
-          name: '①点击[附件]按钮',
-          actionCd: 3000,
           matches:
-            '@[desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
-          excludeMatches:
-            '@[text="搜索"] <<2 * <2 [childCount>=3] < * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
-          snapshotUrls: 'https://i.gkd.li/i/28417794',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/28417795', // 排除已打开[联网搜索]情况
-          exampleUrls: 'https://e.gkd.li/c48891db-8377-4a58-933f-9d0a87a300aa',
-        },
-        {
-          preKeys: [0],
-          key: 1,
-          name: '②滑动菜单',
-          matches:
-            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
-          action: 'swipe',
-          swipeArg: {
-            start: {
-              left: 'width * 0.97',
-              top: 'width * 0.73',
-            },
-            end: {
-              left: 'width * 0.66',
-              top: 'width * -9.50',
-            },
-            duration: 60,
-          },
-          snapshotUrls: 'https://i.gkd.li/i/28417864',
-          exampleUrls: 'https://e.gkd.li/a09a1b61-99e7-4adb-97a0-5d47fc9be1fd',
-        },
-        {
-          preKeys: [1],
-          name: '③点击[网页搜索]_坐标方式',
-          actionDelay: 300,
-          matches:
-            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
-          position: {
-            left: 'width * 1.86',
-            top: 'width * -0.66',
-          },
-          snapshotUrls: 'https://i.gkd.li/i/28417970',
-          exampleUrls: 'https://e.gkd.li/b074c94d-3297-44fc-a876-c6fa6ab62313',
+            '[getChild(0).text="查找资料"] <2 @View[clickable=true] <n [childCount=3] <<(12-n) View[childCount>=3] <<(18-n) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28436159',
+          exampleUrls: 'https://e.gkd.li/cb17d35d-b120-4fe5-9535-2f0991c9a8b2',
         },
       ],
     },
