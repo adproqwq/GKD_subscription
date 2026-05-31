@@ -179,11 +179,18 @@ export default defineGkdApp({
             'ImageView < @[clickable=true][width<82 && height<82] <5 [childCount=5] >2 [text="贴吧游戏"]',
           snapshotUrls: 'https://i.gkd.li/i/28389197',
         },
+        {
+          key: 9,
+          activityIds: '.tblauncher.MainTabActivity',
+          matches:
+            '@ImageView[clickable=true][width<78] <2 [childCount=2] >4 [text="语音中"]',
+          snapshotUrls: 'https://i.gkd.li/i/28432229',
+        },
 
         // 第二段
         {
           key: 50,
-          preKeys: [0, 1, 2, 3, 4, 5, 6, 7],
+          preKeys: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           name: '②点击[不感兴趣]', // 直接结束, 无需第三段
           matches:
             '@View[clickable=true][visibleToUser=true] - [text^="选择不喜欢"]',
@@ -199,7 +206,7 @@ export default defineGkdApp({
         },
         {
           key: 51,
-          preKeys: [0, 1, 2, 3, 4, 5, 6, 7],
+          preKeys: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           name: '②选一个[理由]',
           matches:
             '[text="已经看过" || text="广告重复" || text="不感兴趣"][clickable=true]',
@@ -210,10 +217,13 @@ export default defineGkdApp({
         },
         {
           key: 52,
-          preKeys: [0, 1, 2, 3, 4, 5, 6, 7],
+          preKeys: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           name: '②选[不喜欢]该直播',
           matches: '@[clickable=true] >3 [text="不喜欢"]',
-          snapshotUrls: 'https://i.gkd.li/i/27052244', // [不喜欢] 直播
+          snapshotUrls: [
+            'https://i.gkd.li/i/27052244', // [不喜欢] 直播
+            'https://i.gkd.li/i/28432247',
+          ],
         },
 
         // 第三段
