@@ -169,8 +169,11 @@ export default defineGkdApp({
           key: 7,
           activityIds: '.tblauncher.MainTabActivity',
           matches:
-            'ImageView < @[clickable=true] <2 FrameLayout[childCount=2] -3 ViewGroup > [text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/28345921',
+            'ImageView < @[clickable=true] <2 FrameLayout[childCount=2] -n ViewGroup > [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28345921',
+            'https://i.gkd.li/i/28432320',
+          ],
         },
         {
           key: 8,
@@ -209,10 +212,10 @@ export default defineGkdApp({
           preKeys: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           name: '②选一个[理由]',
           matches:
-            '[text="已经看过" || text="广告重复" || text="不感兴趣"][clickable=true]',
+            '[text="已经看过" || text="内容质量差" || text="不感兴趣" || text="广告重复"][clickable=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/26634661', // [已经看过]
-            'https://i.gkd.li/i/28389332',
+            'https://i.gkd.li/i/26634661', // 已经看过、内容质量差
+            'https://i.gkd.li/i/28432358', // 已经看过、内容质量差、不感兴趣
           ],
         },
         {
