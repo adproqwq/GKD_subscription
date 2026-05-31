@@ -3,6 +3,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 export default defineGkdApp({
   id: 'com.openai.chatgpt',
   name: 'ChatGPT',
+  // 根选择器模板: 'View[childCount>=3] <<(-n+18) [id="android:id/content"]'
   groups: [
     {
       key: 1,
@@ -37,7 +38,7 @@ export default defineGkdApp({
           key: 0,
           name: '长按',
           matches:
-            '[text^="出于安全考虑"][visibleToUser=true] -  @View[clickable=true] > TextView <<(4,5,6) View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '[text^="出于安全考虑"][visibleToUser=true] -  @View[clickable=true] > TextView <<(4,5,6) View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           action: 'longClickCenter', // 应用不接受无障碍事件
           snapshotUrls: 'https://i.gkd.li/i/26232942',
           exampleUrls: 'https://e.gkd.li/dfe0c486-00ef-4cdd-be32-9eb2306472f5',
@@ -51,7 +52,7 @@ export default defineGkdApp({
             top: 'width * 0.5347',
           },
           matches:
-            '@* ->3 [text^="出于安全考虑"][visibleToUser=true] -  View[clickable=true] > TextView <<(4,5,6) View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@* ->3 [text^="出于安全考虑"][visibleToUser=true] -  View[clickable=true] > TextView <<(4,5,6) View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233112',
           exampleUrls: 'https://e.gkd.li/f1edecab-d7f5-4f2f-8af7-daeb5ded16f7',
         },
@@ -60,7 +61,7 @@ export default defineGkdApp({
           name: '发送消息',
           preKeys: [1],
           matches:
-            '[desc="发送消息"][visibleToUser=true] < @View[childCount=2][clickable=true] <<4 EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '[desc="发送消息"][visibleToUser=true] < @View[childCount=2][clickable=true] <<4 EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233149',
           exampleUrls: 'https://e.gkd.li/8f4ff7c8-d5a7-4d47-bc01-14b54d9b6b24',
         },
@@ -69,8 +70,8 @@ export default defineGkdApp({
           preKeys: [2],
           actionDelay: 1200,
           matches: [
-            '@[text^="总结"] <n View[childCount>=12] <<4 View[childCount>=6] <<(6,8) [id="android:id/content"]',
-            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[text^="总结"] <n View[childCount>=12] <<4 View[childCount>=3] <<(-n+18) [id="android:id/content"]',
+            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/26233512',
           exampleUrls: 'https://e.gkd.li/2e88e6ee-b21d-4d26-b9dc-13fa75fc883f',
@@ -79,8 +80,8 @@ export default defineGkdApp({
           name: '2.“结尾标志”中断',
           preKeys: [2],
           matches: [
-            '@[text="make_Done"] <n View[childCount>=12] <<4 View[childCount>=6] <<(6,8) [id="android:id/content"]',
-            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[text="make_Done"] <n View[childCount>=12] <<4 View[childCount>=3] <<(-n+18) [id="android:id/content"]',
+            '[desc="停止"][visibleToUser=true] < @View[childCount=2][clickable=true] <<2 [index=parent.childCount.minus(1)] <n EditText <n * < View[index=parent.childCount.minus(1)] <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/26233630',
           exampleUrls: 'https://e.gkd.li/0eabe194-4f53-4f45-8aa3-a23a7898b2e0',
@@ -90,7 +91,7 @@ export default defineGkdApp({
           preKeys: [2],
           name: '自动滚动至底部',
           matches:
-            '@Button - View[desc="滚动至底部"][visibleToUser=true] < @View[childCount=2][clickable=true] < [childCount=1] <n [childCount>=4] <<2 View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@Button - View[desc="滚动至底部"][visibleToUser=true] < @View[childCount=2][clickable=true] < [childCount=1] <n [childCount>=4] <<2 View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26233818',
           exampleUrls: 'https://e.gkd.li/9b6643fa-6791-481c-8f9f-bb24c65678af',
         },
@@ -106,7 +107,7 @@ export default defineGkdApp({
           resetMatch: 'app',
           actionMaximum: 3,
           matches:
-            'Button - [desc="关闭"] < @View[clickable=true][childCount=2] - * -> [text="获取 Plus"] < [childCount=2] <<2 View <(2,3,4) View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            'Button - [desc="关闭"] < @View[clickable=true][childCount=2] - * -> [text="获取 Plus"] < [childCount=2] <<2 View <(2,3,4) View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/26234095',
           exampleUrls: 'https://e.gkd.li/dd8a2887-ea64-466d-b270-de7568b55af4',
         },
@@ -139,9 +140,9 @@ export default defineGkdApp({
           name: '①点击[附件]按钮',
           actionCd: 3000,
           matches:
-            '@[desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           excludeMatches:
-            '@[text="搜索"] <<2 * <2 [childCount>=3] < * <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@[text="搜索"] <<2 * <2 [childCount>=3] < * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/28417794',
           excludeSnapshotUrls: 'https://i.gkd.li/i/28417795', // 排除已打开[联网搜索]情况
           exampleUrls: 'https://e.gkd.li/c48891db-8377-4a58-933f-9d0a87a300aa',
@@ -151,7 +152,7 @@ export default defineGkdApp({
           key: 1,
           name: '②滑动菜单',
           matches:
-            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           action: 'swipe',
           swipeArg: {
             start: {
@@ -172,7 +173,7 @@ export default defineGkdApp({
           name: '③点击[网页搜索]_坐标方式',
           actionDelay: 300,
           matches:
-            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=6] <<(6,8) [id="android:id/content"]',
+            '@* -> [desc="附件"][visibleToUser=true] <<5 * <n View[childCount>=3] <<(-n+18) [id="android:id/content"]',
           position: {
             left: 'width * 1.86',
             top: 'width * -0.66',
