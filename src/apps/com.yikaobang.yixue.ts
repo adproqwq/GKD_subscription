@@ -40,9 +40,11 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          actionCd: 3000,
           activityIds: 'com.psychiatrygarden.activity.HomePageNewActivity',
-          matches: 'ImageSwitcher - [vid="iv_delete"]',
+          matches: '[vid="iv_delete"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/28434131',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28434273', // 加 [visibleToUser=true] 以防止重复触发
         },
       ],
     },
