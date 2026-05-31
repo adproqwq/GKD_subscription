@@ -298,5 +298,25 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 12,
+      name: '功能类-进入视频自动静音',
+      desc: '点击视频帖子=> 进入详情后自动静音',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.twitter.explore.immersivemediaplayer.ui.activity.ImmersiveMediaPlayerActivity',
+          matches:
+            '[vid="video_mute_toggle"][clickable=true][visibleToUser=true]',
+          excludeMatches:
+            '[vid="video_mute_toggle"][desc="隐藏"][clickable=true][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28436423',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28436424',
+          exampleUrls: 'https://e.gkd.li/f0996ce1-5376-4b80-9353-1384eb6e615c',
+        },
+      ],
+    },
   ],
 });
