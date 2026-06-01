@@ -20,10 +20,12 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          //   activityIds: '.MainActivity',
           matches:
-            '@ImageView < [width<137 && height<137] < [visibleToUser=true] +2 ViewGroup >2 [text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/28437892',
+            '@ImageView < [width<137 && height<137] < [visibleToUser=true] +n ViewGroup >2 [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28437892',
+            'https://i.gkd.li/i/28447272',
+          ],
         },
       ],
     },
