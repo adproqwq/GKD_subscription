@@ -10,6 +10,7 @@ export default defineGkdApp({
       desc: '点击关闭',
       actionMaximum: 1,
       resetMatch: 'app',
+      matchRoot: true, // 出现Ad时未关闭，录屏or截快照才响应
       rules: [
         {
           key: 0,
