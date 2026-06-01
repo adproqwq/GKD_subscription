@@ -382,46 +382,51 @@ export default defineGkdApp({
     {
       key: 15,
       name: '分段广告-视频详情页下方推广',
-      desc: '关闭[广告/推广/直播]',
+      desc: '关闭[广告/推广/直播/纪录片/课堂/游戏]',
       fastQuery: true,
       activityIds: 'com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity',
       rules: [
         {
           key: 0,
-          anyMatches: [
-            '@[vid="more" || vid="more_layout" || id="tv.danmaku.bili.adbiz:id/more" || id="tv.danmaku.bili.adbiz:id/more_layout"] <<n [vid="ad_tint_frame" || id="tv.danmaku.bili.adbiz:id/ad_tint_frame" || id="tv.danmaku.bili.adbiz:id/ad_tint_frame"][visibleToUser=true]', // 广告、推广
-            '@[vid="more"] -(3,5) [vid="live_lottie_layout"][visibleToUser=true]', // 直播
-            '[!(vid="duration" || vid="second_to_last_line_area") || text="课堂"] <3 ViewGroup[getChild(0).vid="cover"] > [vid="more"][visibleToUser=true]', // 纪录片、课堂推广、游戏
-          ],
-          exampleUrls: [
-            'https://e.gkd.li/219c40c4-debf-40d8-889a-7eb39c87126c',
-            'https://e.gkd.li/dc54e6ee-24df-49a8-874a-f381326122c3',
-          ],
+          name: '广告/推广',
+          matches:
+            '[id$="ad_tint_frame"][visibleToUser=true] >(1,2) [vid="more" || vid="more_layout" || id="tv.danmaku.bili.adbiz:id/more" || id="tv.danmaku.bili.adbiz:id/more_layout"]',
           snapshotUrls: [
-            // 广告、推广
-            'https://i.gkd.li/i/17675629',
-            'https://i.gkd.li/i/20739380',
-            'https://i.gkd.li/i/20744764',
-            'https://i.gkd.li/i/20794380',
+            'https://i.gkd.li/i/17675629', // [vid="more"]
             'https://i.gkd.li/i/21552836',
             'https://i.gkd.li/i/21705345',
-            'https://i.gkd.li/i/21947622',
 
-            // 直播
-            'https://i.gkd.li/i/17675894',
-            'https://i.gkd.li/i/18306858',
+            'https://i.gkd.li/i/20739380', // [id="tv.danmaku.bili.adbiz:id/more"]  ; key1 游戏
+            'https://i.gkd.li/i/20744764',
 
-            // 纪录片、课堂推广、游戏
-            'https://i.gkd.li/i/23934632',
-            'https://i.gkd.li/i/23933925',
-            'https://i.gkd.li/i/23933866',
-            'https://i.gkd.li/i/24015674',
+            'https://i.gkd.li/i/20794380', // [id="tv.danmaku.bili.adbiz:id/more_layout"]
+
+            'https://i.gkd.li/i/21947622', // [vid="more_layout"]  ; key1 纪录片
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/24365466',
         },
         {
-          preKeys: [0],
           key: 1,
+          name: '课堂/纪录片/游戏/直播',
+          matches:
+            '[text="课堂" || text="纪录片" || text="游戏" || vid="bottom_container" || vid="live_lottie_layout"][index=2] +n [vid="more"][visibleToUser=true]',
+          // matches: '[!(vid="duration" || vid="second_to_last_line_area") || text="课堂"] <3 ViewGroup[getChild(0).vid="cover"] > [vid="more"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23934632', // 课堂
+            'https://i.gkd.li/i/23933866', // 纪录片
+            'https://i.gkd.li/i/24015674', // 游戏
+            'https://i.gkd.li/i/23933925', // vid="bottom_container"
+            'https://i.gkd.li/i/17675894', // 直播 vid="live_lottie_layout"
+            'https://i.gkd.li/i/18306858', // 直播
+          ],
+          // excludeSnapshotUrls: 'https://i.gkd.li/i/24365466', // [vid="second_to_last_line_area"]
+          exampleUrls: 'https://e.gkd.li/f7a90a07-6c8e-4986-8306-f64db4412e36',
+        },
+
+        // 第二段
+        {
+          key: 50,
+          preKeys: [0, 1],
+          name: '②点击[不感兴趣]',
           matches:
             '@[clickable=true] > [text*="不感兴趣" || text="相似内容过多" || text="我不想看"]',
           exampleUrls: 'https://e.gkd.li/23937c2d-379c-4fb5-aaee-7295bcf0afca',
@@ -436,9 +441,12 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24336415',
           ],
         },
+
+        // 第三段
         {
-          preKeys: [1],
-          key: 2,
+          key: 70,
+          preKeys: [50],
+          name: '③点击[关闭]',
           anyMatches: [
             '[vid="close_dislike"][visibleToUser=true]',
             '@[text="关闭"][clickable=true] -n * <<(2,4) [name$="ComposeView" || name$="FrameLayout"] <n [vid="recycler"]',
