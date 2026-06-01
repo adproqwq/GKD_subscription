@@ -93,8 +93,11 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
           matches:
-            '@ImageView[id=null][text=null][width<100][height<100] < ViewGroup[childCount=3] <2 LinearLayout < HorizontalScrollView < ScrollView <<7 [id="android:id/content"]',
-          snapshotUrls: 'https://i.gkd.li/i/25547227',
+            '@ImageView[id=null][text=null][width<100][height<100] < ViewGroup[childCount>1] <2 LinearLayout < HorizontalScrollView < ScrollView <<7 [id="android:id/content"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25547227',
+            'https://i.gkd.li/i/28449818',
+          ],
         },
       ],
     },
