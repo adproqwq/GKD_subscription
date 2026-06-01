@@ -33,6 +33,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          fastQuery: true,
           activityIds:
             'com.boc.bocsoft.mobile.bocmobile.buss.system.main.ui.MainActivity',
           matches:
