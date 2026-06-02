@@ -69,11 +69,12 @@ export default defineGkdApp({
           key: 0,
           name: '视频',
           matches:
-            '[!(getChild(0).getChild(0).desc="Image attachment")] + @[desc="不用了，谢谢" || desc="关闭" || desc="我暂时不要" || desc="Close" || desc="No thanks"][visibleToUser=true] <3 ViewGroup <<(-n+8) [vid="bottom_ui_container" || vid="custom"]',
+            '[!(getChild(0).getChild(0).desc="Image attachment")] + @[desc="不用了，谢谢" || desc="关闭" || desc="我暂时不要" || desc="Close" || desc="No thanks" || desc="I’ll pass this time"][clickable=true] <3 ViewGroup <<(-n+8) [vid="bottom_ui_container" || vid="custom"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13797512',
             'https://i.gkd.li/i/19578085',
             'https://i.gkd.li/i/25865404',
+            'https://i.gkd.li/i/28486200',
           ],
           // excludeSnapshotUrls: 'https://i.gkd.li/i/21978683',
           exampleUrls: 'https://e.gkd.li/1292c8c9-26e3-4053-bec4-e5ebe50cde8e',
