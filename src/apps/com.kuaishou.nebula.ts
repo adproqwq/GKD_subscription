@@ -64,8 +64,11 @@ export default defineGkdApp({
           key: 1,
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches:
-            '@ImageView[clickable=true][width<107 && height<107][index=0] + TextView[text^="邀"][text$="红包"]',
-          snapshotUrls: 'https://i.gkd.li/i/26678562',
+            '@ImageView[clickable=true][width<107 && height<107][index=0] + TextView[text$="红包"][text.length<10]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26678562', //邀好友得大额红包
+            'https://i.gkd.li/i/28514398', //恭喜获得免费红包
+          ],
         },
       ],
     },
