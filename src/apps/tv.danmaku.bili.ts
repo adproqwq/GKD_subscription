@@ -353,22 +353,24 @@ export default defineGkdApp({
     {
       key: 14,
       name: '分段广告-搜索结果广告',
-      desc: '点击右下角[菜单]-点击[不感兴趣]',
+      desc: '①点击右下角[菜单] ②点击[不感兴趣]',
       fastQuery: true,
       activityIds: 'com.bilibili.search2.main.BiliMainSearchActivity',
       rules: [
         {
           key: 1,
-          matches:
-            '@[vid="more"][clickable=true][visibleToUser=true] -(3,4) [vid="tag_layout"]',
+          name: '①点击右下角[菜单]',
+          matches: '[vid="ad_tint_frame"] > [vid="more"][clickable=true]',
           exampleUrls: 'https://e.gkd.li/e5dd30e7-e8dd-42bc-8953-23368e65cca4',
           snapshotUrls: [
             'https://i.gkd.li/i/17269053',
             'https://i.gkd.li/i/17964354',
+            'https://i.gkd.li/i/28495212',
           ],
         },
         {
           preKeys: [1],
+          name: '②点击[不感兴趣]',
           matches: '@[clickable=true] > [text$="不感兴趣"]',
           exampleUrls: 'https://e.gkd.li/5e6e4b69-ba97-473d-9f62-631c296da589',
           snapshotUrls: [
