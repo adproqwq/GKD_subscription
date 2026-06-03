@@ -1091,5 +1091,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 54,
+      name: '功能类-撤回消息自动重新编辑',
+      desc: '只点击一次(切换界面重置次数),日常情况够用',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.ui.LauncherUI',
+          matches:
+            '@TextView[clickable=true][text$="重新编辑"][visibleToUser=true] <<2 LinearLayout <n RecyclerView <2 * <<2 * <4 * < * <2 * - FrameLayout >4 [vid="actionbar_up_indicator"]',
+          snapshotUrls: 'https://i.gkd.li/i/28559913',
+          exampleUrls: 'https://e.gkd.li/d1813063-6580-4adc-be28-93226969e63b',
+        },
+      ],
+    },
   ],
 });
