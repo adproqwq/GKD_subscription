@@ -41,7 +41,7 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '全屏广告-弹窗广告',
+      name: '全屏广告-首页弹窗广告',
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -49,6 +49,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '首页弹窗1',
           forcedTime: 10000,
           activityIds: 'com.sinovatech.unicom.basic.ui.activity.MainActivity',
           matches:
@@ -57,6 +58,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '首页弹窗2',
           activityIds: 'com.sinovatech.unicom.basic.ui.activity.MainActivity',
           matches:
             'WebView[text!=null] > View[id="app"] >2 View[childCount>3] > View[childCount=1] > @TextView[childCount=0][visibleToUser=true][text=""][width<150&&height<150] <<n [vid="main_fragment_layout" || vid="main_fragment_layout_haoka"]',
@@ -67,6 +69,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '首页弹窗3',
           activityIds: 'com.sinovatech.unicom.basic.ui.activity.MainActivity',
           matches:
             '@Image[text^="close"][childCount=0][width<150 && height<150] <2 View < View <2 View < View < View <2 View < View < WebView < WebView < [vid="homeweb_rootview"]',
@@ -87,6 +90,23 @@ export default defineGkdApp({
             'https://i.gkd.li/i/13930543',
             'https://i.gkd.li/i/23141106',
           ],
+        },
+      ],
+    },
+    {
+      key: 5,
+      name: '全屏广告-剩余话费弹窗广告',
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.sinovatech.unicom.basic.ui.activity.WebDetailActivity',
+          matches:
+            '@TextView[index=parent.childCount.minus(1)][width<78 && height<78] <n View[left=0 && top=0] <n View[left=0 && top=0] <<3 WebView - [vid="toutiao_webview_xinxiliu_layout"]',
+          snapshotUrls: 'https://i.gkd.li/i/28557416',
+          exampleUrls: 'https://e.gkd.li/521e50a7-1756-4572-b06a-a42d9ec700c4',
         },
       ],
     },
