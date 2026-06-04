@@ -140,6 +140,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '首页',
+          matchRoot: true, // 截取快照才触发，加上试试
           activityIds: 'com.taobao.tao.welcome.Welcome',
           matches: '[desc.length=4] < * + @[clickable=true] > [text="뉜"]', // 实机测试过，"뉜"韩语？是关闭按钮有作用
           snapshotUrls: 'https://i.gkd.li/i/25658605',
