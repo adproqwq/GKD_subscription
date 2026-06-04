@@ -47,5 +47,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '功能类-自动领取奖励',
+      desc: '每日专享=> 点击 领奖励',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.zx.core.code.activity.WebViewActivity',
+          matches:
+            '[text="领奖励"][visibleToUser=true][index=parent.childCount.minus(1)] < @* <n View <<2 View[childCount=5] <n * < WebView <<4 LinearLayout <2 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28591915',
+          exampleUrls: 'https://e.gkd.li/b28c9e1c-d92d-413b-b30b-c994b2d3f582',
+        },
+      ],
+    },
   ],
 });
