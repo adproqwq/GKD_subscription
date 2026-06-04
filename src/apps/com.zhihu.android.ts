@@ -243,6 +243,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 2,
+          name: '①',
           activityIds: [
             '.mix.activity.ContentMixProfileActivity',
             '.mixshortcontainer.MixShortContainerActivity',
@@ -257,6 +258,7 @@ export default defineGkdApp({
         },
         {
           key: 5,
+          name: '②',
           activityIds: [
             '.mixshortcontainer.MixShortContainerActivity',
             '.mix.activity.ContentMixProfileActivity',
@@ -271,16 +273,18 @@ export default defineGkdApp({
         },
         {
           key: 6,
+          name: '③',
           activityIds:
             '.feature.short_container_feature.ui.ShortContainerHostActivity',
           matches:
-            '@ImageView[clickable=true][visibleToUser=true]  -(1,2) TextView[childCount=0][id=null][text=null][desc=null] <n ViewGroup > [text*="知乎" || text="创作者小助手"][childCount=0][id=null][desc=null]',
+            '@[clickable=true][visibleToUser=true]  -(1,2) TextView[childCount=0][id=null][text=null][desc=null] <n ViewGroup > [text*="知乎" || text="创作者小助手" || text="AD"][childCount=0][id=null][desc=null]',
           snapshotUrls: [
             'https://i.gkd.li/i/14235024',
             'https://i.gkd.li/i/14944631',
             'https://i.gkd.li/i/14232195',
+            'https://i.gkd.li/i/28590141', // 变体1
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/14232195',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/14232195', // 误触?:并没看到
         },
       ],
     },
