@@ -7,14 +7,21 @@ export default defineGkdApp({
     {
       key: 1,
       name: '全屏广告',
+      fastQuery: true,
+      activityIds: 'com.hive.MainTabActivity',
       rules: [
         {
-          fastQuery: true,
-          activityIds: 'com.hive.MainTabActivity',
+          key: 0,
           matches:
-            '@[clickable=true][desc="top_close_button"] <<2 [childCount=2] <n [childCount=2] < ViewGroup +n [childCount=2] > [text="广告"][index=parent.childCount.minus(1)]',
+            '@[clickable=true][desc="top_close_button"] < * < [childCount=2] <n [childCount=2] < ViewGroup +n [childCount=2] > [text="广告"]',
           snapshotUrls: 'https://i.gkd.li/i/28220375',
           exampleUrls: 'https://e.gkd.li/3072484b-b841-4b04-b07c-9c125b153d4e',
+        },
+        {
+          key: 1,
+          matches:
+            '@[getChild(0).name$="ImageView"] <2 [childCount=2] <2 [childCount=2] <2 [childCount=2] - FrameLayout > [text*="查看详情"]',
+          snapshotUrls: 'https://i.gkd.li/i/28640601',
         },
       ],
     },
