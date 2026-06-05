@@ -242,49 +242,35 @@ export default defineGkdApp({
       fastQuery: true,
       rules: [
         {
+          key: 1,
+          activityIds:
+            '.feature.short_container_feature.ui.ShortContainerHostActivity',
+          matches:
+            '@[index=parent.childCount.minus(1)][clickable=true][width<150] -n [text^="知乎" || text="创作者小助手" || text="AD"][index!=2]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/14235024', // 知乎游戏
+            'https://i.gkd.li/i/14944631', // 知乎问题商店
+            'https://i.gkd.li/i/14232195', // 创作者小助手
+            'https://i.gkd.li/i/28590141', // AD
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/14232195', // [text*="知乎"] 误触, 用 [text^="知乎"][index!=2] 排除
+        },
+        {
           key: 2,
-          name: '①',
           activityIds: [
             '.mix.activity.ContentMixProfileActivity',
             '.mixshortcontainer.MixShortContainerActivity',
           ],
           matches:
-            '@[text="×"][visibleToUser=true] <n View > [visibleToUser=true][text*="广告" || text="查看详情"] <<n [vid="web_frame" || vid="view_content"]',
+            '@[text="" || text="×"][childCount=0][width<110 && height<110] <n [childCount>2] > [visibleToUser=true][text$="广告" || text="查看详情"] <<n [vid="web_frame" || vid="view_content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14220104',
             'https://i.gkd.li/i/14421277',
             'https://i.gkd.li/i/15285359',
-          ],
-        },
-        {
-          key: 5,
-          name: '②',
-          activityIds: [
-            '.mixshortcontainer.MixShortContainerActivity',
-            '.mix.activity.ContentMixProfileActivity',
-          ],
-          matches:
-            '@Image[visibleToUser=true] <2 View > [visibleToUser=true][text$="广告"] <<n [vid="view_content"]',
-          snapshotUrls: [
             'https://i.gkd.li/i/14391614',
             'https://i.gkd.li/i/15282584',
             'https://i.gkd.li/i/20648888',
           ],
-        },
-        {
-          key: 6,
-          name: '③',
-          activityIds:
-            '.feature.short_container_feature.ui.ShortContainerHostActivity',
-          matches:
-            '@[clickable=true][visibleToUser=true]  -(1,2) TextView[childCount=0][id=null][text=null][desc=null] <n ViewGroup > [text*="知乎" || text="创作者小助手" || text="AD"][childCount=0][id=null][desc=null]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/14235024',
-            'https://i.gkd.li/i/14944631',
-            'https://i.gkd.li/i/14232195',
-            'https://i.gkd.li/i/28590141', // 变体1
-          ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/14232195', // 误触?:并没看到
         },
       ],
     },
