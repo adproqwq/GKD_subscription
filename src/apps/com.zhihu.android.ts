@@ -43,7 +43,7 @@ export default defineGkdApp({
         {
           key: 0,
           activityIds: [
-            '.feature.short_container_feature.ui',
+            '.feature.short_container_feature.ui.', //通配
             '.ContentActivity',
           ],
           matches:
@@ -58,12 +58,25 @@ export default defineGkdApp({
             'https://i.gkd.li/i/14206949',
             'https://i.gkd.li/i/14206988',
             'https://i.gkd.li/i/18008867',
-            'https://i.gkd.li/i/25572259',
+            'https://i.gkd.li/i/25572259', // activityId 较长,裁切掉尾部
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/17002118',
             'https://i.gkd.li/i/17002119',
             'https://i.gkd.li/i/17002120',
+          ],
+        },
+        {
+          key: 1,
+          activityIds: [
+            '.ContentActivity',
+            '.feature.short_container_feature.ui.ShortContainerHostActivity',
+          ],
+          matches:
+            'ImageView < @[index=parent.childCount.minus(1)][clickable=true][width<150] <n ViewGroup + [childCount=2] >3 [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28661886',
+            'https://i.gkd.li/i/28590141',
           ],
         },
         {
@@ -117,8 +130,9 @@ export default defineGkdApp({
           ],
         },
         {
-          preKeys: [0, 2, 3, 4, 5],
-          key: 90,
+          key: 50,
+          preKeys: [0, 1, 2, 3, 4, 5],
+          name: '②点击[不感兴趣]',
           activityIds: [
             '.feature.short_container_feature.ui.ShortContainerHostActivity',
             '.ContentActivity',
@@ -246,12 +260,11 @@ export default defineGkdApp({
           activityIds:
             '.feature.short_container_feature.ui.ShortContainerHostActivity',
           matches:
-            '@[index=parent.childCount.minus(1)][clickable=true][width<150] -n [text^="知乎" || text="创作者小助手" || text="AD"][index!=2]',
+            '@[index=parent.childCount.minus(1)][clickable=true][width<150] -n [text^="知乎" || text="创作者小助手"][index!=2]',
           snapshotUrls: [
             'https://i.gkd.li/i/14235024', // 知乎游戏
             'https://i.gkd.li/i/14944631', // 知乎问题商店
             'https://i.gkd.li/i/14232195', // 创作者小助手
-            'https://i.gkd.li/i/28590141', // AD
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/14232195', // [text*="知乎"] 误触, 用 [text^="知乎"][index!=2] 排除
         },
