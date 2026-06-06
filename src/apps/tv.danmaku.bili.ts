@@ -430,17 +430,18 @@ export default defineGkdApp({
           preKeys: [0, 1],
           name: '②点击[不感兴趣]',
           matches:
-            '@[clickable=true] > [text*="不感兴趣" || text="相似内容过多" || text="我不想看"]',
+            '@[clickable=true] > [text*="不感兴趣" || text="相似内容过多" || text*="不想看" || text$="质量差"]',
           exampleUrls: 'https://e.gkd.li/23937c2d-379c-4fb5-aaee-7295bcf0afca',
           snapshotUrls: [
             'https://i.gkd.li/i/17676025',
             'https://i.gkd.li/i/17676149',
             'https://i.gkd.li/i/17677147',
-            'https://i.gkd.li/i/18296940',
+            'https://i.gkd.li/i/18296940', // 对该up的直播不感兴趣
             'https://i.gkd.li/i/18306839',
-            'https://i.gkd.li/i/20739391',
-            'https://i.gkd.li/i/24015691',
+            'https://i.gkd.li/i/20739391', // 不感兴趣、推广质量差
+            'https://i.gkd.li/i/24015691', // 我不想看
             'https://i.gkd.li/i/24336415',
+            'https://i.gkd.li/i/28659010', // 不想看该内容、广告质量差
           ],
         },
 
