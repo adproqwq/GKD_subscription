@@ -11,6 +11,7 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          actionMaximum: 1, // 防止重复点击
           activityIds: '.EntryActivity',
           matches:
             '@ImageView[visibleToUser=true][width<119 && height<119] < [childCount=1] <2 ViewGroup < ViewGroup <2 [childCount=2] < ViewGroup < FrameLayout < [id="android:id/content"]',
