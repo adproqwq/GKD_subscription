@@ -54,5 +54,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '评价提示',
+      desc: '点击[暂不评价]',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.wps.multiwindow.main.HomeActivity',
+          matches: '[text="暂不评价"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28678584',
+        },
+      ],
+    },
   ],
 });
