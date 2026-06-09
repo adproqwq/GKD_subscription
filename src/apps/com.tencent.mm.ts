@@ -16,10 +16,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '①点击[广告]',
           fastQuery: true,
-          matches: [
+          matches:
             '@LinearLayout[clickable=true] > [text="广告" || text="廣告" || text="Sponsored"][visibleToUser=true]',
-          ],
           snapshotUrls: [
             'https://i.gkd.li/i/13000395',
             'https://i.gkd.li/i/12905837',
@@ -29,6 +29,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '①坐标点击[广告]',
           fastQuery: true,
           actionDelay: 300,
           position: {
@@ -37,19 +38,23 @@ export default defineGkdApp({
           },
           anyMatches: [
             '@LinearLayout >2 [text="广告"][visibleToUser=false]',
-            'RecyclerView > FrameLayout[childCount=1] > RelativeLayout > FrameLayout > LinearLayout > LinearLayout > LinearLayout > @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null] > LinearLayout[index=1][clickable=false][visibleToUser=false]',
+            '[index=parent.childCount.minus(1)] >5 [getChild(0).desc$="的头像"] >2 LinearLayout[childCount=2][getChild(0).getChild(0).text!=null][getChild(1).visibleToUser=false]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/14783802',
             'https://i.gkd.li/i/15531539',
             'https://i.gkd.li/i/19665911',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/19717709', // 加 [getChild(0).getChild(0).text!=null] 排除误触评论区
+            'https://i.gkd.li/i/27969204', // [index=parent.childCount.minus(1)] 排除误触评论区后还继续误触
+          ],
         },
         {
           key: 2,
+          name: '①单击[广告]',
           matches:
-            '[name$="RecyclerView"||name$="ListView"] >(1,2) RelativeLayout >3 LinearLayout > LinearLayout > LinearLayout[childCount=2] > LinearLayout[index=1][clickable=true][visibleToUser=true]',
+            '[getChild(0).desc$="的头像"] >2 [childCount=2] > LinearLayout[text=null][clickable=true][childCount=0][index=1]',
           snapshotUrls: [
             'https://i.gkd.li/i/14647413',
             'https://i.gkd.li/i/19633571',
@@ -61,7 +66,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 1, 2],
           key: 25,
-          name: '点击[关闭]',
+          name: '②点击[关闭]',
           fastQuery: true,
           anyMatches: [
             '[text^="关闭" || text*="Close" || text="關閉此廣告"][clickable=true][visibleToUser=true]', //1
@@ -92,7 +97,7 @@ export default defineGkdApp({
         {
           preKeys: [25],
           key: 50,
-          name: '点击[关闭]',
+          name: '③点击[关闭]',
           matches: '[text*="关闭" || text="Close"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/12663984',
@@ -107,7 +112,7 @@ export default defineGkdApp({
         {
           preKeys: [50],
           key: 75,
-          name: '点击[确认]',
+          name: '④点击[确认]',
           fastQuery: true,
           matches:
             '@[text="确认"][visibleToUser=true] -2 [text="不感兴趣原因"]',
