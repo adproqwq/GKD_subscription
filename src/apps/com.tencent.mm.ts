@@ -118,6 +118,33 @@ export default defineGkdApp({
             '@[text="确认"][visibleToUser=true] -2 [text="不感兴趣原因"]',
           snapshotUrls: 'https://i.gkd.li/i/14647940',
         },
+
+        // 第五段: 误触后的操作
+        {
+          key: 100,
+          preKeys: [1], // 子key1 用坐标点击容易误触
+          name: '⑤误触后-按[返回键]', // 进入其它界面时按下[返回键]
+          action: 'back',
+          fastQuery: true,
+          matchRoot: true,
+          actionDelay: 50,
+          excludeActivityIds: [
+            // 这是正常朋友圈的 ActivityId, 排除
+            '.plugin.sns.ui.SnsTimeLineUI',
+            '.plugin.sns.ui.improve.ImproveSnsTimelineUI',
+            '.plugin.profile.ui.ContactInfoUI',
+          ],
+          activityIds: [], // 匹配其它因误触而进入的界面
+          matches: '[parent=null]',
+        },
+        {
+          key: 101,
+          preKeys: [1],
+          name: '⑤误触右上角-点击[取消]',
+          fastQuery: true,
+          matches: '@LinearLayout[clickable=true] > [text="取消"]',
+          snapshotUrls: 'https://i.gkd.li/i/27366025', // 误触右上角发朋友圈
+        },
       ],
     },
     {
