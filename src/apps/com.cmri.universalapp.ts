@@ -25,13 +25,14 @@ export default defineGkdApp({
       name: '全屏广告-弹窗广告',
       fastQuery: true,
       matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
       rules: [
         {
-          activityIds: '.SmartMainProxyActivity',
+          activityIds: ['.SmartMainProxyActivity', '.SmartMainActivity'],
           matches: '[vid="ivCancelDlg"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/17872852',
+          snapshotUrls: [
+            'https://i.gkd.li/i/17872852',
+            'https://i.gkd.li/i/28761589',
+          ],
         },
       ],
     },
