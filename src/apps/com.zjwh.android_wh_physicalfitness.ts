@@ -137,6 +137,16 @@ export default defineGkdApp({
             '@[desc="top_close_button"][clickable=true] < * + * > [text="广告"]',
           snapshotUrls: 'https://i.gkd.li/i/23255102',
         },
+        {
+          key: 11,
+          name: '字节-关闭悬浮球可继续浏览应用',
+          fastQuery: true,
+          activityIds:
+            'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+          matches:
+            '@ImageView[visibleToUser=true][width<100 && height<100] <<3 ViewGroup[index=parent.childCount.minus(1)] <n ViewGroup + ViewGroup >3 [text="关闭悬浮球可继续浏览应用"]',
+          snapshotUrls: 'https://i.gkd.li/i/28790670',
+        },
       ],
     },
     {
