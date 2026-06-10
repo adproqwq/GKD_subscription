@@ -197,21 +197,20 @@ export default defineGkdApp({
         {
           key: 2,
           matches:
-            '@View[clickable=true][width<121 && height<121] < View < View < ComposeView < * < * < [childCount=1] + FrameLayout >2 [childCount=3][getChild(0).text*="/"] >2 [text*=":"][text.length=5]',
+            '@[id=null][visibleToUser=true][width<121 && height<121][childCount<2][left>prev.width.div(10).times(9)][top>prev.height.div(8).times(7)] <<n [vid="root_view"]',
+          /*
+           ** 从选择器右侧 [vid="root_view"] 节点获取屏幕宽高, 要求目标节点位于屏幕右下角
+           ** [left>prev.width.div(10).times(9)] 表示目标节点的 left 要大于屏幕宽度的 9/10
+           ** [top>prev.height.div(8).times(7)] 表示目标节点的 top 要大于屏幕高度的 7/8
+           */
           snapshotUrls: [
             'https://i.gkd.li/i/28781063',
             'https://i.gkd.li/i/28781061',
-          ],
-        },
-        {
-          key: 3,
-          matches:
-            '@[clickable=true][width<121 && height<121] <<n FrameLayout[visibleToUser=true][childCount=1] -n [childCount=3] >6 [getChild(0).text*="/"] >2 [text*=":"][text.length=5]',
-          exampleUrls: 'https://e.gkd.li/ab2021a9-8e5c-4d2a-8df1-8c6aff4e38f6',
-          snapshotUrls: [
             'https://i.gkd.li/i/24189900',
             'https://i.gkd.li/i/24205810',
+            'https://i.gkd.li/i/28800387', // 目标节点 [clickable=false]
           ],
+          exampleUrls: 'https://e.gkd.li/1f431aef-3464-4f53-90e4-3f1bd9cca922', // 限制范围示意图
         },
         {
           key: 4,
@@ -233,7 +232,7 @@ export default defineGkdApp({
         // 第二段
         {
           key: 50,
-          preKeys: [0, 1, 2, 3, 4],
+          preKeys: [0, 1, 2, 4],
           name: '②点击[不感兴趣/关闭此广告]',
           anyMatches: [
             '@[clickable=true] > [text="不感兴趣" || text^="关闭此"]',
