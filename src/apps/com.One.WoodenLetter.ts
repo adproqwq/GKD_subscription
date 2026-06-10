@@ -17,5 +17,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '评价提示',
+      desc: '点击[残忍拒绝]',
+      rules: [
+        {
+          fastQuery: true,
+          actionMaximum: 1,
+          resetMatch: 'app',
+          activityIds: 'com.One.WoodenLetter.MainActivity',
+          matches: '[childCount=2] > Button[text="残忍拒绝"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28805036',
+        },
+      ],
+    },
   ],
 });
