@@ -300,5 +300,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 15,
+      name: '功能类-运动页面自动切换至校园跑',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.zjwh.android_wh_physicalfitness.mvi.home.HomeActivity',
+          matches: [
+            '[text="学校要求"][visibleToUser=false]',
+            '[text="校园跑"][visibleToUser=true][clickable=true]',
+          ],
+          // 注意：该应用底部导航栏的所有tab同时呈现在页面上，必须保证当前处于“运动”tab才触发，
+          // 即[text="校园跑"][visibleToUser=true]
+          snapshotUrls: 'https://i.gkd.li/i/28789636',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/28789633',
+        },
+      ],
+    },
   ],
 });
