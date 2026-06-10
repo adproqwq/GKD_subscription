@@ -399,5 +399,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 19,
+      name: '其他-添加桌面小组件',
+      desc: '点击[取消]',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            '.social.ugc.topic.topicdetail.NewUgcTopicDetailActivity',
+          matches:
+            '[text^="添加到"] +n [childCount=2] > [text="取消"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28784392',
+          exampleUrls: 'https://e.gkd.li/b4cb96bd-0ced-4228-bd4a-a1be162bb75a',
+        },
+      ],
+    },
   ],
 });
