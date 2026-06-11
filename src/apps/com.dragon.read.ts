@@ -214,6 +214,18 @@ export default defineGkdApp({
           exampleUrls: 'https://e.gkd.li/1f431aef-3464-4f53-90e4-3f1bd9cca922', // 限制范围示意图
         },
         {
+          key: 3,
+          name: '坐标点击[反馈]',
+          position: {
+            top: 'width * 0.0617',
+            left: 'width * 0.7885',
+          },
+          matches:
+            '@ViewGroup[visibleToUser=true][height<150][width=prev.width] < [childCount=2] <3 FrameLayout[childCount=3] >7 [vid="ttlive_player_render_view"]',
+          snapshotUrls: 'https://i.gkd.li/i/28834344',
+          exampleUrls: 'https://e.gkd.li/aef38288-d84b-4e13-8161-ebebc27b822b',
+        },
+        {
           key: 4,
           name: '点击[反馈]',
           actionCd: 3500, // 同类型广告有“当前可点击”与“3秒后可点击”两种状态
@@ -233,7 +245,7 @@ export default defineGkdApp({
         // 第二段
         {
           key: 50,
-          preKeys: [0, 1, 2, 4],
+          preKeys: [0, 1, 2, 3, 4],
           name: '②点击[不感兴趣/关闭此广告]',
           anyMatches: [
             '@[clickable=true] > [text="不感兴趣" || text^="关闭此"]',
