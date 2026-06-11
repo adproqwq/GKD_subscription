@@ -18,5 +18,22 @@ export default defineGkdApp({
         },
       ],
     },
+
+    {
+      key: 2,
+      name: '更新提示',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.example.anxiaojia.MainActivity',
+          matches:
+            '@[desc="下次再说"] <n View < View < View < View < FrameLayout < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28833151',
+        },
+      ],
+    },
   ],
 });
