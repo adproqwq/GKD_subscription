@@ -141,11 +141,16 @@ export default defineGkdApp({
           key: 11,
           name: '字节-关闭悬浮球可继续浏览应用',
           fastQuery: true,
-          activityIds:
+          activityIds: [
             'com.bytedance.sdk.openadsdk.core.component.reward.activity.TTFullScreenVideoActivity',
+            'com.byazt.qde.Stub_Standard_Portrait_Activity',
+          ],
           matches:
             '@ImageView[visibleToUser=true][width<100 && height<100] <<3 ViewGroup[index=parent.childCount.minus(1)] <n ViewGroup + ViewGroup >3 [text="关闭悬浮球可继续浏览应用"]',
-          snapshotUrls: 'https://i.gkd.li/i/28790670',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28790670',
+            'https://i.gkd.li/i/28834493',
+          ],
         },
       ],
     },
