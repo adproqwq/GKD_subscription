@@ -15,13 +15,14 @@ export default defineGkdApp({
           key: 0,
           activityIds: '.MainActivity',
           matches:
-            '@[clickable=true][getChild(0).desc="关闭"] <<(-n+10)  * -> [getChild(0).text*="Plus" || text*="Plus"] <<(-n+8) View[childCount>=2][left!=0] <<(-n+12) [left=0][top!=0] <n [childCount>=3] <<(-n+18) [id="android:id/content"]',
+            '@[clickable=true][getChild(0).desc="关闭"] <<(-n+10)  * -> [getChild(0).text*="Plus" || text*="Plus"] <<(-n+12) View[childCount>=2][left!=0] <<(-n+12) [left=0][top!=0] <n [childCount>=3] <<(-n+18) [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24996012', // 套餐限额_ 获取Plus
             'https://i.gkd.li/i/28416563', // 更专业文件?
             'https://i.gkd.li/i/28416912', // ^升级
             'https://i.gkd.li/i/28416926',
             'https://i.gkd.li/i/28435734', // 新UI_20260531
+            'https://i.gkd.li/i/28840922', // `<<10`你当前正在使用免费版
           ],
           exampleUrls: 'https://e.gkd.li/db0ecc3d-9401-4c2d-bdc0-32262ce443a4',
         },
