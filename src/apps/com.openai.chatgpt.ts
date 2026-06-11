@@ -144,5 +144,30 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 6,
+      name: '功能类-上传/发送错误自动重试',
+      desc: '一般网络问题遇此情况比较多',
+      fastQuery: true,
+      activityIds: '.MainActivity',
+      rules: [
+        {
+          key: 0,
+          name: '附件重试',
+          matches:
+            '[desc="重试"] < @[clickable=true] < View <n View <<(6-n) * <n View <<2 View[index=parent.childCount.minus(1)] <n * <<(8-n) * < View[index=parent.childCount.minus(1)] <n View[childCount>=3] <<(18-n) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28841605',
+          exampleUrls: 'https://e.gkd.li/efc0fed3-b3b0-4571-b66f-c09c8ccadefc',
+        },
+        {
+          key: 1,
+          name: '提示词重试',
+          matches:
+            '[desc="重试"] < @[clickable=true] - TextView[text^="你似乎已离线"] < [childCount=2] <<(6-n) [index=parent.childCount.minus(1)] <n * <<(10-n) * < View[childCount>=3] <<(18-n) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28841916',
+          exampleUrls: 'https://e.gkd.li/e08da5f8-fcbc-4448-82df-4e86d457ef1c',
+        },
+      ],
+    },
   ],
 });
