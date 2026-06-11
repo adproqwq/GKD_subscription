@@ -137,10 +137,20 @@ export default defineGkdApp({
       activityIds: '.MainActivity',
       rules: [
         {
+          key: 0,
+          name: '自动打开联网查询',
           matches:
             '[getChild(0).text="查找资料"] <2 @View[clickable=true] <n [childCount=3] <<(12-n) View[childCount>=3] <<(18-n) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/28436159',
           exampleUrls: 'https://e.gkd.li/cb17d35d-b120-4fe5-9535-2f0991c9a8b2',
+        },
+        {
+          preKeys: [0],
+          name: '关闭建议',
+          matches:
+            '@[desc="关闭建议"][clickable=true] - [text="搜索一下"] <<(6-n) [index=parent.childCount.minus(1)] <n [childCount=2] <<(6-n) [index=parent.childCount.minus(1)] <n * <<(10-n) * < View[childCount>=3] <<(18-n) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28842245',
+          exampleUrls: 'https://e.gkd.li/efa206f7-d18e-4968-8121-fc199dfa12c7',
         },
       ],
     },
