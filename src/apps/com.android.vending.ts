@@ -94,15 +94,28 @@ export default defineGkdApp({
       key: 5,
       name: '评价提示-应用评分',
       desc: '弹出应用评分-以后再说',
+      fastQuery: true,
+      activityIds:
+        'com.google.android.finsky.inappreviewdialog.InAppReviewActivity',
       rules: [
         {
-          fastQuery: true,
-          activityIds:
-            'com.google.android.finsky.inappreviewdialog.InAppReviewActivity',
+          key: 0,
+          name: '点击[以后再说]',
           matches:
             'ViewGroup[childCount=2] + FrameLayout >2 [text="提交"] - [text="以后再说"][clickable=true][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/26145296',
           exampleUrls: 'https://e.gkd.li/1d9b6d74-9982-46f5-8866-b0585f91cfd1',
+        },
+        {
+          key: 1,
+          name: '坐标点击[Not now]',
+          position: {
+            left: 'width * 0.2556',
+            top: 'width * 0.6708',
+          },
+          matches:
+            '@LinearLayout[visibleToUser=true][childCount=0][width=getPrev(5).width] < ScrollView < LinearLayout < FrameLayout <2 ViewGroup < FrameLayout < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28889464',
         },
       ],
     },
