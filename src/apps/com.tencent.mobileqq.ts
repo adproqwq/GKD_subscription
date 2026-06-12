@@ -537,21 +537,19 @@ export default defineGkdApp({
     {
       key: 37,
       name: '分段广告-QQ空间空友爱看',
+      desc: '①点击卡片右侧[推荐] ②点击[关闭推荐]',
+      fastQuery: true,
+      activityIds:
+        'com.qzone.reborn.feedpro.activity.QzoneFriendFeedProActivity',
       rules: [
         {
           key: 0,
-          fastQuery: true,
-          activityIds:
-            'com.qzone.reborn.feedpro.activity.QzoneFriendFeedProActivity',
-          matches: '[text="推荐"] <<n @[clickable=true] -2 [text="空友爱看"]',
+          matches: '[text="推荐"] < * < @[clickable=true] -2 [text="空友爱看"]',
           snapshotUrls: 'https://i.gkd.li/i/27521340',
         },
         {
           key: 1,
           preKeys: 0,
-          fastQuery: true,
-          activityIds:
-            'com.qzone.reborn.feedpro.activity.QzoneFriendFeedProActivity',
           matches: '@[clickable=true] >2 [text="关闭推荐"]',
           snapshotUrls: 'https://i.gkd.li/i/27521350',
         },
