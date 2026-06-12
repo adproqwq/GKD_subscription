@@ -99,6 +99,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '0.01开通7天VIP',
+          action: `clickCenter`, // 无障碍点击无效
           anyMatches: [
             '@View[childCount=2][index=1] >2 [text$="天体验卡" || text^="VIP"][visibleToUser=true]', // 优先使用自身快查
             '@[text$="天体验卡" || text^="VIP" || desc$="天体验卡" || desc^="VIP"][visibleToUser=true] < [index=parent.childCount.minus(1)] <n * <2 [childCount=2] <<5 [id="android:id/content"]', // 退而求其次
