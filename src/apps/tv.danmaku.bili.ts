@@ -371,7 +371,8 @@ export default defineGkdApp({
         {
           preKeys: [1],
           name: '②点击[不感兴趣]',
-          matches: '@[clickable=true] > [text$="不感兴趣"]',
+          matches:
+            '@[clickable=true] > [text$="不感兴趣" || text*="不想看" || text$="质量差"]',
           exampleUrls: 'https://e.gkd.li/5e6e4b69-ba97-473d-9f62-631c296da589',
           snapshotUrls: [
             'https://i.gkd.li/i/17269055',
