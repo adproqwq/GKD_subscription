@@ -425,21 +425,35 @@ export default defineGkdApp({
     {
       key: 18,
       name: '功能类-观看广告自动静音',
+      desc: '点击1次, activity刷新后会重置',
+      fastQuery: true,
+      actionDelay: 300,
+      actionMaximum: 1,
+      activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
-          key: 0,
-          fastQuery: true,
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+          key: 1,
+          name: '①点击[静音]',
           matches:
-            '@ImageView[childCount=0][width<100] <<2 ViewGroup[childCount=1] + ViewGroup >2 [desc*="关闭"]',
-          actionMaximum: 1,
-          resetMatch: 'activity',
+            '@ImageView[visibleToUser=true][width>20 && width<93 && height>20 && height<108][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
+          /*
+           ** 从选择器右侧 [id="android:id/content"] 节点获取屏幕宽高, 限制目标节点位于屏幕左上角
+           ** [right<prev.width.div(3)] 表示目标节点的 right 要小于屏幕宽度的 1/3
+           ** [bottom<prev.height.div(10)] 表示目标节点的 bottom 要小于屏幕高度的 1/10
+           */
+          snapshotUrls: 'https://i.gkd.li/i/28907595',
+        },
+        {
+          key: 2,
+          name: '②坐标点击[静音]',
           position: {
             left: 'width * 0.5',
-            top: 'width * 0.5',
+            top: 'width * 0.8730',
           },
+          matches:
+            '@ImageView[width>20 && width<93 && height<0][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
           exampleUrls: 'https://e.gkd.li/d8949efa-e2f7-49d2-a8d7-4837ed349aef',
-          snapshotUrls: 'https://i.gkd.li/i/26528931',
+          snapshotUrls: 'https://i.gkd.li/i/26528931', // [height<0]
         },
       ],
     },
