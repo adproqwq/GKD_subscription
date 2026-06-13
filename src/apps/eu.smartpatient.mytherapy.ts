@@ -64,6 +64,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 3,
+      name: '功能类-自动点击剂量调整',
+      desc: '药物界面-> 点击剂量-> 用户输入',
+      fastQuery: true,
+      resetMatch: 'match',
+      activityIds:
+        '.feature.resolve.presentation.resolve.spontaneous.SpontaneousResolveActivity',
+      rules: [
+        {
+          matches:
+            '@[id="dosePicker"][clickable=true][visibleToUser=true] < View <5 ScrollView <<4 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28907834',
+          exampleUrls: 'https://e.gkd.li/3c6324c0-6c32-4bad-b6f9-4fb5d9dc9132',
+        },
+      ],
+    },
+    {
       key: 4,
       name: '功能类-库存低3s自动编辑',
       desc: '不编辑一般都点确定,编辑你得看一眼剩多少药再编辑',
