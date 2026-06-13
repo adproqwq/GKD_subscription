@@ -314,6 +314,30 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 15,
+      name: '功能类-误入直播后自动[退出]',
+      desc: '配合 看广告自动领奖励 使用',
+      fastQuery: true,
+      activityIds: 'com.bytedance.mira.stub.p0.StubSingleTaskActivity1',
+      rules: [
+        {
+          key: 0,
+          name: '①已进直播间-按[返回键]',
+          action: 'back',
+          actionDelay: 500,
+          matches:
+            '[id="com.dragon.read.live:id/swipe_refresh"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28906839',
+        },
+        {
+          key: 1,
+          name: '②点击确认[退出]',
+          matches: '[text="退出"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28906845',
+        },
+      ],
+    },
+    {
       key: 16,
       name: '功能类-看广告自动领奖励',
       fastQuery: true,
