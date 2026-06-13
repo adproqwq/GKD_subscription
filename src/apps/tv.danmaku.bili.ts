@@ -117,7 +117,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          fastQuery: true,
           activityIds:
             'com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity',
           matches:
@@ -385,7 +384,7 @@ export default defineGkdApp({
     {
       key: 15,
       name: '分段广告-视频详情页下方推广',
-      desc: '关闭[广告/推广/直播/纪录片/课堂/游戏]',
+      desc: '关闭[广告/推广/直播/纪录片/课堂/游戏], 含暂停时出现的广告',
       fastQuery: true,
       activityIds: 'com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity',
       rules: [
@@ -405,6 +404,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/20794380', // [id="tv.danmaku.bili.adbiz:id/more_layout"]
 
             'https://i.gkd.li/i/21947622', // [vid="more_layout"]  ; key1 纪录片
+            'https://i.gkd.li/i/28908101', // [vid="more_layout"] 视频暂停播放时出现的广告
           ],
         },
         {
