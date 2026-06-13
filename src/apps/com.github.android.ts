@@ -12,7 +12,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          matches: '[text*="@"] + EditText[text.length=2][visibleToUser=true]',
+          matchRoot: true, // 输入数字后未响应
+          matches:
+            '[text*="@"] + EditText[text.length=2][visibleToUser=true] +2 @View[clickable=true] > [text="批准"]',
           snapshotUrls: 'https://i.gkd.li/i/28906388',
           exampleUrls: 'https://e.gkd.li/86a9d677-6f59-4a3a-81d0-8bb0d6847ca9',
         },
