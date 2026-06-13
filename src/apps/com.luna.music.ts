@@ -300,11 +300,11 @@ export default defineGkdApp({
     {
       key: 9,
       name: '功能类-关闭广告的声音',
+      fastQuery: true,
       activityIds: [
         'com.ss.android.excitingvideo.ExcitingVideoActivity',
         'com.luna.biz.ad.adns.luna.LunaRewardActivity',
       ],
-      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -316,9 +316,10 @@ export default defineGkdApp({
           key: 1,
           actionMaximum: 1,
           versionCode: { minimum: 100191030 },
+          actionCd: 44000,
           anyMatches: [
             '@ImageView[width<57 && height<78][visibleToUser=true] - ScrollView <n [childCount>6] <<(6,7) [id="android:id/content"]',
-            '@ImageView[visibleToUser=true][width<57 && height<78][visibleToUser=true] -2 [text="广告"]',
+            '@ImageView[width<57 && height<78][visibleToUser=true] -2 [text="广告"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/27365536',
@@ -331,8 +332,10 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '坐标点击',
           actionMaximum: 1,
           versionCode: { minimum: 100191030 },
+          actionCd: 44000,
           matches:
             '@ImageView[height=-1] <<4 ViewGroup <3 FrameLayout <<5 [id="android:id/content"]',
           position: {
