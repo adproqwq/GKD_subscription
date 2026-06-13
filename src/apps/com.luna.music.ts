@@ -121,7 +121,6 @@ export default defineGkdApp({
       name: '功能类-全自动看广告领VIP',
       desc: '⚠️二选一,广告一直看下去直到手动干预退出,适合需要领多天vip的用户,与单日规则互斥',
       rules: [
-        // 主页界面
         {
           // 主页界面
           name: '开屏自动看视频',
@@ -133,7 +132,7 @@ export default defineGkdApp({
           resetMatch: 'app',
           anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
+            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout[childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
           excludeMatches:
             'FrameLayout > ViewGroup[text=null][text.length=null][desc$="畅听"]',
@@ -141,7 +140,10 @@ export default defineGkdApp({
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/28378061', //观看ad回主页后出现
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/28378061', //观看ad回主页后出现
+            'https://i.gkd.li/i/28907374', // FrameLayout[childCount=5]
+          ],
           exampleUrls: [
             'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
             'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
@@ -415,7 +417,7 @@ export default defineGkdApp({
           resetMatch: 'app',
           anyMatches: [
             '[vid="ui"] >3 @[clickable=true] < ViewGroup +3 View > [text="今日畅听"] + [text^="第" || text$="个"]',
-            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout <<6 FrameLayout <<4 [id="android:id/content"]',
+            '@[childCount=0][left!=0] < ViewGroup[childCount=1] <n FrameLayout[childCount=5] <<6 FrameLayout <<4 [id="android:id/content"]',
           ],
           excludeMatches:
             'FrameLayout > ViewGroup[text=null][text.length=null][desc$="畅听"]',
@@ -423,7 +425,10 @@ export default defineGkdApp({
             'https://i.gkd.li/i/26758188',
             'https://i.gkd.li/i/28299711', // 新UI_2026.05.27
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/28378061', //观看ad回主页后出现
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/28378061', //观看ad回主页后出现
+            'https://i.gkd.li/i/28907374', // FrameLayout[childCount=5]
+          ],
           exampleUrls: [
             'https://e.gkd.li/194773d6-a9c0-48c4-84bf-e1a57449434b',
             'https://e.gkd.li/9cd0c931-5ae8-4739-8a1a-481d2d5731f4',
