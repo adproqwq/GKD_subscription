@@ -329,7 +329,7 @@ export default defineGkdApp({
       activityIds: 'com.bytedance.mira.stub.p0.StubSingleTaskActivity1',
       rules: [
         {
-          key: 0,
+          key: 1501, // key 在 功能类-观看广告自动静音 有关联
           name: '①已进直播间-按[返回键]',
           action: 'back',
           actionDelay: 500,
@@ -338,7 +338,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/28906839',
         },
         {
-          key: 1,
+          key: 1502,
           name: '②点击确认[退出]',
           matches: '[text="退出"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/28906845',
@@ -429,8 +429,17 @@ export default defineGkdApp({
       fastQuery: true,
       actionDelay: 300,
       actionMaximum: 1,
+      actionMaximumKey: 0,
+      scopeKeys: [15], // 关联规则 功能类-误入直播后自动[退出]
       activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
+        {
+          key: 0,
+          preKeys: [1501, 1502], // 关联规则 key15 的两条 子key
+          name: '刚退出直播间-不点击[静音]',
+          action: 'none', // 无操作,仅作消耗 actionMaximum 次数用
+          matches: '[parent=null]',
+        },
         {
           key: 1,
           name: '①点击[静音]',
