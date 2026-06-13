@@ -42,8 +42,6 @@
 
 ## 一些规范和技巧
 
-[key 值规范](./docs/key-usage.md)
-
 [优先选择 clickable=true 的节点](./docs/preferred-clickable-node.md)
 
 [复选框的勾选状态](./docs/checkbox-state.md)
