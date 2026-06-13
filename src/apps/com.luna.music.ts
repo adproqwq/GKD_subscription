@@ -299,8 +299,12 @@ export default defineGkdApp({
     },
     {
       key: 9,
-      name: '功能类-关闭广告的声音',
+      name: '功能类-看广告自动[静音]',
+      desc: '点击1次, activity刷新后会重置',
       fastQuery: true,
+      actionDelay: 300,
+      actionMaximum: 1,
+      actionMaximumKey: 0,
       activityIds: [
         'com.ss.android.excitingvideo.ExcitingVideoActivity',
         'com.luna.biz.ad.adns.luna.LunaRewardActivity',
@@ -314,35 +318,36 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          actionMaximum: 1,
-          versionCode: { minimum: 100191030 },
-          actionCd: 44000,
-          anyMatches: [
-            '@ImageView[width<57 && height<78][visibleToUser=true] - ScrollView <n [childCount>6] <<(6,7) [id="android:id/content"]',
-            '@ImageView[width<57 && height<78][visibleToUser=true] -2 [text="广告"]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/27365536',
-            'https://i.gkd.li/i/28300641',
-          ],
-          exampleUrls: [
-            'https://e.gkd.li/7d86c22c-bbf3-419e-bd6f-eecdaf357872',
-            'https://e.gkd.li/e0f94288-416d-409a-9426-65401af434b0',
-          ],
+          matches:
+            '@ImageView[visibleToUser=true][width<57 && height<78] -2 [text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/i/28300641',
         },
         {
           key: 2,
-          name: '坐标点击',
-          actionMaximum: 1,
-          versionCode: { minimum: 100191030 },
-          actionCd: 44000,
           matches:
-            '@ImageView[height=-1] <<4 ViewGroup <3 FrameLayout <<5 [id="android:id/content"]',
+            '@ImageView[width<57 && height<78][visibleToUser=true] - ScrollView <n [childCount>6] <<(6,7) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/27365536',
+          exampleUrls: 'https://e.gkd.li/7d86c22c-bbf3-419e-bd6f-eecdaf357872',
+        },
+        {
+          key: 3,
+          name: '坐标点击[静音]',
           position: {
-            left: 'width * 0.33',
-            top: 'width * 0.81',
+            left: 'width * 0.5',
+            top: 'width * 0.8889',
           },
-          snapshotUrls: 'https://i.gkd.li/i/28018493',
+          matches:
+            '@ImageView[width>20 && width<93 && height<0][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
+          /*
+           ** 从选择器右侧 [id="android:id/content"] 节点获取屏幕宽高, 限制目标节点位于屏幕左上角
+           ** [right<prev.width.div(3)] 表示目标节点的 right 要小于屏幕宽度的 1/3
+           ** [bottom<prev.height.div(10)] 表示目标节点的 bottom 要小于屏幕高度的 1/10
+           */
+          snapshotUrls: [
+            // [height<0]
+            'https://i.gkd.li/i/28018493',
+            'https://i.gkd.li/i/28557156',
+          ],
         },
       ],
     },
