@@ -59,5 +59,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '功能类-库存低3s自动编辑',
+      desc: '不编辑一般都点确定,编辑你得看一眼剩多少药再编辑',
+      actionDelay: 3000,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            '.multiplatform.feature.inventory.presentation.InventoryLowDialogActivity',
+          matches:
+            '[text="编辑库存"] < @[id="confirmButton"][clickable=true] -3 [text="库存低"] < [id="dialogBody"] <<4 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28907622',
+          exampleUrls: 'https://e.gkd.li/0e4c3f4c-37ec-4592-b980-578cdef868c3',
+        },
+      ],
+    },
   ],
 });
