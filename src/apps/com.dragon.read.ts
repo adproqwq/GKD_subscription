@@ -43,9 +43,10 @@ export default defineGkdApp({
     {
       key: 2,
       name: '局部广告-首页右侧悬浮广告',
+      fastQuery: true,
       rules: [
         {
-          fastQuery: true,
+          key: 0,
           activityIds: [
             '.pages.main.MainFragmentActivity',
             '.ad.openingscreenad.OpeningScreenADActivity',
@@ -56,6 +57,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/12716506',
             'https://i.gkd.li/i/13318796',
           ],
+        },
+        {
+          key: 1,
+          activityIds: '.pages.main.MainFragmentActivity',
+          matches:
+            '@ImageView[desc="Close Button"] <2 View < View < View < View < ComposeView < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/28907537',
         },
       ],
     },
