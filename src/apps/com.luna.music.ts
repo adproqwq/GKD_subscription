@@ -303,8 +303,6 @@ export default defineGkdApp({
       desc: '点击1次, activity刷新后会重置',
       fastQuery: true,
       actionDelay: 300,
-      actionMaximum: 1,
-      actionMaximumKey: 0,
       activityIds: [
         'com.ss.android.excitingvideo.ExcitingVideoActivity',
         'com.luna.biz.ad.adns.luna.LunaRewardActivity',
@@ -318,12 +316,15 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          actionMaximum: 1,
           matches:
             '@ImageView[visibleToUser=true][width<57 && height<78] -2 [text="广告"]',
           snapshotUrls: 'https://i.gkd.li/i/28300641',
         },
         {
           key: 2,
+          actionMaximum: 1,
+          actionMaximumKey: 1,
           matches:
             '@ImageView[width<57 && height<78][visibleToUser=true] - ScrollView <n [childCount>6] <<(6,7) [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/27365536',
@@ -332,6 +333,8 @@ export default defineGkdApp({
         {
           key: 3,
           name: '坐标点击[静音]',
+          actionMaximum: 1,
+          actionMaximumKey: 1,
           position: {
             left: 'width * 0.5',
             top: 'width * 0.8889',
