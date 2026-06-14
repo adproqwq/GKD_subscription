@@ -57,27 +57,28 @@ export default defineGkdApp({
             '.ui.activity.MainFrameActivity',
           ],
           excludeMatches:
-            '[text="我的订单" || text="聊天"][bottom<500][visibleToUser=true]',
+            '[text="我的订单" || text="聊天"][bottom<650][visibleToUser=true]',
           matches:
             '[text="开心收下" || text="去抢购" || text="立即抽免单" || text="去刮奖" || text="立即领取" || text="去领大额金币" || text="送你大额现金" || text*="红包助手" || text="刮刮卡发来的消息通知" || text="立即充值" || text="打款金额"][top>600][visibleToUser=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/13625441',
-            'https://i.gkd.li/i/13761182',
-            'https://i.gkd.li/i/13944165',
-            'https://i.gkd.li/i/14456101',
-            'https://i.gkd.li/i/14596990',
-            'https://i.gkd.li/i/14614135',
-            'https://i.gkd.li/i/15360330',
-            'https://i.gkd.li/i/15032649',
-            'https://i.gkd.li/i/15076322',
-            'https://i.gkd.li/i/17564786',
-            'https://i.gkd.li/i/17585645',
-            'https://i.gkd.li/i/17625608',
-            'https://i.gkd.li/i/18481318',
+            'https://i.gkd.li/i/13625441', //送你大额现金
+            'https://i.gkd.li/i/13761182', //开心收下
+            'https://i.gkd.li/i/13944165', //去领大额金币
+            'https://i.gkd.li/i/14456101', //去刮奖
+            'https://i.gkd.li/i/14596990', //立即领取
+            'https://i.gkd.li/i/14614135', //立即抽免单
+            'https://i.gkd.li/i/15360330', //开心收下
+            'https://i.gkd.li/i/15032649', //去抢购
+            'https://i.gkd.li/i/15076322', //去抢购
+            'https://i.gkd.li/i/17564786', //红包助手向你发起一笔打款 / 打款金额
+            'https://i.gkd.li/i/17585645', //来自红包助手
+            'https://i.gkd.li/i/17625608', //刮刮卡发来的消息通知
+            'https://i.gkd.li/i/18481318', //立即充值
           ],
           excludeSnapshotUrls: [
-            'https://i.gkd.li/i/23352586',
-            'https://i.gkd.li/i/23607429',
+            'https://i.gkd.li/i/23352586', // [text="我的订单"]
+            'https://i.gkd.li/i/23607429', // [text="聊天"]
+            'https://i.gkd.li/i/28929991', // [bottom<650]
           ],
         },
         {
