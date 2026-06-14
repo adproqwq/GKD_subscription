@@ -569,26 +569,27 @@ export default defineGkdApp({
       key: 26,
       name: '局部广告-直播悬浮窗',
       desc: '点击关闭',
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 0,
+          name: '①坐标点击x掉',
           fastQuery: true,
           position: {
             left: 'width * 0.8893',
             top: 'width * 0.1230',
           },
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
-            '@[id="com.alipay.mobile.beevideo:id/fl_bee_player_view_container"][childCount=2] > [id="com.alipay.mobile.beevideo:id/rl_player_poster"][visibleToUser=true]',
+            '[id="android:id/content"][width.div(3)>prev.width] >n [id="com.alipay.mobile.beevideo:id/fl_bee_player_view_container"][childCount=2][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/3698e238-f39b-47ce-b0df-e2e47c15b400',
           snapshotUrls: 'https://i.gkd.li/i/21467483',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23763580',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23763580', // 用 [childCount=2] 排除
+            'https://i.gkd.li/i/28927558', // 用 [width.div(3)>prev.width] 排除
+          ],
         },
         {
           key: 1,
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
             '@TextView[clickable=true][width<110 && height<110] +n [text="产品动态"]',
           snapshotUrls: 'https://i.gkd.li/i/24548034',
@@ -599,7 +600,6 @@ export default defineGkdApp({
       key: 27,
       name: '功能类-余额宝转出自动勾选[短期不再提示]',
       actionMaximum: 1,
-      resetMatch: 'activity',
       rules: [
         {
           activityIds:
