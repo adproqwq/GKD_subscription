@@ -558,7 +558,7 @@ export default defineGkdApp({
     {
       key: 38,
       name: '分段广告-空友爱看内的广告',
-      desc: '①点击[广告] ②点击[关闭此条广告]',
+      desc: '①点击[广告] ②点击[关闭这条] ③点击[直接关闭]',
       fastQuery: true,
       activityIds: 'com.qzone.reborn.base.QZoneShellActivity',
       rules: [
@@ -569,11 +569,22 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/28888622',
         },
         {
-          key: 1,
+          key: 20,
           preKeys: [0],
-          name: '②点击[关闭此条广告]',
-          matches: '@[clickable=true] > [text="关闭此条广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/28888643',
+          name: '②点击[关闭这条]',
+          matches:
+            '@[clickable=true] > [text="关闭此条广告" || text="关闭这条"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28888643',
+            'https://i.gkd.li/i/28942736',
+          ],
+        },
+        {
+          key: 50,
+          preKeys: [20],
+          name: '③点击[直接关闭]',
+          matches: '[text="直接关闭"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28942737',
         },
       ],
     },
