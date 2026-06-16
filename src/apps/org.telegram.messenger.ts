@@ -21,43 +21,23 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 2,
-      name: '其他-添加生日提示',
-      desc: '点击关闭',
-      rules: [
-        {
-          fastQuery: true,
-          activityIds: 'org.telegram.ui.LaunchActivity',
-          matches:
-            '@ImageView[clickable=true] - * >2 [text^="添加您的生日" || text^="Add your birthday"]',
-          snapshotUrls: 'https://i.gkd.li/i/22971075', // 中文
-        },
-      ],
-    },
-    {
       key: 3,
-      name: '局部广告-拍卖提示',
-      rules: [
-        {
-          fastQuery: true,
-          activityIds: 'org.telegram.ui.LaunchActivity',
-          matches:
-            '@ImageView[clickable=true][width<140 && height<140] - * >2 [text$="Auction is live!"]',
-          snapshotUrls: 'https://i.gkd.li/i/23725025',
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '其他-首页公告栏',
+      name: '局部广告-顶部横幅提示',
       desc: '此规则覆盖生日提示、拍卖提示以及部分广告',
       rules: [
         {
+          fastQuery: true,
           activityIds: 'org.telegram.ui.LaunchActivity',
           matches:
-            '@ImageView[desc=null][clickable=true][width<140 && height<140][left>540] - LinearLayout[!(getChild(0).getChild(0).text=null)] < FrameLayout -2 FrameLayout >2 [text="Telegram"]',
-          snapshotUrls: 'https://i.gkd.li/i/24560612',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/25030822', // [left>540] 防止反复点击播放、暂停音乐
+            '@ImageView[desc=null][clickable=true][width<140 && height<140] - LinearLayout >2 TextView[text*="生日" || text*="birthday" || text$="!" || text$="."][text.length>10]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22971075', //生日
+            // 'https://i.gkd.li/i/26601844', //birthday  另一版本TG,快照仅供参考
+            'https://i.gkd.li/i/23725025',
+            'https://i.gkd.li/i/24560612',
+            'https://i.gkd.li/i/28998200',
+          ],
+          // excludeSnapshotUrls: 'https://i.gkd.li/i/25030822', // [left>540] 防止反复点击播放、暂停音乐
         },
       ],
     },
