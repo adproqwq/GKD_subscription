@@ -138,13 +138,17 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '功能类-起点中文网登录自动确认',
-      desc: '自动点击"登录"',
+      name: '功能类-扫描自动确认[登录]',
+      desc: '点击[登录]',
       rules: [
         {
+          fastQuery: true,
           activityIds: '.ui.activity.QDBrowserActivity',
-          matches: '[id="scanLogin"]',
-          snapshotUrls: 'https://i.gkd.li/i/12903081',
+          matches: '@[id="scanLogin"] <<(7,9) [vid="webViewContainer"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/12903081', //无vid 旧快照
+            'https://i.gkd.li/i/28999743',
+          ],
         },
       ],
     },
