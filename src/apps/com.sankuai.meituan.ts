@@ -5,6 +5,22 @@ export default defineGkdApp({
   name: '美团',
   groups: [
     {
+      key: -1,
+      name: '开屏广告',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          matches: 'TextView[text*="跳过"][text.length<8][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28997249',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/17827264', // 用 TextView 排除
+        },
+      ],
+    },
+    {
       key: 1,
       name: '更新提示',
       fastQuery: true,
