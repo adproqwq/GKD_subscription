@@ -167,35 +167,33 @@ export default defineGkdApp({
     {
       key: 15,
       name: '全屏广告',
+      desc: '点击[不感兴趣/知道了]',
+      fastQuery: true,
+      activityIds: '.main.MainActivity',
       rules: [
         {
           key: 0,
-          fastQuery: true,
-          activityIds: '.main.MainActivity',
-          anyMatches: [
-            'FlattenUIText[text="不感兴趣"][visibleToUser=true]',
-            '@[text="不感兴趣"] - FrameLayout >2 [text*="也关注了"][visibleToUser=true]',
-          ],
+          matches:
+            '@[clickable=true][text="不感兴趣"] +(1,2) [text="不感兴趣"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13800207',
             'https://i.gkd.li/i/13996724',
-            'https://i.gkd.li/i/14661956',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23833191',
         },
         {
           key: 1,
-          fastQuery: true,
+          matches: '[name!$="ImageView"] + [text="不感兴趣"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/14661956',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23833191', // [name!$="ImageView"]
+        },
+        {
+          key: 2,
           activityIds: [
             '.live.LiveDummyActivity',
             '.commerce.sdk.MallContainerActivity',
             'com.bytedance.android.shopping.store.tabkit.container.TabKitActivity',
           ],
-          matches: [
-            'FlattenUIText[text*="首页商城"]',
-            'FlattenUIText[text="去看看"]',
-            'FlattenUIText[text="知道了"]',
-          ],
+          matches: '[text*="首页商城"] +n FlattenUIText[text="知道了"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14533732',
             'https://i.gkd.li/i/14969825',
