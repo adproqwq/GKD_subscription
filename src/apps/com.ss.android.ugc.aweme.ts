@@ -143,39 +143,24 @@ export default defineGkdApp({
     {
       key: 13,
       name: '全屏广告-小组件弹窗',
-      desc: '关闭弹窗',
-      actionMaximum: 1,
-      resetMatch: 'app',
+      desc: '点击x掉',
       rules: [
         {
-          key: 1,
-          name: '商城快捷方式',
           fastQuery: true,
-          activityIds: ['.main.MainActivity', '.live.LiveDummyActivity'],
-          matches:
-            '[text="添加抖音商城到桌面"] +2 LinearLayout > [text="不感兴趣"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/13669682',
-            'https://i.gkd.li/i/14740312',
+          activityIds: [
+            '.main.MainActivity',
+            '.live.LiveDummyActivity',
+            '.search.activity.SearchResultActivity',
           ],
-        },
-        {
-          key: 2,
-          name: '搜索组件',
-          fastQuery: true,
-          activityIds: '.search.activity.SearchResultActivity',
-          matches: '[text="暂不开启"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/14325749',
-        },
-        {
-          key: 3,
-          name: '火花桌面小组件',
-          fastQuery: true,
-          activityIds: '.main.MainActivity',
-          action: 'back',
-          matches: '[text="添加火花桌面小组件"]',
+          matches:
+            '@ImageView[clickable=true][width<173] <2 [childCount>3] > [text^="添加" || text^="开启"][text*="桌面"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/13669682', //添加抖音商城到桌面
+            'https://i.gkd.li/i/14740312', //添加抖音商城到桌面
+            'https://i.gkd.li/i/14325749', //开启搜索组件到桌面
+            'https://i.gkd.li/i/18009276', //添加火花桌面小组件
+          ],
           exampleUrls: 'https://e.gkd.li/c3980f6b-5459-45fe-b317-5bdc561319dc',
-          snapshotUrls: 'https://i.gkd.li/i/18009276',
         },
       ],
     },
