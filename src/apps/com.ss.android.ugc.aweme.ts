@@ -174,10 +174,11 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            '@[clickable=true][text="不感兴趣"] +(1,2) [text="不感兴趣"]',
+            '@[clickable=true][text="不感兴趣"] +(1,2) FlattenUIText[text="不感兴趣"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13800207',
             'https://i.gkd.li/i/13996724',
+            'https://i.gkd.li/i/20035670',
           ],
         },
         {
@@ -317,31 +318,36 @@ export default defineGkdApp({
     },
     {
       key: 24,
-      name: '全屏广告-视频推荐广告',
-      desc: '通过返回操作跳过广告',
+      name: '功能类-刷到推广视频时[上滑]',
+      desc: '应用/购物/游戏/咨询/预约/子薇剧场 等推广视频',
       rules: [
         {
-          key: 0,
           fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
           activityIds: '.main.MainActivity',
-          matches: 'FlattenUIText[text="不感兴趣"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/20035670',
-        },
-        {
-          key: 1,
-          fastQuery: true,
-          action: 'back',
-          activityIds: '.main.MainActivity',
-          matches: [
-            '[desc^="已选中"] > [text="推荐"][visibleToUser=true]', // 其他页面可能会误触回到推荐页
-            '([text$="广告"][vid="desc"][visibleToUser=true]) || (ImageView[childCount=0] + [text="应用" || text="购物" || text="游戏" || text="咨询"][visibleToUser=true])',
-          ],
+          matches:
+            '([text$="广告"][vid="desc"][visibleToUser=true]) || ([text="应用" || text="购物" || text$="游戏" || text="咨询" || text="子薇剧场" || text="预约"][text.length<6][index=1][visibleToUser=true])',
           snapshotUrls: [
-            'https://i.gkd.li/i/21142063',
-            'https://i.gkd.li/i/21142589',
-            'https://i.gkd.li/i/21142249',
-            'https://i.gkd.li/i/21142871',
-            'https://i.gkd.li/i/25355868',
+            'https://i.gkd.li/i/21142063', // [text$="广告"]
+            'https://i.gkd.li/i/21142589', //应用
+            'https://i.gkd.li/i/21142249', //购物
+            'https://i.gkd.li/i/21142871', //游戏
+            'https://i.gkd.li/i/25355868', //咨询
+            'https://i.gkd.li/i/21523849', //子薇剧场
+            'https://i.gkd.li/i/21725628', //小游戏
+            'https://i.gkd.li/i/21765934', //预约
           ],
         },
       ],
