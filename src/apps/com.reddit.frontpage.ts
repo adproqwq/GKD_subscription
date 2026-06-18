@@ -54,36 +54,52 @@ export default defineGkdApp({
       key: 6,
       name: '分段广告-卡片广告',
       desc: '①点击卡片右上角 ②点击[隐藏]',
+      fastQuery: true,
+      // forcedTime: 3600000, //主动查询1小时
       activityIds: 'com.reddit.launch.main.MainActivity',
       rules: [
         {
-          key: 1,
+          key: 1, //主页
           name: '①点击卡片右上角',
           matches:
-            '@[id="post_overflow"] <4 [id="post_header"] <2 [id="promoted_post_unit"]',
-          snapshotUrls: 'https://i.gkd.li/i/28876494',
+            '@[id="post_overflow"] <4 [id="post_header"] <(1,2) [id="promoted_post_unit"] <<n [vid="main_activity_navhost"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28876494',
+            'https://i.gkd.li/i/29087336',
+          ],
         },
         {
-          key: 2,
+          key: 2, //帖子页
           name: '①坐标点击卡片右上角',
           position: {
             left: 'width * 0.9106',
             top: 'width * 0.0657',
           },
           matches:
-            'View[top=prev.bottom] - @View[height<200][top=prev.top] <2 [id="conversation_screen_ad"]',
+            'View[top=prev.bottom] - @View[height<200][top=prev.top] <2 [id="conversation_screen_ad"] <<n [visibleToUser=true] <n [vid="fragment_pager"]',
           snapshotUrls: 'https://i.gkd.li/i/28876944',
         },
 
         // 第二段
         {
           key: 20,
-          preKeys: [1, 2],
-          name: '②点击[隐藏]',
-          matches: '@[clickable=true] > Button - [text="Hide"]',
+          preKeys: [1],
+          name: '②主页-点击[隐藏]',
+          matches: '[text="Hide" || text="隱藏"] <2 @[clickable=true] <7 [id="action_item_list"] <<n [vid="main_activity_navhost"]',
           snapshotUrls: [
             'https://i.gkd.li/i/28876631',
+            'https://i.gkd.li/i/29087234',
+          ],
+        },
+        {
+          key: 21,
+          preKeys: [2],
+          name: '②帖子页-点击[隐藏]',
+          matchRoot: true,
+          matches: '[text="Hide" || text="隱藏"] < @[clickable=true] < ScrollView < View < View < View < [id="android:id/content"]',
+          snapshotUrls: [
             'https://i.gkd.li/i/28876636',
+            'https://i.gkd.li/i/29087235',
           ],
         },
       ],
