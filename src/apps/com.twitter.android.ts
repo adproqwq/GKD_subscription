@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '分段广告-主页信息流广告',
-      desc: '点击右上角关闭,点击我不喜欢',
+      desc: '①点击右上角操作 ②点击[我不喜欢/屏蔽...]',
       actionCd: 3000, // https://github.com/gkd-kit/subscription/issues/832
       fastQuery: true,
       activityIds: [
@@ -17,44 +17,51 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '视频广告-点击右上角关闭',
+          name: '①点击右上角操作',
           matches:
-            '@[vid="tweet_curation_action"] <2 * + * >3 [text="视频将在广告后播放"]',
+            '@[id$="_action"] <2 * + * >(1,3) [text$="广告后播放" || text$="推荐"]',
           snapshotUrls: [
             'https://i.gkd.li/i/12798795',
             'https://i.gkd.li/i/14782884',
-          ],
-        },
-        {
-          key: 1,
-          name: '推荐广告-点击右上角关闭',
-          matches: '@[vid="tweet_curation_action"] <2 * + * > [text$="推荐"]',
-          snapshotUrls: [
             'https://i.gkd.li/i/12813235',
             'https://i.gkd.li/i/14782897',
             'https://i.gkd.li/i/17182889',
           ],
         },
         {
-          key: 2,
+          key: 1,
           matches:
             '@[vid="tweet_curation_action"] - [vid="tweet_ad_badge_top_right"][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/705dd827-ff04-4233-af38-60d92439e1f3',
           snapshotUrls: 'https://i.gkd.li/i/24359526',
         },
         {
-          preKeys: [0, 1, 2],
-          key: 10,
-          name: '点击[我不喜欢这个广告]',
+          key: 2, //无快查
+          activityIds: 'com.x.android.main.MainActivity',
           matches:
-            '@ViewGroup[clickable=true] > [text="我不喜欢这个广告" || text="我不喜歡這個廣告" || text^="屏蔽" || text="封鎖" || text^="Block" ][visibleToUser=true]',
+            '@ImageView[desc="发帖选项"] - [visibleToUser=true][text="Ad"]',
+          snapshotUrls: 'https://i.gkd.li/i/29085434',
+        },
+
+        // 第二段
+        {
+          key: 10,
+          preKeys: [0, 1],
+          matches:
+            '@[clickable=true] > [text^="我不喜" || text^="屏蔽" || text^="封鎖" || text^="Block"][visibleToUser=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/12798810',
-            'https://i.gkd.li/i/14782902',
-            'https://i.gkd.li/i/24359537',
-            'https://i.gkd.li/i/28415651', // 我不喜欢*-zh_TW
-            'https://i.gkd.li/i/20239421', // ^屏蔽
+            'https://i.gkd.li/i/14782902', // 我不喜欢这个广告、屏蔽
+            'https://i.gkd.li/i/28415651', // 我不喜歡這個廣告、封鎖
+            'https://i.gkd.li/i/20239421', // 屏蔽
           ],
+        },
+        {
+          key: 11, //无快查
+          preKeys: [2],
+          activityIds: 'com.x.android.main.MainActivity',
+          matches:
+            '@[clickable=true] > [visibleToUser=true][text^="我不喜" || text^="屏蔽" || text^="封鎖" || text^="Block"]',
+          snapshotUrls: 'https://i.gkd.li/i/29085445',
         },
       ],
     },
