@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '开屏广告',
+      desc: '子key2会点击假的[跳过]按钮进入广告,需配合下一条规则使用', // issues #204
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -31,7 +32,33 @@ export default defineGkdApp({
           key: 2,
           matches:
             'TextView - @View[id=null][text=null][desc=null][clickable=true][width<148 && height<148] <3 FrameLayout[childCount=4] <<n [id="android:id/content"]',
-          snapshotUrls: 'https://i.gkd.li/i/28448877',
+          snapshotUrls: 'https://i.gkd.li/i/28448877', // 假的[跳过]按钮,点击了会进入广告  (issues #204)
+        },
+      ],
+    },
+    {
+      key: 2,
+      name: '其他-开屏误触后的返回操作',
+      desc: '配合开屏广告规则使用',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      scopeKeys: [1], // 关联 开屏广告规则
+      activityIds: '.MainActivity',
+      rules: [
+        {
+          key: 21,
+          preKeys: [2], // 开屏广告规则 子key2
+          matches:
+            '@Button[desc="返回"] < View < View < View < View < View < FrameLayout < FrameLayout < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/29038524',
+        },
+        {
+          key: 22,
+          matches:
+            '@ImageView[clickable=true] <2 View < View < View < View < View < FrameLayout < FrameLayout < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/29038568',
         },
       ],
     },
