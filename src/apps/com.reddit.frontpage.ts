@@ -85,7 +85,8 @@ export default defineGkdApp({
           key: 20,
           preKeys: [1],
           name: '②主页-点击[隐藏]',
-          matches: '[text="Hide" || text="隱藏"] <2 @[clickable=true] <7 [id="action_item_list"] <<n [vid="main_activity_navhost"]',
+          matches:
+            '[text="Hide" || text="隱藏"] <2 @[clickable=true] <7 [id="action_item_list"] <<n [vid="main_activity_navhost"]',
           snapshotUrls: [
             'https://i.gkd.li/i/28876631',
             'https://i.gkd.li/i/29087234',
@@ -96,7 +97,8 @@ export default defineGkdApp({
           preKeys: [2],
           name: '②帖子页-点击[隐藏]',
           matchRoot: true,
-          matches: '[text="Hide" || text="隱藏"] < @[clickable=true] < ScrollView < View < View < View < [id="android:id/content"]',
+          matches:
+            '[text="Hide" || text="隱藏"] < @[clickable=true] < ScrollView < View < View < View < [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/28876636',
             'https://i.gkd.li/i/29087235',
