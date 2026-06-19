@@ -82,12 +82,13 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: '.activity.SplashActivity',
           matches:
-            '@ImageView[clickable=true][width<100 && height<100][desc="关闭" || desc=null][index!=0] <<n [vid="root"]',
+            '@ImageView[clickable=true][width<100 && height<100][desc="关闭" || desc=null][index!=0] <<n FrameLayout <(2,3) * <2 [childCount=4] <2 [vid="root"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24230528',
             'https://i.gkd.li/i/28426083',
             'https://i.gkd.li/i/28425887',
             'https://i.gkd.li/i/28425944',
+            'https://i.gkd.li/i/29140037',
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/29032927', // [index!=0]
         },
