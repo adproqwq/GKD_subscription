@@ -169,5 +169,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 15,
+      name: '全屏广告-体验臻品音质',
+      desc: '连接设备30min臻品音质-> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.tencent.qqmusiclite.activity.player.MusicPlayerActivity',
+          matches:
+            '[text$="钟免费体验"] < * - [text$="臻品音质"] <2 * - @View[clickable=true][text=null][childCount=0] <<4 [id="android:id/content"]',
+          exampleUrls: 'https://e.gkd.li/3bffcfdf-4d08-4461-8c43-24521d85e697',
+          snapshotUrls: 'https://i.gkd.li/i/29175549',
+        },
+      ],
+    },
   ],
 });
