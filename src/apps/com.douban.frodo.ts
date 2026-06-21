@@ -200,19 +200,23 @@ export default defineGkdApp({
       key: 8,
       name: '局部广告-卡片广告',
       desc: '点击关闭',
-      actionMaximum: 1,
+      fastQuery: true,
       rules: [
         {
           key: 0,
-          fastQuery: true,
-          activityIds: '.group.activity.GroupTopicActivity',
+          activityIds: [
+            '.group.activity.GroupTopicActivity',
+            '.search.activity.NewSearchActivity',
+          ],
           matches:
             '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] - LinearLayout[childCount=2] > [text="下载应用" || text="立即下载" || text="查看详情" || text="领取优惠" || text="进入小程序" || text="了解更多"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/18424415',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18424415',
+            'https://i.gkd.li/i/29175754', //搜索页
+          ],
         },
         {
           key: 1,
-          fastQuery: true,
           activityIds: '.group.activity.GroupTopicActivity',
           matches:
             '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] <3 FrameLayout +2 FrameLayout >2 [text="下载应用" || text="立即下载" || text="查看详情" || text="领取优惠" || text="进入小程序" || text="了解更多"]',
@@ -221,7 +225,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          fastQuery: true,
           activityIds: '.activity.SplashActivity',
           matches: '[vid="venue_close"][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/86f2589d-87eb-4b9a-83aa-4248b905f7b2',
