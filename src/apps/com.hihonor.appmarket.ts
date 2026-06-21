@@ -14,9 +14,12 @@ export default defineGkdApp({
       priorityTime: 10000,
       rules: [
         {
-          matches: '[vid="tv_operation_skip"]',
+          matches: '[vid="tv_operation_skip" || vid="btn_skip"]',
           exampleUrls: 'https://e.gkd.li/549d5fc1-20a2-42aa-b249-4cc8896807e6',
-          snapshotUrls: 'https://i.gkd.li/i/16406381',
+          snapshotUrls: [
+            'https://i.gkd.li/i/16406381',
+            'https://i.gkd.li/i/29175881',
+          ],
         },
       ],
     },
