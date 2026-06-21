@@ -29,11 +29,15 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          excludeMatches: '[text="去绑定邮箱"][visibleToUser=true]',
+          excludeMatches:
+            '[text="去绑定邮箱" || text="历史"][visibleToUser=true]',
           matches:
             '[text*="跳过"][text.length<10][width<500 && height<300][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/17687115',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23283375',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23283375',
+            'https://i.gkd.li/i/29175754', //搜索历史
+          ],
         },
 
         // 坐标点击的放后面, 从上往下依次点击按钮[跳过]附近的坐标, 总有一个能点中[跳过]
