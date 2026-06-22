@@ -114,5 +114,46 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '功能类-刷到推广视频时[上滑]',
+      desc: '广告/应用/购物/游戏/咨询/预约/子薇剧场 等推广视频',
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //刷视频时,让下一个视频完整显示才触发[上滑]
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: [
+            'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
+          ],
+          matches:
+            '([text*="广告"][vid="desc"][visibleToUser=true]) || ([text="应用" || text="购物" || text$="游戏" || text="咨询" || text="子薇剧场" || text="预约"][text.length<6][index=1][visibleToUser=true])',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29214101', // [text*="广告"][vid="desc"]
+            'https://i.gkd.li/i/29214002', //游戏
+
+            // 选择器参数大部分参考以下抖音快照:
+            // 'https://i.gkd.li/i/21142589', //应用
+            // 'https://i.gkd.li/i/21142249', //购物
+            // 'https://i.gkd.li/i/25355868', //咨询
+            // 'https://i.gkd.li/i/21523849', //子薇剧场
+            // 'https://i.gkd.li/i/21725628', //小游戏
+            // 'https://i.gkd.li/i/21765934', //预约
+          ],
+        },
+      ],
+    },
   ],
 });
