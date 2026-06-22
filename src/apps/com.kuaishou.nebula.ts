@@ -123,7 +123,7 @@ export default defineGkdApp({
     {
       key: 7,
       name: '功能类-刷到推广视频时[上滑]',
-      desc: '购物/游戏/汽车/咨询/一键出片/品牌活动 等推广视频',
+      desc: '广告/购物/游戏/汽车/咨询/一键出片/品牌活动 等推广视频',
       rules: [
         {
           fastQuery: true,
@@ -142,8 +142,9 @@ export default defineGkdApp({
           },
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches:
-            '[vid="plc_tv_biz_text"][text="游戏" || text="购物" || text="购买" || text="汽车" || text="咨询" || text="品牌活动" || text="一键出片"][visibleToUser=true]',
+            '[vid="ad_detail_content_layout" || vid="plc_tv_biz_text" && (text="游戏" || text="购物" || text="购买" || text="汽车" || text="咨询" || text="品牌活动" || text="一键出片")][visibleToUser=true]',
           snapshotUrls: [
+            'https://i.gkd.li/i/29213590', // 广告 i   [vid="ad_detail_content_layout"]
             'https://i.gkd.li/i/29029850', //购物
             'https://i.gkd.li/i/29029852', //游戏
             'https://i.gkd.li/i/29029853', //购买
