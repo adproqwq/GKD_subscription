@@ -20,6 +20,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 7,
+      name: '权限提示-悬浮窗权限',
+      desc: '点击[下次再说]',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          activityIds:
+            'com.hellobike.business.hitch.common.home.HLPHHomeActivity',
+          matches: ['[text*="悬浮窗"]', '[vid="btnCancel"]'],
+          snapshotUrls: 'https://i.gkd.li/i/29299377',
+        },
+      ],
+    },
+    {
       key: 8,
       name: '权限提示-通知权限',
       fastQuery: true,
@@ -66,12 +83,14 @@ export default defineGkdApp({
             'com.hellobike.ads.widget.insert.dialog.HBAdvertDialog',
             'com.hellobike.atlas.business.portal.PortalActivity',
             'com.hellobike.hitch.business.homenew.HitchHomeActivity',
+            'com.hellobike.business.hitch.common.home.HLPHHomeActivity',
           ],
           matches: '[vid="actionDialogClose"]',
           snapshotUrls: [
             'https://i.gkd.li/i/12650090',
             'https://i.gkd.li/i/16503613',
             'https://i.gkd.li/i/23407810',
+            'https://i.gkd.li/i/29299383',
           ],
         },
         {
