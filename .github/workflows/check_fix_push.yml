@@ -7,9 +7,6 @@ on:
 
 permissions: write-all
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -17,18 +14,18 @@ jobs:
       ${{ github.event.head_commit.message!='chore(actions): check_format_lint' }}
     steps:
       - name: 检出仓库代码
-        uses: actions/checkout@v5
-
-      - name: 配置 Node.js 运行环境
-        uses: actions/setup-node@v5
-        with:
-          node-version: 25
-          package-manager-cache: false
+        uses: actions/checkout@v7
 
       - name: 启用 corepack 并安装 pnpm
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
+
+      - name: 配置 Node.js 运行环境
+        uses: actions/setup-node@v6
+        with:
+          node-version: 25
+          cache: pnpm
 
       - name: 安装项目依赖
         run: pnpm install
