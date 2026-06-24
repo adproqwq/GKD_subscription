@@ -129,20 +129,26 @@ export default defineGkdApp({
           activityIds: [
             '.group.activity.GroupDetailActivity',
             '.group.activity.GroupTopicActivity',
+            '.search.activity.NewSearchActivity',
           ],
           matches:
-            '[vid="ad_footer" || vid="feed_ad_group"] > [text="广告"][clickable=true]',
+            '[vid="ad_footer" || vid="feed_ad_group"] >(1,2) [text="广告"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/18424681',
             'https://i.gkd.li/i/18424818',
+            'https://i.gkd.li/i/29299047', //G
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/18422533', // [text="广告"][clickable=false]
         },
         {
           key: 3,
-          activityIds: 'com.douban.frodo.search.activity.NewSearchActivity',
-          matches: '@[vid="ad_not_interest"] -2 [text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/29295745', //G
+          activityIds: '.search.activity.NewSearchActivity',
+          matches:
+            '@[vid="ad_not_interest" || vid="group_ad_not_interest"] -n [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29295745', //G
+            'https://i.gkd.li/i/29298939', //G
+          ],
         },
         {
           key: 4,
@@ -181,7 +187,7 @@ export default defineGkdApp({
             '.group.activity.GroupTopicActivity', //D
             '.fangorns.topic.TopicsActivity', //E
             '.subject.struct2.MovieActivity2', //F
-            'com.douban.frodo.search.activity.NewSearchActivity', //G 搜索页
+            '.search.activity.NewSearchActivity', //G 搜索页
           ],
         },
       ],
