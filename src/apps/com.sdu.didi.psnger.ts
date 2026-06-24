@@ -6,15 +6,18 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '局部广告-打车页面右上角红包广告',
-      desc: '点击卡片广告左上角x',
+      name: '局部广告-悬浮窗',
+      desc: '点击x掉',
       rules: [
         {
           fastQuery: true,
           activityIds: 'com.didi.sdk.app.MainActivity',
           matches:
-            'ImageView[vid="second_entrance_img"] + @ImageView[vid="left_close_img"]',
-          snapshotUrls: 'https://i.gkd.li/i/13760846',
+            'ImageView[vid="left_close_img" || vid="thumb_close_iv"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/13760846',
+            'https://i.gkd.li/i/29299387',
+          ],
         },
       ],
     },
