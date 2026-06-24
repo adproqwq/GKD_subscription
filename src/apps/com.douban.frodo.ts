@@ -101,27 +101,27 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '分段广告-信息流广告',
-      desc: '点击关闭-点击不感兴趣',
+      name: '分段广告',
+      desc: '①点击[关闭] ②点击[不感兴趣]',
       fastQuery: true,
       rules: [
         {
           key: 1,
           activityIds: [
-            '.activity.SplashActivity',
-            '.subject.structure.activity.MovieActivity',
-            '.group.activity.GroupTopicActivity',
-            '.fangorns.topic.TopicsActivity',
-            '.subject.struct2.MovieActivity2',
+            '.activity.SplashActivity', //A
+            '.subject.structure.activity.MovieActivity', //B
+            '.group.activity.GroupTopicActivity', //D
+            '.fangorns.topic.TopicsActivity', //E
+            '.subject.struct2.MovieActivity2', //F
           ],
           matches:
             '[vid="ad_header_new"] > [vid="menu_item"][visibleToUser=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/18424402',
-            'https://i.gkd.li/i/18424418',
-            'https://i.gkd.li/i/18424924',
-            'https://i.gkd.li/i/19615325',
-            'https://i.gkd.li/i/23982599',
+            'https://i.gkd.li/i/18424402', //A
+            'https://i.gkd.li/i/18424418', //B
+            'https://i.gkd.li/i/18424924', //D
+            'https://i.gkd.li/i/19615325', //E
+            'https://i.gkd.li/i/23982599', //F
           ],
         },
         {
@@ -131,22 +131,18 @@ export default defineGkdApp({
             '.group.activity.GroupTopicActivity',
           ],
           matches:
-            '[vid="ad_not_interest" || vid="ad_tag" || vid="group_ad_not_interest"][visibleToUser=true]',
+            '[vid="ad_footer" || vid="feed_ad_group"] > [text="广告"][clickable=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/18424568',
-            'https://i.gkd.li/i/18424574',
             'https://i.gkd.li/i/18424681',
             'https://i.gkd.li/i/18424818',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/18422533',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/18422533', // [text="广告"][clickable=false]
         },
         {
           key: 3,
-          actionMaximum: 1,
-          activityIds: '.group.activity.GroupTopicActivity',
-          matches:
-            '@Image[childCount=0][visibleToUser=true][text=""] < View[childCount=1] -2 View >2 [childCount=0][text="广告"] <<n [vid="structure_header_container"]',
-          snapshotUrls: 'https://i.gkd.li/i/18424747',
+          activityIds: 'com.douban.frodo.search.activity.NewSearchActivity',
+          matches: '@[vid="ad_not_interest"] -2 [text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/i/29295745', //G
         },
         {
           key: 4,
@@ -157,23 +153,35 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/19621152',
         },
         {
+          key: 5,
+          activityIds: '.group.activity.GroupTopicActivity',
+          matches:
+            '@Image[childCount=0][visibleToUser=true][text=""] < View[childCount=1] -2 View >2 [childCount=0][text="广告"] <<n [vid="structure_header_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/18424747',
+        },
+
+        // 第二段
+        {
+          key: 20,
           preKeys: [1, 2, 3, 4],
-          activityIds: [
-            '.activity.SplashActivity',
-            '.subject.structure.activity.MovieActivity',
-            '.group.activity.GroupDetailActivity',
-            '.group.activity.GroupTopicActivity',
-            '.fangorns.topic.TopicsActivity',
-          ],
+          name: '②点击[不感兴趣]',
           matches: '@[clickable=true] > [text="不感兴趣"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/18424404',
-            'https://i.gkd.li/i/18424419',
-            'https://i.gkd.li/i/18424568',
-            'https://i.gkd.li/i/18424674',
-            'https://i.gkd.li/i/18424711',
-            'https://i.gkd.li/i/19615333',
-            'https://i.gkd.li/i/19621163',
+            'https://i.gkd.li/i/18424404', //A
+            'https://i.gkd.li/i/18424419', //B
+            'https://i.gkd.li/i/18424574', //C
+            'https://i.gkd.li/i/18424711', //D
+            'https://i.gkd.li/i/19615333', //E
+            'https://i.gkd.li/i/29295746', //G
+          ],
+          activityIds: [
+            '.activity.SplashActivity', //A
+            '.subject.structure.activity.MovieActivity', //B
+            '.group.activity.GroupDetailActivity', //C
+            '.group.activity.GroupTopicActivity', //D
+            '.fangorns.topic.TopicsActivity', //E
+            '.subject.struct2.MovieActivity2', //F
+            'com.douban.frodo.search.activity.NewSearchActivity', //G 搜索页
           ],
         },
       ],
