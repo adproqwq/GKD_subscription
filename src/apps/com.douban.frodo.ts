@@ -217,19 +217,20 @@ export default defineGkdApp({
             '.search.activity.NewSearchActivity',
           ],
           matches:
-            '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] - LinearLayout[childCount=2] > [text="下载应用" || text="立即下载" || text="查看详情" || text="领取优惠" || text="进入小程序" || text="了解更多"][visibleToUser=true]',
+            '@ImageView[visibleToUser=true] < FrameLayout - [childCount=2] > [text^="立即" || text^="了解" || text*="查看" || text*="下载" || text*="领取" || text$="应用" || text$="详情" || text$="小程序"][text.length<6]',
           snapshotUrls: [
-            'https://i.gkd.li/i/18424415',
-            'https://i.gkd.li/i/29175754', //搜索页
+            'https://i.gkd.li/i/18424415', //查看详情
+            'https://i.gkd.li/i/29175754', //立即下载
+            'https://i.gkd.li/i/29298575', //立即打开
           ],
         },
         {
           key: 1,
           activityIds: '.group.activity.GroupTopicActivity',
           matches:
-            '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] <3 FrameLayout +2 FrameLayout >2 [text="下载应用" || text="立即下载" || text="查看详情" || text="领取优惠" || text="进入小程序" || text="了解更多"]',
+            '@ImageView[childCount=0][visibleToUser=true] < FrameLayout[childCount=1] <3 FrameLayout +2 FrameLayout >2 [text^="立即" || text^="了解" || text*="查看" || text*="下载" || text*="领取" || text$="应用" || text$="详情" || text$="小程序"][text.length<6]',
           exampleUrls: 'https://e.gkd.li/735decb0-7f08-4c7d-8199-a38faf213f77',
-          snapshotUrls: 'https://i.gkd.li/i/18424859',
+          snapshotUrls: 'https://i.gkd.li/i/18424859', //下载应用
         },
         {
           key: 2,
