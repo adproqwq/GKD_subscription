@@ -452,17 +452,18 @@ export default defineGkdApp({
     },
     {
       key: 29,
-      name: '功能类-自动展开评论',
+      name: '功能类-评论区-自动展开评论',
       desc: '只展开一级评论，不点击展示更多',
+      fastQuery: true,
+      activityIds: [
+        '.detail.ui.DetailActivity',
+        '.main.MainActivity',
+        'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
+        '.searcharticle.detail.ArticleDetailActivity',
+        '.search.activity.SearchResultActivity',
+      ],
       rules: [
         {
-          fastQuery: true,
-          activityIds: [
-            '.detail.ui.DetailActivity',
-            '.main.MainActivity',
-            'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
-            '.searcharticle.detail.ArticleDetailActivity',
-          ],
           matches: '@[clickable=true] > [text^="展开"][text$="回复"]',
           snapshotUrls: [
             'https://i.gkd.li/i/25356027',
@@ -479,17 +480,18 @@ export default defineGkdApp({
     },
     {
       key: 30,
-      name: '功能类-自动展开评论_全部',
+      name: '功能类-评论区-自动展开评论_全部',
       desc: '基于上面追加点击展开更多',
+      fastQuery: true,
+      activityIds: [
+        '.detail.ui.DetailActivity',
+        '.main.MainActivity',
+        'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
+        '.searcharticle.detail.ArticleDetailActivity',
+        '.search.activity.SearchResultActivity',
+      ],
       rules: [
         {
-          fastQuery: true,
-          activityIds: [
-            '.detail.ui.DetailActivity',
-            '.main.MainActivity',
-            'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
-            '.searcharticle.detail.ArticleDetailActivity',
-          ],
           matches: '@[clickable=true] > [text^="展开更多"]',
           snapshotUrls: [
             'https://i.gkd.li/i/25619324',
@@ -539,10 +541,16 @@ export default defineGkdApp({
       key: 33,
       name: '局部广告-评论区-评论氛围满意度',
       desc: '评论氛围满意度卡片-> x掉',
+      fastQuery: true,
+      activityIds: [
+        '.detail.ui.DetailActivity',
+        '.main.MainActivity',
+        'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
+        '.searcharticle.detail.ArticleDetailActivity',
+        '.search.activity.SearchResultActivity',
+      ],
       rules: [
         {
-          fastQuery: true,
-          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
           anyMatches: [
             '@[text="关闭,按钮"][clickable=true] - [text$="评论氛围是否满意？,匿名"][visibleToUser=true]', // 优先使用
             '@UIImage[clickable=true] - [text$="评论氛围是否满意？,匿名"][visibleToUser=true] < FrameLayout[childCount=7] <<4 FrameLayout[childCount=1][id=null][desc=null][text=null][clickable=false][visibleToUser=true][left=0][top!=0] + * > ViewGroup > [vid="avatar"]',
@@ -568,6 +576,7 @@ export default defineGkdApp({
         '.main.MainActivity',
         'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
         '.searcharticle.detail.ArticleDetailActivity',
+        '.search.activity.SearchResultActivity',
       ],
       rules: [
         {
