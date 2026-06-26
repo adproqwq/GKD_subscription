@@ -532,5 +532,28 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 33,
+      name: '局部广告-评论区-评论氛围满意度',
+      desc: '评论氛围满意度卡片-> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
+          anyMatches: [
+            '@[text="关闭,按钮"][clickable=true] - [text$="评论氛围是否满意？,匿名"][visibleToUser=true]', // 优先使用
+            '@UIImage[clickable=true] - [text$="评论氛围是否满意？,匿名"][visibleToUser=true] < FrameLayout[childCount=7] <<4 FrameLayout[childCount=1][id=null][desc=null][text=null][clickable=false][visibleToUser=true][left=0][top!=0] + * > ViewGroup > [vid="avatar"]',
+          ], // 兜底
+          snapshotUrls: [
+            // 快查
+            'https://i.gkd.li/i/29388014',
+            // 无快查 (后来版本似乎)
+            'https://i.gkd.li/i/29387403',
+            'https://i.gkd.li/i/29388032',
+          ],
+          exampleUrls: 'https://e.gkd.li/f4c54b34-7d3c-499d-9ea0-f865f4cf9375',
+        },
+      ],
+    },
   ],
 });
