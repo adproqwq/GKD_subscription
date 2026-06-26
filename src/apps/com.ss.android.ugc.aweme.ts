@@ -558,5 +558,25 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 34,
+      name: '功能类-评论区-展开部分折叠评论',
+      desc: '最底部已折叠部分评论-> 点击[展开]',
+      fastQuery: true,
+      activityIds: [
+        '.detail.ui.DetailActivity',
+        '.main.MainActivity',
+        'com.bytedance.ies.ugc.aweme.photos.detail.flow.page.FlowPageActivity',
+        '.searcharticle.detail.ArticleDetailActivity',
+      ],
+      rules: [
+        {
+          matches:
+            '@[text="展开"][clickable=true] - [text="已折叠部分评论"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29389970',
+          exampleUrls: 'https://e.gkd.li/020fc4d1-784a-49bd-9a50-6504e0b040ae',
+        },
+      ],
+    },
   ],
 });
