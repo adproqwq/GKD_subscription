@@ -504,15 +504,18 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '其他-直播间小黄车',
+      name: '其他-直播间-小黄车',
       desc: '关闭定时弹出的商品卡片',
       rules: [
         {
           fastQuery: true,
           activityIds: '.live.LivePlayActivity',
           matches:
-            '[desc="购买"][visibleToUser=true] <4 [childCount=4] < * -2 FrameLayout > [vid="iv_close"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/26754062',
+            '[desc="购买"][visibleToUser=true] <n LiveMeasureOnceRelativeLayout < * -2 FrameLayout > [vid="iv_close"][clickable=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26754062',
+            'https://i.gkd.li/i/29388290',
+          ],
           exampleUrls: 'https://e.gkd.li/8c5e6526-83e5-4ec6-b532-367ff6045bfc',
         },
       ],
