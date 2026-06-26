@@ -543,5 +543,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 28,
+      name: '其他-跳过登录后绑定手机号',
+      desc: '登陆成功 ->请绑定手机号 ->跳过',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.activity.NewPageActivity',
+          matches:
+            '[text="登录成功，请绑定手机号"] <<2 * <2 * -> @[text="跳过"] <<2 [id="bindingPage"] < [id="main"] <<4 [vid="pdd"] <2 ViewGroup <<2 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/29377418',
+          exampleUrls: 'https://e.gkd.li/5951f8ab-00e5-4e0d-9777-56b24a5a2dd1',
+        },
+      ],
+    },
   ],
 });
