@@ -202,9 +202,18 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: '.activity.NewPageActivity',
-          matches: '[vid="iv_float_window_close"]',
-          exampleUrls: 'https://e.gkd.li/f81a45e4-09b4-498f-be72-ca84cdd0db83',
-          snapshotUrls: 'https://i.gkd.li/i/14549415',
+          anyMatches: [
+            '[vid="iv_float_window_close"]',
+            '@ImageView[desc="关闭"][clickable=true] - * ->n [desc="tronplayer_view"] <<2 [childCount=1] <<2 RelativeLayout[childCount=1] <n * < [id="android:id/content"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/14549415',
+            'https://i.gkd.li/i/29378452', // 形式2
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/f81a45e4-09b4-498f-be72-ca84cdd0db83',
+            'https://e.gkd.li/2fca1602-25f2-4ca4-b3cf-9a6fa33396af',
+          ],
         },
       ],
     },
