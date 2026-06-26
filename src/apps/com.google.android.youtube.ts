@@ -323,5 +323,21 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 15,
+      name: '局部广告-视频播放-跳过调查',
+      desc: 'Ad很有趣?-> 跳过调查',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.google.android.apps.youtube.app.watchwhile.MainActivity',
+          matches:
+            '@[vid="skip_button"][clickable=true][visibleToUser=true] < LinearLayout <n [vid="survey_answers"] + [vid="survey_attribution"][text^="YouTube"]',
+          snapshotUrls: 'https://i.gkd.li/i/29379447',
+          exampleUrls: 'https://e.gkd.li/1b442e3c-0e50-4b3d-b12d-75b7e725ed1d',
+        },
+      ],
+    },
   ],
 });
