@@ -524,5 +524,24 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 27,
+      name: '功能类-隐藏[搜索发现]',
+      desc: '自动隐藏搜索页中[搜索发现]',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.activity.NewPageActivity',
+          matches:
+            '@[desc="隐藏搜索发现"][clickable=true] - [text="搜索发现"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29376727', // 隐藏前
+            'https://i.gkd.li/i/29376724', // 隐藏后
+          ],
+          exampleUrls: 'https://e.gkd.li/3f03d2c0-9c40-43fe-9568-9eee4471e806',
+        },
+      ],
+    },
   ],
 });
