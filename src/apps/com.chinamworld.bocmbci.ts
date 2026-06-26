@@ -24,10 +24,11 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            '@Image[text=""][desc=null] <(1,2) View[childCount=2] <<(1,2) View[index=parent.childCount.minus(1)] <n [id="app"] <<4 [vid="webview_layout"]',
+            '@Image[text=""][desc=null] <(1,2) View[childCount=2] <<(1,2) View <n [id="app"] <<4 [vid="webview_layout"]',
           snapshotUrls: [
             'https://i.gkd.li/i/19567854',
             'https://i.gkd.li/i/26644706',
+            'https://i.gkd.li/i/29383961', // =!末尾子节点
           ],
           exampleUrls: [
             'https://e.gkd.li/13b6fa95-5198-41f5-b39c-d40166a624fb',
