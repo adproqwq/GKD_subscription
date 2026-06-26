@@ -517,5 +517,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 32,
+      name: '局部广告-直播-关闭推荐直播间',
+      desc: '刷到直播-> 可能喜欢这些直播 -> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.main.MainActivity',
+          matches:
+            'ImageView + [text="你可能喜欢这些直播"][visibleToUser=true] + [vid="close"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29387031',
+          exampleUrls: 'https://e.gkd.li/1ee3aa97-345d-42a3-af64-262230b650be',
+        },
+      ],
+    },
   ],
 });
