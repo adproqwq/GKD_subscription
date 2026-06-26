@@ -26,7 +26,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '功能类-继续使用VPN',
+      name: '功能类-VIVO-继续使用VPN',
       desc: 'VPN似乎不可用?-继续使用',
       rules: [
         {
