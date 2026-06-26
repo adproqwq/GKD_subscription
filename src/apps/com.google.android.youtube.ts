@@ -118,17 +118,28 @@ export default defineGkdApp({
           actionCd: 500,
           activityIds:
             'com.google.android.apps.youtube.app.watchwhile.MainActivity',
-          matches:
-            '@[desc^="翻译成"||desc^="Translate to"][visibleToUser=true] <n [childCount>3] <<(2,4) ViewGroup <n [vid="results" || vid="section_list"]',
-          exampleUrls: 'https://e.gkd.li/e9d6eaa8-9fbf-4b16-8f0c-50239597c687',
+          anyMatches: [
+            '@[desc^="翻译成"||desc^="Translate to"][visibleToUser=true] <n [childCount>3 && childCount<8] < [childCount=2] <(1,2) ViewGroup <n [vid="results" || vid="section_list"]',
+            '@[desc^="翻译成"||desc^="Translate to"][visibleToUser=true] <n [childCount=5] < [childCount=2] <2 [childCount=2] < ViewGroup <n [vid="results" || vid="section_list"]', // UI2
+          ],
           snapshotUrls: [
+            // 2024
             'https://i.gkd.li/i/17068544', // 翻译前
-            'https://i.gkd.li/i/27276425', // 控件类名不一致
             'https://i.gkd.li/i/17068647', // 翻译后
-            'https://i.gkd.li/i/17501400',
-            'https://i.gkd.li/i/25462152', // En_translate前
-            'https://i.gkd.li/i/25462248', // En_translate后
-            'https://i.gkd.li/i/27276291', // 评论-回复区UI
+            'https://i.gkd.li/i/17501400', // 回复-main
+            // English
+            'https://i.gkd.li/i/25462152', // 前
+            'https://i.gkd.li/i/25462248', // 后
+            // 其他
+            'https://i.gkd.li/i/27276291', // 回复-main-> fork 未实现
+            'https://i.gkd.li/i/29379961', // 会员评论
+            'https://i.gkd.li/i/27276425', // 控件类名不一致
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/e9d6eaa8-9fbf-4b16-8f0c-50239597c687',
+            'https://e.gkd.li/ecc0e725-1a92-4b29-b5df-ae167ea8584a', // 会员的评论
+            //UI树汇总
+            'https://e.gkd.li/d2260fc4-0218-4d0b-9d37-e6366d397ae4',
           ],
         },
       ],
