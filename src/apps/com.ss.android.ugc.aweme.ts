@@ -37,15 +37,6 @@ export default defineGkdApp({
           exampleUrls: 'https://e.gkd.li/7c97fdc7-9de0-403d-9817-e43da0eb8a31',
           snapshotUrls: 'https://i.gkd.li/i/22743677',
         },
-        {
-          key: 2,
-          name: '评论区评论氛围满意度',
-          fastQuery: true,
-          activityIds: '.main.MainActivity',
-          matches:
-            'FrameLayout[childCount=7] > [text$="评论氛围是否满意？,匿名"] + UIImage[text="关闭,按钮"][clickable=true][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25571238',
-        },
       ],
     },
     {
@@ -560,6 +551,7 @@ export default defineGkdApp({
           ], // 兜底
           snapshotUrls: [
             // 快查
+            'https://i.gkd.li/i/25571238',
             'https://i.gkd.li/i/29388014',
             // 无快查 (后来版本似乎)
             'https://i.gkd.li/i/29387403',
