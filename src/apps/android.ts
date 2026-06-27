@@ -31,7 +31,6 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds: 'com.google.firebase.MessagingUnityPlayerActivity',
           matches:
             '[text*="应用无法使用网络"] <<2 [vid="topPanel"] +2 [vid="buttonPanel"] >2 [text="继续使用VPN"][clickable=true][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/25832981',
