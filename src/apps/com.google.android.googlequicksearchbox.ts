@@ -6,9 +6,12 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '全屏广告-个性化Tip',
+      name: '全屏广告-Gemini-个性化Tip',
       desc: '试用新功能举例对话(浪费Token)',
       fastQuery: true,
+      matchTime: 16000,
+      actionMaximum: 2,
+      resetMatch: 'app',
       rules: [
         {
           key: 0,
@@ -51,6 +54,25 @@ export default defineGkdApp({
             '[vid="assistant_robin_main_activity"] + FrameLayout > LinearLayout[childCount=2] > [vid="snackbar_action"][clickable=true][visibleToUser=true]',
           exampleUrls: 'https://e.gkd.li/3d633f7c-e3df-45dd-995f-b72b218922cd',
           snapshotUrls: 'https://i.gkd.li/i/26026659',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '局部广告-Gemini-个性化Tip',
+      desc: '试用新功能举例对话(浪费Token)',
+      matchTime: 16000,
+      actionMaximum: 2,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            'com.google.android.apps.search.assistant.surfaces.voice.robin.main.MainActivity',
+          matches:
+            '[desc="关闭"] < @View[clickable=true] - * -> [text$="体验个性化智能服务"][visibleToUser=true] < ScrollView <<(6-n) [vid="assistant_robin_zero_state_default_assistant_upsell_banner_container"]',
+          exampleUrls: 'https://e.gkd.li/f2520556-dbf0-44ff-97f5-dd0978f7880d',
+          snapshotUrls: 'https://i.gkd.li/i/29405181',
         },
       ],
     },
