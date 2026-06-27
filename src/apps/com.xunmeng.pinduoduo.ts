@@ -582,5 +582,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 30,
+      name: '其他-退出评价跳过二次确认',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.activity.NewPageActivity',
+          matches:
+            '[text^="此次评价未完成"][visibleToUser=true] < [childCount=1] +2 LinearLayout[childCount=3] > [text="退出"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29405754',
+          exampleUrls: 'https://e.gkd.li/1911b664-06cd-4594-8762-190bd4aa8eb1',
+        },
+      ],
+    },
   ],
 });
