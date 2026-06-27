@@ -296,10 +296,17 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'match',
           fastQuery: true,
-          // activityIds: [],
-          matches: '[text="全部订单信息"][clickable=true][visibleToUser=true]',
-          exampleUrls: 'https://e.gkd.li/e1a3b6f7-b6cb-4379-90b5-cb4b927dacc4',
-          snapshotUrls: 'https://i.gkd.li/i/24372039',
+          activityIds: ['com.jd.lib.ordercenter.taro.OrderDetailActivityTaro'],
+          matches:
+            '[text="全部订单信息" || desc="全部订单信息"][clickable=true][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24372039', // [activityIds: null?][text="全部订单信息"]
+            'https://i.gkd.li/i/29404102', // [desc="全部订单信息"]
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/e1a3b6f7-b6cb-4379-90b5-cb4b927dacc4',
+            'https://e.gkd.li/f1b6b284-ce65-48e6-83b8-1c6052fbbfa3',
+          ],
         },
       ],
     },
