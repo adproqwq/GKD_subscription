@@ -610,5 +610,31 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 36,
+      name: '全屏广告-视频流-是广告认可不?[上滑]',
+      desc: '问你刚才是不是广告?-> 划掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.detail.ui.DetailActivity',
+          matches:
+            'UIText[text="你认为这个内容是【广告】吗？"][visibleToUser=true]',
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.6',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          snapshotUrls: 'https://i.gkd.li/i/29401376',
+          exampleUrls: 'https://e.gkd.li/bd652ced-a3a8-4cbc-aae7-e309dcbfeb8e',
+        },
+      ],
+    },
   ],
 });
