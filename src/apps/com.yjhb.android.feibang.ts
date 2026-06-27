@@ -62,5 +62,29 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 4,
+      name: '功能类-自动关闭[按要求提交信息]提示',
+      activityIds: 'com.zx.core.code.activity.TaskDetailsActivity',
+      fastQuery: true,
+      actionMaximum: 2,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          name: '勾选[不再提醒]',
+          matches:
+            '[text="不再提醒"] - @View[clickable=true][focusable=true][text=null] < [childCount=2] - LinearLayout > [text^="请按照悬赏要求提交验证信息"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29405401',
+          exampleUrls: 'https://e.gkd.li/16bd85ec-1d56-48d1-a779-b68014557dee',
+        },
+        {
+          preKeys: [0],
+          name: '点击[确定]',
+          matches: '[text="确定"][clickable=true][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29405401',
+        },
+      ],
+    },
   ],
 });
