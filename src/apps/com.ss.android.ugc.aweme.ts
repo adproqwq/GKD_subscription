@@ -663,5 +663,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 39,
+      name: '局部广告-视频流-左下角卡片',
+      desc: '一些视频中途弹出卡片广告',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.main.MainActivity',
+          matches:
+            '@UIView[clickable=true][id=null][text=""][desc=""][childCount=0] + UIText[text="广告"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29403677',
+            'https://i.gkd.li/i/29403704',
+          ],
+          exampleUrls: 'https://e.gkd.li/ef72c43c-5fab-4b09-bbd0-bb0d754d2c12',
+        },
+      ],
+    },
   ],
 });
