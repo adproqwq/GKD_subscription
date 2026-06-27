@@ -587,5 +587,28 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 35,
+      name: '权限提示-桌面快捷方式',
+      desc: '添加[xxxx]到手机桌面-> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.search.activity.SearchResultActivity',
+          matches:
+            '@ImageView[clickable=true][width<70 && height<70][text=null][desc=null][id!=null] + [text^="添加"][text$="到手机桌面"][visibleToUser=true]',
+          snapshotUrls: [
+            // 不感兴趣
+            'https://i.gkd.li/i/29400201',
+            // 没有不感兴趣
+            'https://i.gkd.li/i/29400203',
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/9e84af6a-d174-487f-8024-f080c499922b',
+            'https://e.gkd.li/33526c37-12c4-4e64-8b53-82fea09abe43',
+          ],
+        },
+      ],
+    },
   ],
 });
