@@ -56,8 +56,11 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.zx.core.code.activity.WebViewActivity',
           matches:
-            '[text="领奖励"][visibleToUser=true][index=parent.childCount.minus(1)] < @* <n View <<2 View[childCount=5] <n * < WebView <<4 LinearLayout <2 [id="android:id/content"]',
-          snapshotUrls: 'https://i.gkd.li/i/28591915',
+            '@[text="领奖励"][visibleToUser=true] < * <6 [childCount=6] <2 View[childCount<3] <n View[childCount=5] <n * < WebView <<4 LinearLayout <2 [id="android:id/content"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28591915', // 1完成
+            'https://i.gkd.li/i/29405634', // 3,4,5完成
+          ],
           exampleUrls: 'https://e.gkd.li/b28c9e1c-d92d-413b-b30b-c994b2d3f582',
         },
       ],
