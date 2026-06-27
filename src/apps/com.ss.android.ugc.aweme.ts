@@ -631,5 +631,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 37,
+      name: '局部广告-视频流-当前直播满意?',
+      desc: '刷到直播看一段出现[你对直播满意吗]-> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.main.MainActivity',
+          matches:
+            'FlattenUIText[text$="当前直播满意吗?"][visibleToUser=true] +3 LynxFlattenUI[text="关闭"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29402787',
+          exampleUrls: 'https://e.gkd.li/7eff5d8e-60ca-4a49-838c-5d5fb1d0a54d',
+        },
+      ],
+    },
   ],
 });
