@@ -567,5 +567,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 29,
+      name: '权限提示-相机权限',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds:
+            '.permission.scene_manager.ScenePermissionRequestActivity',
+          matches:
+            '[text$="允许拼多多访问你的相机"][visibleToUser=true] < LinearLayout +2 LinearLayout > [text="取消"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29404575',
+          exampleUrls: 'https://e.gkd.li/40505e06-9e36-45b8-a9fc-14a1ca25fea5',
+        },
+      ],
+    },
   ],
 });
