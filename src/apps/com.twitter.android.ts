@@ -343,5 +343,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 14,
+      name: '局部广告-账号详情-小蓝标认证',
+      desc: '点击[以后再说]',
+      matchTime: 8000,
+      actionMaximum: 1,
+      resetMatch: 'match',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.twitter.app.profiles.ProfileActivity',
+          matches:
+            '[text="以后再说"] < @View[clickable=true] -2 [text^="认证标识很"][visibleToUser=true] <3 View[childCount=6] <<2 [vid="profile_upsell_compose"]',
+          snapshotUrls: 'https://i.gkd.li/i/29405012',
+          exampleUrls: 'https://e.gkd.li/6196a859-31ce-4d04-9f53-b9346bee25d6',
+        },
+      ],
+    },
   ],
 });
