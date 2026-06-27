@@ -646,5 +646,22 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 38,
+      name: '其他-账号详情-商品页', // test
+      desc: '进入账号详情弹出的商品-> x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.main.MainActivity',
+          matches: [
+            'LinearLayout[childCount=3] > ImageView[vid!=null][text=null][desc=null][clickable=false][visibleToUser=true] + * -> [text="推荐"] <3 LinearLayout[childCount=3] + LinearLayout[childCount=3] > [text="直播中"]',
+            '@ImageView[clickable=true][id=null][text=null][desc=null] - FrameLayout >5 LinearLayout > TextView[text^="图集"]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/29403171',
+          exampleUrls: 'https://e.gkd.li/cbf081a4-4a57-4173-af3a-27334d7a2be6',
+        },
+      ],
+    },
   ],
 });
