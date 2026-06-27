@@ -325,5 +325,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 13,
+      name: '功能类-查看潜在敏感内容的个人页面',
+      desc: '点某些账号详情页-警告!-> 是,查看个人资料',
+      matchTime: 8000,
+      actionMaximum: 1,
+      resetMatch: 'match',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.twitter.app.profiles.ProfileActivity',
+          matches:
+            '[vid="warning_header"][visibleToUser=true] +2 [vid="primary_button"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29404879',
+          exampleUrls: 'https://e.gkd.li/dbdaffed-e1ca-4487-85a1-3a5466e3ff61',
+        },
+      ],
+    },
   ],
 });
